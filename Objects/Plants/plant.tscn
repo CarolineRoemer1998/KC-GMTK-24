@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://djgi83idvlrxb"]
+
+[ext_resource type="Script" path="res://Objects/Plants/Plant.gd" id="1_i2vis"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lm8kp"]
+top_radius = 0.0
+bottom_radius = 0.4
+height = 1.0
+
+[node name="Plant" type="Node3D" groups=["Plant"]]
+script = ExtResource("1_i2vis")
+
+[node name="PlantMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_lm8kp")
