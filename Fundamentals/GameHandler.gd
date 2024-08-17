@@ -16,9 +16,9 @@ func _process(delta: float) -> void:
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("T_Grow"):
 		endDay()
-
+	
+		
 func endDay():
-	print("hello")
 	get_tree().call_group("Plant","grow")
 	#for child in Scene.get_children:
 		#print(child.name)

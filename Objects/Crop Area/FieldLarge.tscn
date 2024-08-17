@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bytoofwnuu85b"]
+[gd_scene load_steps=8 format=3 uid="uid://bytoofwnuu85b"]
 
 [ext_resource type="Material" uid="uid://cq84kdc0ioyti" path="res://Colors/field_plowed.tres" id="1_3k7b8"]
+[ext_resource type="Script" path="res://Objects/Crop Area/Field.gd" id="1_13scp"]
 [ext_resource type="Material" uid="uid://dw64apji1s71" path="res://Colors/FieldHighlight.tres" id="2_n0ohp"]
+[ext_resource type="PackedScene" uid="uid://djgi83idvlrxb" path="res://Objects/Plants/plant.tscn" id="2_rh1dn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7c6t6"]
 size = Vector3(2.9, 0.1, 2.9)
@@ -14,6 +16,9 @@ size = Vector3(3, 0.2, 3)
 
 [node name="FieldLarge" type="StaticBody3D"]
 collision_layer = 4
+script = ExtResource("1_13scp")
+size = 2
+plant = ExtResource("2_rh1dn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)

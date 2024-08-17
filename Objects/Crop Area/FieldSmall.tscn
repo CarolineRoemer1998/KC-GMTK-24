@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmgg5rxy6st5q"]
+[gd_scene load_steps=7 format=3 uid="uid://cmgg5rxy6st5q"]
 
 [ext_resource type="Script" path="res://Objects/Crop Area/Field.gd" id="1_ceoc7"]
 [ext_resource type="Material" uid="uid://cq84kdc0ioyti" path="res://Colors/field_plowed.tres" id="1_wkwga"]
+[ext_resource type="PackedScene" uid="uid://djgi83idvlrxb" path="res://Objects/Plants/plant.tscn" id="2_yit43"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m3cau"]
 material = ExtResource("1_wkwga")
@@ -15,6 +16,7 @@ size = Vector3(0.5, 0.1, 0.5)
 
 [node name="FieldSmall" type="StaticBody3D"]
 script = ExtResource("1_ceoc7")
+plant = ExtResource("2_yit43")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_wkwga")

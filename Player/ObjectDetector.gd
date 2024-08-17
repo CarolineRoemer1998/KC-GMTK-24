@@ -20,6 +20,7 @@ func _on_area_entered(area: Area3D) -> void:
 	for child in area.get_parent().get_children():
 		if child.name == "Highlight":
 			child.visible = true
+			child.get_parent().is_chosen = true
 
 
 func _on_area_exited(area: Area3D) -> void:
@@ -27,3 +28,4 @@ func _on_area_exited(area: Area3D) -> void:
 	for child in area.get_parent().get_children():
 		if child.name == "Highlight" and child.visible == true:
 			child.visible = false
+			child.is_chosen = false
