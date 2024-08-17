@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bytoofwnuu85b"]
+[gd_scene load_steps=9 format=3 uid="uid://bytoofwnuu85b"]
 
 [ext_resource type="Material" uid="uid://cq84kdc0ioyti" path="res://Colors/field_plowed.tres" id="1_3k7b8"]
 [ext_resource type="Script" path="res://Objects/Crop Area/Field.gd" id="1_13scp"]
@@ -13,6 +13,9 @@ data = PackedVector3Array(-1.45, 0.05, 1.45, 1.45, 0.05, 1.45, -1.45, -0.05, 1.4
 
 [sub_resource type="BoxMesh" id="BoxMesh_xu4ov"]
 size = Vector3(3, 0.2, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_grpt5"]
+size = Vector3(2.5, 0.1, 2.5)
 
 [node name="FieldLarge" type="StaticBody3D"]
 collision_layer = 4
@@ -31,5 +34,13 @@ shape = SubResource("ConcavePolygonShape3D_t5yyu")
 
 [node name="Highlight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+visible = false
 material_override = ExtResource("2_n0ohp")
 mesh = SubResource("BoxMesh_xu4ov")
+
+[node name="DetectableArea" type="Area3D" parent="."]
+collision_layer = 4
+
+[node name="DetectionCollider" type="CollisionShape3D" parent="DetectableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+shape = SubResource("BoxShape3D_grpt5")
