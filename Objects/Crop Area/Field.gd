@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("T_Plant"):
+	if Input.is_action_just_pressed("T_Plant") && is_chosen:
 		plant_seed()
 
 func plant_seed():
