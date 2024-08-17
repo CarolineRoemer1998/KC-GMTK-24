@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://8bb3sh6ua0ar"]
+[gd_scene load_steps=11 format=3 uid="uid://8bb3sh6ua0ar"]
 
-[ext_resource type="MeshLibrary" uid="uid://bd6a0q4edqj5o" path="res://MeshLibrary/FieldLibrary.tres" id="1_jhjha"]
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="3_eubuw"]
+[ext_resource type="Script" path="res://Fundamentals/GameHandler.gd" id="4_66nis"]
+[ext_resource type="PackedScene" uid="uid://cmgg5rxy6st5q" path="res://Objects/Crop Area/FieldSmall.tscn" id="4_u0oma"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -42,6 +43,7 @@ size = Vector3(14, 1, 10)
 material = SubResource("StandardMaterial3D_qcwpw")
 
 [node name="Player" parent="." instance=ExtResource("2_mmp16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.85095)
 collision_mask = 17
 
 [node name="Ground2" type="StaticBody3D" parent="."]
@@ -53,30 +55,228 @@ mesh = SubResource("BoxMesh_hs0ul")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2"]
 shape = SubResource("BoxShape3D_voo1g")
 
-[node name="FieldsSmall" type="GridMap" parent="Ground2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh_library = ExtResource("1_jhjha")
-cell_size = Vector3(1, 1, 1)
-cell_center_y = false
-collision_layer = 0
-collision_mask = 0
-data = {
-"cells": PackedInt32Array(65530, 3, 1, 5, 3, 1, 5, 65534, 1, 65530, 65534, 1, 65535, 65534, 1, 0, 65534, 1, 65530, 0, 1, 65530, 1, 1, 65535, 3, 1, 0, 3, 1, 5, 1, 1, 65529, 65533, 1, 65530, 65533, 0, 65531, 65533, 0, 65532, 65533, 0, 65533, 65533, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 2, 65533, 0, 3, 65533, 0, 4, 65533, 0, 5, 65533, 0, 6, 65533, 1, 6, 65532, 1, 5, 65532, 0, 4, 65532, 0, 3, 65532, 0, 2, 65532, 1, 1, 65532, 1, 0, 65532, 1, 65535, 65532, 1, 65534, 65532, 1, 65533, 65532, 0, 65532, 65532, 0, 65531, 65532, 0, 65530, 65532, 0, 65529, 65532, 1, 65530, 65535, 1, 65530, 2, 1, 65531, 3, 1, 65532, 3, 1, 65533, 3, 1, 65534, 3, 1, 1, 3, 1, 2, 3, 1, 3, 3, 1, 4, 3, 1, 5, 2, 1, 5, 0, 1, 5, 65535, 1, 4, 65534, 1, 3, 65534, 1, 2, 65534, 1, 1, 65534, 1, 65534, 65534, 1, 65533, 65534, 1, 65532, 65534, 1, 65531, 65534, 1)
-}
-
-[node name="FieldsSmall2" type="GridMap" parent="Ground2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh_library = ExtResource("1_jhjha")
-cell_size = Vector3(2, 1, 2)
-cell_center_y = false
-
-[node name="FieldsSmall3" type="GridMap" parent="Ground2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
-mesh_library = ExtResource("1_jhjha")
-cell_size = Vector3(3, 1, 3)
-cell_center_y = false
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 10, 6.5)
 fov = 25.0
 script = ExtResource("3_eubuw")
+
+[node name="GameHandler" type="Node3D" parent="."]
+script = ExtResource("4_66nis")
+
+[node name="CropArea" type="Node3D" parent="."]
+
+[node name="FieldSmall" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -1.5)
+
+[node name="FieldSmall2" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -0.5)
+
+[node name="FieldSmall3" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 0.5)
+
+[node name="FieldSmall4" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 1.5)
+
+[node name="FieldSmall5" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 2.5)
+
+[node name="FieldSmall6" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 3.5)
+
+[node name="FieldSmall7" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.5)
+
+[node name="FieldSmall8" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -0.5)
+
+[node name="FieldSmall9" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0.5)
+
+[node name="FieldSmall10" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 1.5)
+
+[node name="FieldSmall11" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 2.5)
+
+[node name="FieldSmall12" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 3.5)
+
+[node name="FieldSmall13" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -1.5)
+
+[node name="FieldSmall14" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -0.5)
+
+[node name="FieldSmall15" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 0.5)
+
+[node name="FieldSmall16" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 1.5)
+
+[node name="FieldSmall17" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.5)
+
+[node name="FieldSmall18" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 3.5)
+
+[node name="FieldSmall19" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -1.5)
+
+[node name="FieldSmall20" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -0.5)
+
+[node name="FieldSmall21" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0.5)
+
+[node name="FieldSmall22" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.5)
+
+[node name="FieldSmall23" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2.5)
+
+[node name="FieldSmall24" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 3.5)
+
+[node name="FieldSmall25" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+
+[node name="FieldSmall26" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+
+[node name="FieldSmall27" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
+
+[node name="FieldSmall28" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+
+[node name="FieldSmall29" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 2.5)
+
+[node name="FieldSmall30" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 3.5)
+
+[node name="FieldSmall31" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5)
+
+[node name="FieldSmall32" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
+
+[node name="FieldSmall33" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5)
+
+[node name="FieldSmall34" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
+
+[node name="FieldSmall35" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5)
+
+[node name="FieldSmall36" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 3.5)
+
+[node name="FieldSmall37" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
+
+[node name="FieldSmall38" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+
+[node name="FieldSmall39" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+
+[node name="FieldSmall40" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+
+[node name="FieldSmall41" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 2.5)
+
+[node name="FieldSmall42" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 3.5)
+
+[node name="FieldSmall43" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+
+[node name="FieldSmall44" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
+
+[node name="FieldSmall45" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+
+[node name="FieldSmall46" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+
+[node name="FieldSmall47" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.5)
+
+[node name="FieldSmall48" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 3.5)
+
+[node name="FieldSmall49" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -1.5)
+
+[node name="FieldSmall50" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -0.5)
+
+[node name="FieldSmall51" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.5)
+
+[node name="FieldSmall52" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1.5)
+
+[node name="FieldSmall53" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.5)
+
+[node name="FieldSmall54" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 3.5)
+
+[node name="FieldSmall55" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -1.5)
+
+[node name="FieldSmall56" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -0.5)
+
+[node name="FieldSmall57" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0.5)
+
+[node name="FieldSmall58" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 1.5)
+
+[node name="FieldSmall59" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 2.5)
+
+[node name="FieldSmall60" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 3.5)
+
+[node name="FieldSmall61" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -1.5)
+
+[node name="FieldSmall62" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -0.5)
+
+[node name="FieldSmall63" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0.5)
+
+[node name="FieldSmall64" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 1.5)
+
+[node name="FieldSmall65" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 2.5)
+
+[node name="FieldSmall66" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 3.5)
+
+[node name="FieldSmall67" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -1.5)
+
+[node name="FieldSmall68" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -0.5)
+
+[node name="FieldSmall69" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 0.5)
+
+[node name="FieldSmall70" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 1.5)
+
+[node name="FieldSmall71" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 2.5)
+
+[node name="FieldSmall72" parent="CropArea" instance=ExtResource("4_u0oma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 3.5)

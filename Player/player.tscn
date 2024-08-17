@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://1sx1m2sw3kna"]
+[gd_scene load_steps=6 format=3 uid="uid://1sx1m2sw3kna"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_rupub"]
-[ext_resource type="Script" path="res://Player/ObjectDetection.gd" id="2_aew5f"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a1rwd"]
 radius = 0.2
@@ -32,8 +31,3 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 shape = SubResource("ConcavePolygonShape3D_i2xga")
-
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00281742, 0)
-target_position = Vector3(0.05, 0, -0.5)
-script = ExtResource("2_aew5f")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://sh8f0jnnj71t"]
+[gd_scene load_steps=10 format=3 uid="uid://sh8f0jnnj71t"]
 
 [ext_resource type="Material" uid="uid://cjsh8x8l1oclt" path="res://Colors/field_unplowed.tres" id="1_r6j1p"]
+[ext_resource type="PackedScene" uid="uid://cmgg5rxy6st5q" path="res://Objects/Crop Area/FieldSmall.tscn" id="2_ib6bn"]
 [ext_resource type="Material" uid="uid://cq84kdc0ioyti" path="res://Colors/field_plowed.tres" id="2_v7p8o"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3w8dg"]
@@ -9,23 +10,6 @@ size = Vector3(0.9, 0.05, 0.9)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6updr"]
 data = PackedVector3Array(-0.5, 0.025, 0.5, 0.5, 0.025, 0.5, -0.5, -0.025, 0.5, 0.5, 0.025, 0.5, 0.5, -0.025, 0.5, -0.5, -0.025, 0.5, 0.5, 0.025, -0.5, -0.5, 0.025, -0.5, 0.5, -0.025, -0.5, -0.5, 0.025, -0.5, -0.5, -0.025, -0.5, 0.5, -0.025, -0.5, 0.5, 0.025, 0.5, 0.5, 0.025, -0.5, 0.5, -0.025, 0.5, 0.5, 0.025, -0.5, 0.5, -0.025, -0.5, 0.5, -0.025, 0.5, -0.5, 0.025, -0.5, -0.5, 0.025, 0.5, -0.5, -0.025, -0.5, -0.5, 0.025, 0.5, -0.5, -0.025, 0.5, -0.5, -0.025, -0.5, 0.5, 0.025, 0.5, -0.5, 0.025, 0.5, 0.5, 0.025, -0.5, -0.5, 0.025, 0.5, -0.5, 0.025, -0.5, 0.5, 0.025, -0.5, -0.5, -0.025, 0.5, 0.5, -0.025, 0.5, -0.5, -0.025, -0.5, 0.5, -0.025, 0.5, 0.5, -0.025, -0.5, -0.5, -0.025, -0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jlcx3"]
-material = ExtResource("2_v7p8o")
-size = Vector3(0.9, 0.1, 0.9)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yjppl"]
-data = PackedVector3Array(-0.5, 0.05, 0.5, 0.5, 0.05, 0.5, -0.5, -0.05, 0.5, 0.5, 0.05, 0.5, 0.5, -0.05, 0.5, -0.5, -0.05, 0.5, 0.5, 0.05, -0.5, -0.5, 0.05, -0.5, 0.5, -0.05, -0.5, -0.5, 0.05, -0.5, -0.5, -0.05, -0.5, 0.5, -0.05, -0.5, 0.5, 0.05, 0.5, 0.5, 0.05, -0.5, 0.5, -0.05, 0.5, 0.5, 0.05, -0.5, 0.5, -0.05, -0.5, 0.5, -0.05, 0.5, -0.5, 0.05, -0.5, -0.5, 0.05, 0.5, -0.5, -0.05, -0.5, -0.5, 0.05, 0.5, -0.5, -0.05, 0.5, -0.5, -0.05, -0.5, 0.5, 0.05, 0.5, -0.5, 0.05, 0.5, 0.5, 0.05, -0.5, -0.5, 0.05, 0.5, -0.5, 0.05, -0.5, 0.5, 0.05, -0.5, -0.5, -0.05, 0.5, 0.5, -0.05, 0.5, -0.5, -0.05, -0.5, 0.5, -0.05, 0.5, 0.5, -0.05, -0.5, -0.5, -0.05, -0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6ok1"]
-transparency = 1
-albedo_color = Color(0.243137, 0.662745, 1, 0.282353)
-
-[sub_resource type="BoxMesh" id="BoxMesh_w63sl"]
-size = Vector3(1, 0.2, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_dm0d6"]
-size = Vector3(0.01, 0.01, 0.01)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ps58h"]
 material = ExtResource("2_v7p8o")
@@ -52,45 +36,30 @@ mesh = SubResource("BoxMesh_3w8dg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FieldUnplowed/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6updr")
 
-[node name="FieldSmall" type="MeshInstance3D" parent="."]
-material_override = ExtResource("2_v7p8o")
-mesh = SubResource("BoxMesh_jlcx3")
-skeleton = NodePath("../FieldUnplowed")
+[node name="FieldSmall" parent="." instance=ExtResource("2_ib6bn")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="FieldSmall"]
+[node name="FieldMedium" type="Node3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FieldSmall/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_yjppl")
-
-[node name="Highlight" type="MeshInstance3D" parent="FieldSmall"]
-visible = false
-material_override = SubResource("StandardMaterial3D_l6ok1")
-mesh = SubResource("BoxMesh_w63sl")
-
-[node name="PivotMedium" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("BoxMesh_dm0d6")
-
-[node name="FieldMedium" type="MeshInstance3D" parent="PivotMedium"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+[node name="FieldMediumMesh" type="MeshInstance3D" parent="FieldMedium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 material_override = ExtResource("2_v7p8o")
 mesh = SubResource("BoxMesh_ps58h")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PivotMedium/FieldMedium"]
+[node name="StaticBody3D" type="StaticBody3D" parent="FieldMedium/FieldMediumMesh"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PivotMedium/FieldMedium/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FieldMedium/FieldMediumMesh/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_icowm")
 
-[node name="PivotLarge" type="Node3D" parent="."]
-visible = false
+[node name="FieldLarge" type="Node3D" parent="."]
 
-[node name="FieldLarge" type="MeshInstance3D" parent="PivotLarge"]
+[node name="FieldLargeMesh" type="MeshInstance3D" parent="FieldLarge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 material_override = ExtResource("2_v7p8o")
 mesh = SubResource("BoxMesh_oq6vs")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PivotLarge/FieldLarge"]
+[node name="StaticBody3D" type="StaticBody3D" parent="FieldLarge/FieldLargeMesh"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PivotLarge/FieldLarge/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FieldLarge/FieldLargeMesh/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_d3tym")
