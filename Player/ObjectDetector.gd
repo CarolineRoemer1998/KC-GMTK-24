@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area3D) -> void:
-	print(area.name)
+	print(area.get_parent().name)
 	current_detected = area
 	for child in area.get_parent().get_children():
 		if child.name == "Highlight":
