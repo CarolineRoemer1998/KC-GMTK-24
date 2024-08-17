@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqjh83kj57ram"]
+[gd_scene load_steps=7 format=3 uid="uid://dqjh83kj57ram"]
 
 [ext_resource type="Material" uid="uid://cq84kdc0ioyti" path="res://Colors/field_plowed.tres" id="1_wkwga"]
 [ext_resource type="Material" uid="uid://dw64apji1s71" path="res://Colors/FieldHighlight.tres" id="2_q0he5"]
@@ -13,8 +13,10 @@ size = Vector3(1, 0.1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_kgyy3"]
 size = Vector3(1, 0.2, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_i0wox"]
+size = Vector3(0.5, 0.1, 0.5)
+
 [node name="FieldSmall" type="StaticBody3D"]
-collision_layer = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_wkwga")
@@ -27,3 +29,9 @@ shape = SubResource("BoxShape3D_4w7qw")
 visible = false
 material_override = ExtResource("2_q0he5")
 mesh = SubResource("BoxMesh_kgyy3")
+
+[node name="DetectableArea" type="Area3D" parent="."]
+collision_layer = 4
+
+[node name="DetectionCollider" type="CollisionShape3D" parent="DetectableArea"]
+shape = SubResource("BoxShape3D_i0wox")
