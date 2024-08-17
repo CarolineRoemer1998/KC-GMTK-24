@@ -4,6 +4,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 
+
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "up", "down")

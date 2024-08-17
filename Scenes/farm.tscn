@@ -1,9 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://8bb3sh6ua0ar"]
+[gd_scene load_steps=15 format=3 uid="uid://8bb3sh6ua0ar"]
 
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="3_eubuw"]
 [ext_resource type="Script" path="res://Fundamentals/GameHandler.gd" id="4_66nis"]
-[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="4_u0oma"]
+[ext_resource type="Script" path="res://Scenes/CropArea.gd" id="4_g6x4t"]
+[ext_resource type="PackedScene" uid="uid://cmgg5rxy6st5q" path="res://Objects/Crop Area/FieldSmall.tscn" id="4_u0oma"]
+[ext_resource type="PackedScene" uid="uid://d064xu0qtx7ms" path="res://Objects/Crop Area/FieldUnplowed.tscn" id="6_dirvw"]
+[ext_resource type="Script" path="res://Objects/Plants/Plant.gd" id="6_ib72a"]
+[ext_resource type="PackedScene" uid="uid://djgi83idvlrxb" path="res://Objects/Plants/plant.tscn" id="8_q00vy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -64,9 +68,15 @@ script = ExtResource("3_eubuw")
 script = ExtResource("4_66nis")
 
 [node name="CropArea" type="Node3D" parent="."]
+script = ExtResource("4_g6x4t")
 
 [node name="FieldSmall" parent="CropArea" instance=ExtResource("4_u0oma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -1.5)
+script = ExtResource("6_ib72a")
+needs_water = false
+isInfested = false
+growthPoints = 3
+level = 1
 
 [node name="FieldSmall2" parent="CropArea" instance=ExtResource("4_u0oma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -0.5)
@@ -83,8 +93,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 2.5)
 [node name="FieldSmall6" parent="CropArea" instance=ExtResource("4_u0oma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 3.5)
 
-[node name="FieldSmall7" parent="CropArea" instance=ExtResource("4_u0oma")]
+[node name="FieldSmall7" parent="CropArea" node_paths=PackedStringArray("plant") instance=ExtResource("4_u0oma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.5)
+plant = NodePath("../../Plant")
 
 [node name="FieldSmall8" parent="CropArea" instance=ExtResource("4_u0oma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -0.5)
@@ -280,3 +291,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 2.5)
 
 [node name="FieldSmall72" parent="CropArea" instance=ExtResource("4_u0oma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 3.5)
+
+[node name="FieldUnplowed" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10728, 0, -3.79436)
+
+[node name="Plant" parent="." groups=["Plant"] instance=ExtResource("8_q00vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49328, 0.0500002, -1.51761)
