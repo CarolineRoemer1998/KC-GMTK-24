@@ -1,15 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://djgi83idvlrxb"]
+[gd_scene load_steps=7 format=3 uid="uid://djgi83idvlrxb"]
 
 [ext_resource type="Script" path="res://Objects/Plants/Plant.gd" id="1_i2vis"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_lm8kp"]
-top_radius = 0.0
-bottom_radius = 0.4
-height = 1.0
+[ext_resource type="PackedScene" uid="uid://dalgpffw3ukn8" path="res://Blender Objects/Vegetable/carrot/carrot_large.blend" id="2_jhsub"]
+[ext_resource type="PackedScene" uid="uid://duqii1m5otmaf" path="res://Blender Objects/Vegetable/carrot/carrot_medium.blend" id="3_vj4hd"]
+[ext_resource type="PackedScene" uid="uid://d2wj4qtq7iypd" path="res://Blender Objects/Vegetable/carrot/carrot_seeds.blend" id="4_cqqu7"]
+[ext_resource type="PackedScene" uid="uid://d231oxij0i73g" path="res://Blender Objects/Vegetable/carrot/carrot_small.blend" id="5_6eve1"]
+[ext_resource type="PackedScene" uid="uid://lhqers2whvfy" path="res://Blender Objects/Vegetable/carrot/carrot_sprout.blend" id="6_3j56d"]
 
 [node name="Plant" type="Node3D" groups=["Plant"]]
 script = ExtResource("1_i2vis")
 
-[node name="PlantMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_lm8kp")
+[node name="CarrotStages" type="Node3D" parent="."]
+
+[node name="carrot_seeds" parent="CarrotStages" instance=ExtResource("4_cqqu7")]
+
+[node name="carrot_sprout" parent="CarrotStages" instance=ExtResource("6_3j56d")]
+visible = false
+
+[node name="carrot_small" parent="CarrotStages" instance=ExtResource("5_6eve1")]
+visible = false
+
+[node name="carrot_medium" parent="CarrotStages" instance=ExtResource("3_vj4hd")]
+visible = false
+
+[node name="carrot_large" parent="CarrotStages" instance=ExtResource("2_jhsub")]
+visible = false
