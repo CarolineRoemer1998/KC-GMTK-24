@@ -1,13 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://8bb3sh6ua0ar"]
+[gd_scene load_steps=19 format=3 uid="uid://8bb3sh6ua0ar"]
 
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
+[ext_resource type="PackedScene" uid="uid://jhph2qilg4x3" path="res://Blender Objects/Vegetable/Environment/path.blend" id="2_ov0ka"]
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="3_eubuw"]
 [ext_resource type="Script" path="res://Fundamentals/GameHandler.gd" id="4_66nis"]
 [ext_resource type="Script" path="res://Scenes/CropArea.gd" id="4_g6x4t"]
 [ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="4_u0oma"]
 [ext_resource type="PackedScene" uid="uid://d064xu0qtx7ms" path="res://Objects/Crop Area/FieldUnplowed.tscn" id="6_dirvw"]
 [ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="7_n5i0b"]
+[ext_resource type="PackedScene" uid="uid://dk1kxx4h5oohj" path="res://Blender Objects/Vegetable/Environment/sign_shop.blend" id="9_x03pk"]
 [ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="9_ybhkc"]
+[ext_resource type="PackedScene" uid="uid://c71ohgq74ug24" path="res://Blender Objects/Vegetable/Environment/sign_market.blend" id="10_i6hyj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,6 +27,9 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcwpw"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dm2c0"]
+albedo_color = Color(0.262745, 0.478431, 0.243137, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_hs0ul"]
 size = Vector3(14, 1, 10)
 
@@ -33,7 +39,7 @@ size = Vector3(14, 1, 10)
 [node name="Farm" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, -0.28146, 0.835446, 0.472028, -0.413256, 0.338423, -0.845393, 0, 0, 0)
+transform = Transform3D(-0.785665, -0.618647, -0.00238949, 0.487787, -0.621842, 0.61268, -0.380519, 0.480196, 0.790327, 0, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -54,7 +60,11 @@ collision_mask = 17
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2"]
+material_override = SubResource("StandardMaterial3D_dm2c0")
 mesh = SubResource("BoxMesh_hs0ul")
+
+[node name="path" parent="Ground2/MeshInstance3D" instance=ExtResource("2_ov0ka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2"]
 shape = SubResource("BoxShape3D_voo1g")
@@ -84,3 +94,9 @@ max_level = 3
 
 [node name="FieldLarge" parent="CropArea" instance=ExtResource("9_ybhkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87029, 0, -1.27887)
+
+[node name="sign_market" parent="." instance=ExtResource("10_i6hyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="sign_shop" parent="." instance=ExtResource("9_x03pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
