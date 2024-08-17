@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://1sx1m2sw3kna"]
+[gd_scene load_steps=9 format=3 uid="uid://1sx1m2sw3kna"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_rupub"]
 [ext_resource type="Script" path="res://Player/ObjectDetector.gd" id="2_e3h3e"]
+[ext_resource type="Script" path="res://Player/Interaction.gd" id="3_vg6rr"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a1rwd"]
 radius = 0.2
@@ -45,6 +46,9 @@ shape = SubResource("BoxShape3D_fk28e")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 shape = SubResource("ConcavePolygonShape3D_i2xga")
+
+[node name="Interaction" type="Node3D" parent="."]
+script = ExtResource("3_vg6rr")
 
 [connection signal="area_entered" from="Body/ObjectDetector" to="Body/ObjectDetector" method="_on_area_entered"]
 [connection signal="area_exited" from="Body/ObjectDetector" to="Body/ObjectDetector" method="_on_area_exited"]

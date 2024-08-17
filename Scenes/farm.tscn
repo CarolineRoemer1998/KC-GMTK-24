@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="3_eubuw"]
 [ext_resource type="Script" path="res://Fundamentals/GameHandler.gd" id="4_66nis"]
 [ext_resource type="Script" path="res://Scenes/CropArea.gd" id="4_g6x4t"]
-[ext_resource type="PackedScene" uid="uid://cmgg5rxy6st5q" path="res://Objects/Crop Area/FieldSmall.tscn" id="4_u0oma"]
+[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="4_u0oma"]
 [ext_resource type="PackedScene" uid="uid://d064xu0qtx7ms" path="res://Objects/Crop Area/FieldUnplowed.tscn" id="6_dirvw"]
 [ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="7_n5i0b"]
 [ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="9_ybhkc"]
@@ -33,7 +33,7 @@ size = Vector3(14, 1, 10)
 [node name="Farm" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, -0.28146, 0.835446, 0.472028, -0.413256, 0.338423, -0.845393, 0, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

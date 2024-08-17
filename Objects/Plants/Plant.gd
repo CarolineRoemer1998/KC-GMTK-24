@@ -72,12 +72,16 @@ func level_up():
 		current_stage.visible = true
 		
 func set_field_size():
-	field_size = str(field.field_size.small)
+	var _field = get_parent()
+	if _field is Field:
+		field_size = str(_field.size)
+		
 
 func set_max_level():
 	if field_size == str(field.field_size.small):
 		max_level = 2 
-	if field_size == str(field.field_size.medium):
+	elif field_size == str(field.field_size.medium):
 		max_level = 3 
-	if field_size == str(field.field_size.large):
+	elif field_size == str(field.field_size.large):
 		max_level = 4 
+	

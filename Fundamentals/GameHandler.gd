@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("T_Grow"):
 		endDay()
 	
+	
 		
 func endDay():
 	get_tree().call_group("Plant","grow")

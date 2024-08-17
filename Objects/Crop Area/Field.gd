@@ -6,12 +6,16 @@ enum field_size {small, medium, large}
 @export var size: field_size
 @export var plant: PackedScene
 
-var is_chosen: bool = false
+var plant_offset : Vector3
+
+var is_chosen: bool 
+var is_plowed: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
+	set_plant_offset()
+	is_chosen = false
+	print(name, is_chosen)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,6 +25,14 @@ func _process(delta):
 func plant_seed():
 	var new_plant = plant.instantiate()
 	add_child(new_plant)
+	new_plant.global_position += plant_offset
 
-func plow():
-	pass
+func set_plant_offset():
+	if size == field_size.small:
+		plant_offset = Vector3(0,0,0)
+	if size == field_size.medium:
+		plant_offset = Vector3(0.5,0,0.5)
+	if size == field_size.large:
+		plant_offset = Vector3(1,0,1)
+		
+
