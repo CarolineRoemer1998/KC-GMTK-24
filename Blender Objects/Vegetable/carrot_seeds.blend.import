@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d231oxij0i73g"
-path="res://.godot/imported/carrot_small.blend-59be9720e4a838abd532303dd7f87a3c.scn"
+uid="uid://d2wj4qtq7iypd"
+path="res://.godot/imported/carrot_seeds.blend-735cb808334b0ee2015ae1fbbd70b863.scn"
 
 [deps]
 
-source_file="res://Blender Objects/Vegetable/carrot_small.blend"
-dest_files=["res://.godot/imported/carrot_small.blend-59be9720e4a838abd532303dd7f87a3c.scn"]
+source_file="res://Blender Objects/Vegetable/carrot_seeds.blend"
+dest_files=["res://.godot/imported/carrot_seeds.blend-735cb808334b0ee2015ae1fbbd70b863.scn"]
 
 [params]
 
@@ -37,7 +37,7 @@ blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
 blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
-blender/meshes/colors=true
+blender/meshes/colors=false
 blender/meshes/uvs=true
 blender/meshes/normals=true
 blender/meshes/tangents=true
