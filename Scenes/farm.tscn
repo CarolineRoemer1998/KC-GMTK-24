@@ -75,8 +75,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -1.5)
 script = ExtResource("6_ib72a")
 needs_water = false
 isInfested = false
-growthPoints = 3
-level = 1
+start_growth_points = 3
+current_growth_points = 3
+type = 0
+level = 0
 
 [node name="FieldSmall2" parent="CropArea" instance=ExtResource("4_u0oma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -0.5)
@@ -295,5 +297,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 3.5)
 [node name="FieldUnplowed" parent="CropArea" instance=ExtResource("6_dirvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10728, 0, -3.79436)
 
-[node name="Plant" parent="." groups=["Plant"] instance=ExtResource("8_q00vy")]
+[node name="Plant" parent="." instance=ExtResource("8_q00vy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49328, 0.0500002, -1.51761)
