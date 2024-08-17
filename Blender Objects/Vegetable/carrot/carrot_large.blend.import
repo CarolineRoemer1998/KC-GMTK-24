@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://duqii1m5otmaf"
-path="res://.godot/imported/carrot_medium.blend-59b726164659e0a4d5bda2b53893b265.scn"
+uid="uid://dalgpffw3ukn8"
+path="res://.godot/imported/carrot_large.blend-9079682ba95285be278cc8fd449c2a23.scn"
 
 [deps]
 
-source_file="res://Blender Objects/Vegetable/carrot_medium.blend"
-dest_files=["res://.godot/imported/carrot_medium.blend-59b726164659e0a4d5bda2b53893b265.scn"]
+source_file="res://Blender Objects/Vegetable/carrot/carrot_large.blend"
+dest_files=["res://.godot/imported/carrot_large.blend-9079682ba95285be278cc8fd449c2a23.scn"]
 
 [params]
 

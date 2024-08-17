@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d2wj4qtq7iypd"
-path="res://.godot/imported/carrot_seeds.blend-735cb808334b0ee2015ae1fbbd70b863.scn"
+path="res://.godot/imported/carrot_seeds.blend-f046fc37e3ccf49ad23bdeb1fd8c18de.scn"
 
 [deps]
 
-source_file="res://Blender Objects/Vegetable/carrot_seeds.blend"
-dest_files=["res://.godot/imported/carrot_seeds.blend-735cb808334b0ee2015ae1fbbd70b863.scn"]
+source_file="res://Blender Objects/Vegetable/carrot/carrot_seeds.blend"
+dest_files=["res://.godot/imported/carrot_seeds.blend-f046fc37e3ccf49ad23bdeb1fd8c18de.scn"]
 
 [params]
 

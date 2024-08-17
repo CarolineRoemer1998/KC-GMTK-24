@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://lhqers2whvfy"
-path="res://.godot/imported/carrot_sprout.blend-473058cdb7ed28541080014ac5bee7b7.scn"
+uid="uid://csjusaejygo08"
+path="res://.godot/imported/strawberry_large.blend-105e546404c5ab59419c6481be0f7e21.scn"
 
 [deps]
 
-source_file="res://Blender Objects/Vegetable/carrot_sprout.blend"
-dest_files=["res://.godot/imported/carrot_sprout.blend-473058cdb7ed28541080014ac5bee7b7.scn"]
+source_file="res://Blender Objects/Vegetable/strawberry/strawberry_large.blend"
+dest_files=["res://.godot/imported/strawberry_large.blend-105e546404c5ab59419c6481be0f7e21.scn"]
 
 [params]
 
