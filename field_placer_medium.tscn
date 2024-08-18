@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://56yqyfpprrfd"]
+[gd_scene load_steps=8 format=3 uid="uid://56yqyfpprrfd"]
 
 [ext_resource type="Script" path="res://field_placer.gd" id="1_muehm"]
+[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="2_0drab"]
+[ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="3_iwrgq"]
+[ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="4_wvld8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mynk8"]
 transparency = 1
@@ -15,6 +18,9 @@ size = Vector3(1.9, 0.5, 1.9)
 [node name="FieldPlacer" type="Node3D"]
 top_level = true
 script = ExtResource("1_muehm")
+field_small = ExtResource("2_0drab")
+field_medium = ExtResource("3_iwrgq")
+field_large = ExtResource("4_wvld8")
 size = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

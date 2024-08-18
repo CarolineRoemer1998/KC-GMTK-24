@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://cppiokpqqwp5h"]
+
+[ext_resource type="Script" path="res://field_placer.gd" id="1_ebu33"]
+[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="2_7qwav"]
+[ext_resource type="Material" uid="uid://cxnmularaknuj" path="res://Colors/field_placer_occupied.tres" id="2_382qe"]
+[ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="3_wmos6"]
+[ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="4_l3oag"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n2y48"]
+size = Vector3(2.9, 0.1, 2.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qlp1e"]
+size = Vector3(2.9, 0.5, 2.9)
+
+[node name="FieldPlacer" type="Node3D"]
+top_level = true
+script = ExtResource("1_ebu33")
+field_small = ExtResource("2_7qwav")
+field_medium = ExtResource("3_wmos6")
+field_large = ExtResource("4_l3oag")
+size = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_382qe")
+mesh = SubResource("BoxMesh_n2y48")
+
+[node name="FieldDetector" type="Area3D" parent="."]
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FieldDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103104, 0)
+shape = SubResource("BoxShape3D_qlp1e")
+
+[connection signal="area_entered" from="FieldDetector" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="FieldDetector" to="." method="_on_field_detector_area_exited"]

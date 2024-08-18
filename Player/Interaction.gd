@@ -2,7 +2,9 @@ extends Node3D
 
 class_name Interaction
 
-@export var field_placer: PackedScene
+@export var field_placer_small: PackedScene
+@export var field_placer_medium: PackedScene
+@export var field_placer_large: PackedScene
 @onready var camera = get_tree().get_first_node_in_group("Camera")
 
 var placer_height: float = 0.0
@@ -15,11 +17,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	
-	if Input.is_action_just_pressed("T_Plow"):
-		var new_field_placer = field_placer.instantiate()
-		add_child(new_field_placer)
+	if Input.is_action_just_pressed("T_Small"):
+		var new_field_placer_small = field_placer_small.instantiate()
+		add_child(new_field_placer_small)
+	if Input.is_action_just_pressed("T_Med"):
+		var new_field_placer_medium = field_placer_medium .instantiate()
+		add_child(new_field_placer_medium)
+	if Input.is_action_just_pressed("T_Large"):
+		var new_field_placer_large = field_placer_large.instantiate()
+		add_child(new_field_placer_large)
+		
 
 func calculate_camera_ray():
 	mouse_position = get_viewport().get_mouse_position()

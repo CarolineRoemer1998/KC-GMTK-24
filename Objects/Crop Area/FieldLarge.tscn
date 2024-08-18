@@ -24,16 +24,13 @@ size = 2
 plant = ExtResource("2_rh1dn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 material_override = ExtResource("1_3k7b8")
 mesh = SubResource("BoxMesh_7c6t6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 shape = SubResource("ConcavePolygonShape3D_t5yyu")
 
 [node name="Highlight" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 visible = false
 material_override = ExtResource("2_n0ohp")
 mesh = SubResource("BoxMesh_xu4ov")
@@ -42,5 +39,4 @@ mesh = SubResource("BoxMesh_xu4ov")
 collision_layer = 4
 
 [node name="DetectionCollider" type="CollisionShape3D" parent="DetectableArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 shape = SubResource("BoxShape3D_grpt5")
