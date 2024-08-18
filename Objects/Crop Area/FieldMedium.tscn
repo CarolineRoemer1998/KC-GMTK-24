@@ -24,7 +24,7 @@ max_level = 2
 size = 1
 plant = ExtResource("2_55nmj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="FieldMesh" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_m0ycv")
 mesh = SubResource("BoxMesh_sifmh")
 

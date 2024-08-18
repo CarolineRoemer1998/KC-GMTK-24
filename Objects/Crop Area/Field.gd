@@ -2,7 +2,7 @@ extends StaticBody3D
 
 class_name Field
 enum field_size {small, medium, large}
-@export var max_level: int = 4
+@export var max_level: int 
 @export var size: field_size
 @export var plant: PackedScene
 @export var energy_cost: int = 1
