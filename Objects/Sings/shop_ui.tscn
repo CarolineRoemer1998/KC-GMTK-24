@@ -53,6 +53,7 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0.596078, 0, 1)
 text = "Buy large field"
 
 [node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 52.0
 offset_top = 99.0
 offset_right = 914.0
@@ -78,3 +79,5 @@ offset_bottom = 91.0
 text = "Close Shop"
 
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_small_field" to="." method="_on_buy_small_field_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Buy_med_field" to="." method="_on_buy_med_field_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Buy_large_field" to="." method="_on_buy_large_field_pressed"]

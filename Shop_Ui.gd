@@ -30,3 +30,17 @@ func _on_buy_small_field_pressed():
 	var new_field_placer_small = field_placer_small.instantiate()
 	if player != null:
 		player.interaction.add_child(new_field_placer_small)
+
+
+func _on_buy_med_field_pressed():
+	visible = false
+	var new_field_placer_medium = field_placer_medium.instantiate()
+	if player != null:
+		player.interaction.add_child(new_field_placer_medium)
+
+
+func _on_buy_large_field_pressed():
+	visible = false
+	var new_field_placer_large = field_placer_large.instantiate()
+	if player != null:
+		player.interaction.add_child(new_field_placer_large)
