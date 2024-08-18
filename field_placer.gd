@@ -21,8 +21,22 @@ var parent
 var placer_height: float = 0.0
 var active_colliders: Array = []
 
+var camera: Camera3D
+var camera_original_position
+var camera_original_rotation_x
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	camera = get_tree().get_first_node_in_group("Camera")
+	camera_original_position = camera.position
+	camera_original_rotation_x = camera.rotation.x
+	camera.global_position = Vector3(0,19,2.25)
+	camera.global_rotation.x = -90
+
+	
 	if size == placer_size.small:
 		needed_empty_colliders = 1
 	if size == placer_size.medium:
