@@ -1,11 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://1sx1m2sw3kna"]
+[gd_scene load_steps=9 format=3 uid="uid://1sx1m2sw3kna"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_rupub"]
 [ext_resource type="Script" path="res://Player/ObjectDetector.gd" id="2_e3h3e"]
 [ext_resource type="Script" path="res://Player/Interaction.gd" id="3_vg6rr"]
-[ext_resource type="PackedScene" uid="uid://c8hlfhlcflaao" path="res://field_placer_small.tscn" id="4_0jod8"]
-[ext_resource type="PackedScene" uid="uid://56yqyfpprrfd" path="res://field_placer_medium.tscn" id="5_e53mf"]
-[ext_resource type="PackedScene" uid="uid://cppiokpqqwp5h" path="res://field_placer_large.tscn" id="6_2plac"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a1rwd"]
 radius = 0.2
@@ -38,8 +35,8 @@ skeleton = NodePath("../..")
 
 [node name="ObjectDetector" type="Area3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.448518, 0)
-collision_layer = 2
-collision_mask = 4
+collision_layer = 6
+collision_mask = 20
 script = ExtResource("2_e3h3e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/ObjectDetector"]
@@ -52,9 +49,6 @@ shape = SubResource("ConcavePolygonShape3D_i2xga")
 
 [node name="Interaction" type="Node3D" parent="."]
 script = ExtResource("3_vg6rr")
-field_placer_small = ExtResource("4_0jod8")
-field_placer_medium = ExtResource("5_e53mf")
-field_placer_large = ExtResource("6_2plac")
 
 [connection signal="area_entered" from="Body/ObjectDetector" to="Body/ObjectDetector" method="_on_area_entered"]
 [connection signal="area_exited" from="Body/ObjectDetector" to="Body/ObjectDetector" method="_on_area_exited"]

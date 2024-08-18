@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="4_u0oma"]
 [ext_resource type="PackedScene" uid="uid://d064xu0qtx7ms" path="res://Objects/Crop Area/FieldUnplowed.tscn" id="6_dirvw"]
 [ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="7_n5i0b"]
-[ext_resource type="PackedScene" uid="uid://dk1kxx4h5oohj" path="res://Blender Objects/Vegetable/Environment/sign_shop.blend" id="9_x03pk"]
 [ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="9_ybhkc"]
-[ext_resource type="PackedScene" uid="uid://c71ohgq74ug24" path="res://Blender Objects/Vegetable/Environment/sign_market.blend" id="10_i6hyj"]
+[ext_resource type="PackedScene" uid="uid://dunolb6ev3g35" path="res://Objects/Sings/sign_shop.tscn" id="11_74v6e"]
+[ext_resource type="PackedScene" uid="uid://csstquwad0nt5" path="res://Objects/Sings/sign_market.tscn" id="11_tn0k4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -140,8 +140,8 @@ max_level = 3
 [node name="FieldLarge" parent="CropArea" instance=ExtResource("9_ybhkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87029, 0, -1.27887)
 
-[node name="sign_market" parent="." instance=ExtResource("10_i6hyj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+[node name="sign_market" parent="." instance=ExtResource("11_tn0k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17887, 0, 2.49026)
 
-[node name="sign_shop" parent="." instance=ExtResource("9_x03pk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+[node name="SignShop" parent="." instance=ExtResource("11_74v6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)

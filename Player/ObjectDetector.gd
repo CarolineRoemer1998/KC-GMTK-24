@@ -15,16 +15,17 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area3D) -> void:
-	print(area.get_parent().name)
-	for child in get_parent().get_parent().get_children():
-		if child.name == "Interaction":
-			child.field = area.get_parent()
-			print("aktuelles Feld: ", child.field)
-	current_detected = area
-	for child in area.get_parent().get_children():
-		if child.name == "Highlight":
-			child.visible = true
-			child.get_parent().is_chosen = true
+	if area.get_collision_layer() == 4:
+		print(area.get_collision_layer())
+		for child in get_parent().get_parent().get_children():
+			if child.name == "Interaction":
+				child.field = area.get_parent()
+				print("aktuelles Feld: ", child.field)
+		current_detected = area
+		for child in area.get_parent().get_children():
+			if child.name == "Highlight":
+				child.visible = true
+				child.get_parent().is_chosen = true
 
 
 func _on_area_exited(area: Area3D) -> void:

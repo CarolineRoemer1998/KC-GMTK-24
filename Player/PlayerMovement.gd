@@ -1,6 +1,9 @@
 extends CharacterBody3D
-
+class_name Player
 @onready var body: MeshInstance3D = $Body
+@onready var collision_shape_3d = $CollisionShape3D
+@onready var object_detector = $Body/ObjectDetector
+@onready var interaction = $Interaction
 
 const SPEED = 5.0
 

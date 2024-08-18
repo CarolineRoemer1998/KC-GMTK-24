@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csstquwad0nt5"]
+
+[ext_resource type="PackedScene" uid="uid://c71ohgq74ug24" path="res://Blender Objects/Vegetable/Environment/sign_market.blend" id="1_g50sa"]
+[ext_resource type="Script" path="res://Objects/Sings/sign_market.gd" id="2_cligo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8m3vo"]
+
+[node name="sign_market" instance=ExtResource("1_g50sa")]
+script = ExtResource("2_cligo")
+
+[node name="Area3D" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("BoxShape3D_8m3vo")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

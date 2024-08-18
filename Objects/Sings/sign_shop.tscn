@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dunolb6ev3g35"]
+
+[ext_resource type="PackedScene" uid="uid://dk1kxx4h5oohj" path="res://Blender Objects/Vegetable/Environment/sign_shop.blend" id="1_xufbm"]
+[ext_resource type="Script" path="res://Objects/Sings/sign_shop.gd" id="2_6cj54"]
+[ext_resource type="PackedScene" uid="uid://b3nlt4ukxr2aq" path="res://Objects/Sings/shop_ui.tscn" id="3_qldkl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_durm4"]
+
+[node name="SignShop" type="Node3D"]
+script = ExtResource("2_6cj54")
+
+[node name="sign_shop" parent="." instance=ExtResource("1_xufbm")]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
+shape = SubResource("BoxShape3D_durm4")
+
+[node name="Shop_Ui" parent="." instance=ExtResource("3_qldkl")]
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
