@@ -1,9 +1,4 @@
 extends Node3D
-
-
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -16,15 +11,20 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Reload"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("T_Grow"):
-		endDay()
+		end_day()
 	
 	
 		
-func endDay():
+func end_day():
 	get_tree().call_group("Plant","grow")
+	start_new_day()
 	#for child in Scene.get_children:
 		#print(child.name)
 		#if child is Plant:
 			#print("growing")
 			#child.grow()
-		
+func start_new_day():
+	if Global.current_energy == 0:
+		Global.current_energy = 9
+	else:
+		Global.current_energy = Global.start_energy 

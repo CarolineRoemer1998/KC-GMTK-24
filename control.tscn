@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnwr7trxoehqq"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_eokre"]
+[ext_resource type="Texture2D" uid="uid://csfa6nyyafaq4" path="res://icon.svg" id="2_cj3oq"]
+
+[node name="Energy_bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eokre")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(505, 63)
+texture = ExtResource("2_cj3oq")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(361, 132)
+texture = ExtResource("2_cj3oq")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(275, 274)
+texture = ExtResource("2_cj3oq")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(290, 416)
+texture = ExtResource("2_cj3oq")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(373, 558)
+texture = ExtResource("2_cj3oq")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+position = Vector2(522, 562)
+texture = ExtResource("2_cj3oq")
+
+[node name="Icon7" type="Sprite2D" parent="."]
+position = Vector2(677, 541)
+texture = ExtResource("2_cj3oq")
+
+[node name="Icon8" type="Sprite2D" parent="."]
+position = Vector2(769, 393)
+texture = ExtResource("2_cj3oq")
+
+[node name="Icon9" type="Sprite2D" parent="."]
+position = Vector2(772, 254)
+texture = ExtResource("2_cj3oq")
+
+[node name="Icon10" type="Sprite2D" parent="."]
+position = Vector2(670, 120)
+texture = ExtResource("2_cj3oq")
