@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b3nlt4ukxr2aq" path="res://Objects/Sings/shop_ui.tscn" id="3_qldkl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_durm4"]
+size = Vector3(2.5, 1, 2.5)
 
 [node name="SignShop" type="Node3D"]
 script = ExtResource("2_6cj54")
@@ -16,7 +17,7 @@ collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.5, 1.25)
 shape = SubResource("BoxShape3D_durm4")
 
 [node name="Shop_Ui" parent="." instance=ExtResource("3_qldkl")]

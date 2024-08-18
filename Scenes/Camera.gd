@@ -4,7 +4,7 @@ extends Camera3D
 @export var camera_offset : Vector3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	camera_offset = Vector3(0, 20, 13)
+	camera_offset = Vector3(0, 12, 14)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

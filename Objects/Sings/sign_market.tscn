@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Objects/Sings/sign_market.gd" id="2_cligo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8m3vo"]
+size = Vector3(2.5, 1, 2.5)
 
 [node name="sign_market" instance=ExtResource("1_g50sa")]
 script = ExtResource("2_cligo")
@@ -14,6 +15,7 @@ collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, 0.75)
 shape = SubResource("BoxShape3D_8m3vo")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

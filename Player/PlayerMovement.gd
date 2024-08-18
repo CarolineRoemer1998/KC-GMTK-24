@@ -6,7 +6,7 @@ class_name Player
 @onready var object_detector = $Body/ObjectDetector
 @onready var interaction = $Interaction
 
-const SPEED = 5.0
+const SPEED = 4.5
 
 @onready var animation_player: AnimationPlayer = $Body/AnimationPlayer
 
@@ -14,6 +14,8 @@ const SPEED = 5.0
 func _physics_process(delta: float) -> void:
 	if Input.get_vector("left", "right", "up", "down") != Vector2(0.0,0.0):
 		animation_player.play("walk")
+	if Input.get_vector("left", "right", "up", "down") == Vector2(0.0,0.0):
+		animation_player.play("idle")
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
