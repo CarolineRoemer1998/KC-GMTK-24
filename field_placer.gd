@@ -82,6 +82,9 @@ func place_field():
 		add_sibling(new_field_large)
 		new_field_large.global_position = calculate_middlepoint()
 		new_field_large.top_level = true
+		
+	for collider in active_colliders:
+		collider.get_parent().queue_free()
 	queue_free()
 
 func calculate_middlepoint():

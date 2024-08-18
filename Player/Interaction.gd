@@ -42,5 +42,5 @@ func calculate_camera_ray():
 	var intersection_point = ray_origin + ray_direction * distance
 	return intersection_point
 	
-
+	
 		
