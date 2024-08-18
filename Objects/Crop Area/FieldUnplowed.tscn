@@ -31,7 +31,7 @@ material_override = ExtResource("2_apsxy")
 mesh = SubResource("BoxMesh_11q3c")
 
 [node name="DetectableArea" type="Area3D" parent="."]
-collision_layer = 4
+collision_layer = 8
 
 [node name="DetectionCollider" type="CollisionShape3D" parent="DetectableArea"]
 shape = SubResource("BoxShape3D_hc7y2")

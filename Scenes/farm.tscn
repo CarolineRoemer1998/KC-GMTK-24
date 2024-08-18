@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://8bb3sh6ua0ar"]
+[gd_scene load_steps=20 format=3 uid="uid://8bb3sh6ua0ar"]
 
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
 [ext_resource type="PackedScene" uid="uid://jhph2qilg4x3" path="res://Blender Objects/Vegetable/Environment/path.blend" id="2_ov0ka"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dk1kxx4h5oohj" path="res://Blender Objects/Vegetable/Environment/sign_shop.blend" id="9_x03pk"]
 [ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="9_ybhkc"]
 [ext_resource type="PackedScene" uid="uid://c71ohgq74ug24" path="res://Blender Objects/Vegetable/Environment/sign_market.blend" id="10_i6hyj"]
+[ext_resource type="PackedScene" uid="uid://cry11mj0xy05d" path="res://field_placer.tscn" id="12_x2y1s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -69,7 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3.5)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2"]
 shape = SubResource("BoxShape3D_voo1g")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
 transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 10, 6.5)
 current = true
 fov = 25.0
@@ -82,11 +83,20 @@ script = ExtResource("4_66nis")
 script = ExtResource("4_g6x4t")
 
 [node name="FieldSmall" parent="CropArea" instance=ExtResource("4_u0oma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12031, 0, -3.22297)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01043, 0, -3.22297)
 max_level = 2
 
 [node name="FieldUnplowed" parent="CropArea" instance=ExtResource("6_dirvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01036, 4.76837e-07, -3.67213)
+
+[node name="FieldUnplowed2" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01036, 4.76837e-07, -2.60304)
+
+[node name="FieldUnplowed3" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01019, 4.76837e-07, -2.60304)
+
+[node name="FieldUnplowed4" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01019, 4.76837e-07, -3.73426)
 
 [node name="FieldMedium" parent="CropArea" instance=ExtResource("7_n5i0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87634, 0, -1.06696)
@@ -100,3 +110,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
 
 [node name="sign_shop" parent="." instance=ExtResource("9_x03pk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+
+[node name="FieldPlacer" parent="." instance=ExtResource("12_x2y1s")]
