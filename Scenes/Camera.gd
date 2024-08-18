@@ -6,9 +6,18 @@ extends Camera3D
 func _ready() -> void:
 	camera_offset = Vector3(0, 12, 14)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
-	position = camera_offset + player.position
-
+	if camera_offset == Vector3(0, 12, 14):
+		position = camera_offset + player.position
+		
+		
+func toggle_camera_offset():
+	if camera_offset == Vector3(0, 12, 14):
+		camera_offset = Vector3(0,0,0)
+		print(camera_offset)
+	else:
+		camera_offset = Vector3(0, 12, 14)
+		global_position = Vector3(0,10,6.5)
+		rotation_degrees = Vector3(-40,0,0)

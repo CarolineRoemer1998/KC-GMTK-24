@@ -4,6 +4,7 @@ var start_energy : int
 var current_energy : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	start_energy = 10
 	current_energy = start_energy
 

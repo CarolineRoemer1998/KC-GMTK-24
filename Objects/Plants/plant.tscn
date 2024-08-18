@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lhqers2whvfy" path="res://Blender Objects/Vegetable/carrot/carrot_sprout.blend" id="6_3j56d"]
 
 [node name="Plant" type="Node3D" groups=["Plant"]]
+process_mode = 3
 script = ExtResource("1_i2vis")
 
 [node name="CarrotStages" type="Node3D" parent="."]

@@ -11,10 +11,12 @@ enum placer_size {small, medium, large}
 @export var field_large: PackedScene
 @export var size: placer_size
 
+
 var placer_color_neutral = preload("res://Colors/field_placer_neutral.tres")
 var placer_color_free = preload("res://Colors/field_placer_free.tres")
 var placer_color_occupied = preload("res://Colors/field_placer_occupied.tres")
 
+var player: Player 
 var needed_empty_colliders
 var mouse_position
 var parent
@@ -23,20 +25,18 @@ var active_colliders: Array = []
 
 var camera: Camera3D
 var camera_original_position
-var camera_original_rotation_x
+var camera_original_rotation_degrees 
+
+@onready var timer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	process_mode = Node.PROCESS_MODE_ALWAYS
-	
-	camera = get_tree().get_first_node_in_group("Camera")
-	camera_original_position = camera.position
-	camera_original_rotation_x = camera.rotation.x
-	camera.global_position = Vector3(0,19,2.25)
-	camera.global_rotation.x = -90
-
-	
+	player = get_tree().get_first_node_in_group("Player")
+	timer = get_tree().get_first_node_in_group("Timer") 
+	camera = get_tree().get_first_node_in_group("Camera") 
+	shop_camera_activate()
+	print(timer)
 	if size == placer_size.small:
 		needed_empty_colliders = 1
 	if size == placer_size.medium:
@@ -80,17 +80,20 @@ func _on_field_detector_area_exited(area):
 	
 func place_field():
 	print("Platziere Feld")
+	
 	if size == placer_size.small:
 		var new_field_small = field_small.instantiate()
 		add_sibling(new_field_small)
 		new_field_small.global_position = calculate_middlepoint()
 		new_field_small.top_level = true
+		
 	if size == placer_size.medium:
 		var new_field_medium = field_medium.instantiate()
 		add_sibling(new_field_medium)
 		calculate_middlepoint()
 		new_field_medium.global_position = calculate_middlepoint()
 		new_field_medium.top_level = true
+		
 	if size == placer_size.large:
 		var new_field_large = field_large.instantiate()
 		add_sibling(new_field_large)
@@ -99,8 +102,9 @@ func place_field():
 		
 	for collider in active_colliders:
 		collider.get_parent().queue_free()
-	queue_free()
-
+	timer.start()
+	
+	
 func calculate_middlepoint():
 	var midpoint_x = 0.0
 	var midpoint_z = 0.0
@@ -134,3 +138,16 @@ func calculate_middlepoint():
 		midpoint.x = midpoint_x / 9
 		midpoint.z = midpoint_z / 9
 		return midpoint
+
+func shop_camera_activate():
+
+	camera.toggle_camera_offset()
+	camera.global_position = Vector3(0,19,2.25)
+	camera.rotation_degrees = Vector3(-90, 0, 0)
+	player.can_move = false
+
+func shop_camera_deactivate():
+	print("hello")
+	camera.toggle_camera_offset()
+	player.can_move = true
+	queue_free()

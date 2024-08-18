@@ -38,6 +38,7 @@ func set_level(new_level: int) -> void:
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_field_size()
 	set_max_level()
 	current_growth_points = start_growth_points

@@ -13,6 +13,8 @@ var is_occupied: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	#set_plant_offset()
 	is_chosen = false
 	print(name, is_chosen)

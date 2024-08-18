@@ -13,6 +13,7 @@ size = Vector3(2.9, 0.1, 2.9)
 size = Vector3(2.9, 0.5, 2.9)
 
 [node name="FieldPlacer" type="Node3D"]
+process_mode = 3
 top_level = true
 script = ExtResource("1_ebu33")
 field_small = ExtResource("2_7qwav")
@@ -31,5 +32,10 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103104, 0)
 shape = SubResource("BoxShape3D_qlp1e")
 
+[node name="Timer" type="Timer" parent="." groups=["Timer"]]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="FieldDetector" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="FieldDetector" to="." method="_on_field_detector_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="shop_camera_deactivate"]

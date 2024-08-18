@@ -16,7 +16,7 @@ func _process(delta):
 	pass
 
 func show_shop(entered_player : Player):
-	#get_tree().paused = true
+	
 	player = entered_player
 	visible = true
 	#player.interaction.calculate_camera_ray()

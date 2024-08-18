@@ -9,12 +9,13 @@
 size = Vector3(3, 0.2, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_grpt5"]
-size = Vector3(2.5, 0.1, 2.5)
+size = Vector3(5, 0.1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_26bar"]
 size = Vector3(6.1, 1, 6.1)
 
 [node name="FieldLarge" type="StaticBody3D"]
+process_mode = 3
 collision_layer = 5
 script = ExtResource("1_13scp")
 size = 2

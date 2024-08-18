@@ -6,7 +6,7 @@ func _ready():
 	for child in get_children():
 		if child is StaticBody3D:
 			fields_array.append(Vector2(child.global_position.x, child.global_position.y))
-			print(child.global_position)
+			
 			
 	
 
