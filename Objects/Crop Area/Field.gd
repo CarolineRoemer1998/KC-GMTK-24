@@ -27,7 +27,7 @@ func _process(delta):
 
 func plant_seed():
 	Global.lose_energy(energy_cost)
-	is_occupied
+	is_occupied = true
 	var new_plant = plant.instantiate()
 	add_child(new_plant)
 	#new_plant.global_position += plant_offset
