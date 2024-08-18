@@ -4,17 +4,21 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for child in get_children():
-		slices.append(child)
+	for child in get_children(true):
+		print(child.name)
+		if child.name == "EnergyCircle":
+			for energy in child.get_children():
+				if energy is Sprite2D:
+					slices.append(energy)
+					print("hello")
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("T_Grow"):
-		Global.current_energy -= 1
-		print(Global.current_energy)
-		update_slices()
+	if Input.is_action_just_pressed("T_Place"):
+		Global.lose_energy(1)
+		
 		
 func update_slices():
 	for i in range(Global.start_energy):

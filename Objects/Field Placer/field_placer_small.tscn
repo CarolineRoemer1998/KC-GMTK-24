@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8hlfhlcflaao"]
 
-[ext_resource type="Script" path="res://Objects/Field Placer/field_placer.gd" id="1_ymvm0"]
-[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="2_e4yot"]
-[ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="3_g6hjx"]
-[ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="4_gveqt"]
+[ext_resource type="Script" path="res://Objects/Field Placer/field_placer.gd" id="1_n1v7a"]
+[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="2_ujk6r"]
+[ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="3_4nadw"]
+[ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="4_mlgxs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mynk8"]
 transparency = 1
@@ -17,10 +17,10 @@ size = Vector3(0.9, 0.5, 0.9)
 
 [node name="FieldPlacer" type="Node3D"]
 top_level = true
-script = ExtResource("1_ymvm0")
-field_small = ExtResource("2_e4yot")
-field_medium = ExtResource("3_g6hjx")
-field_large = ExtResource("4_gveqt")
+script = ExtResource("1_n1v7a")
+field_small = ExtResource("2_ujk6r")
+field_medium = ExtResource("3_4nadw")
+field_large = ExtResource("4_mlgxs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_mynk8")

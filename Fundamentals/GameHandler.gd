@@ -24,7 +24,4 @@ func end_day():
 			#print("growing")
 			#child.grow()
 func start_new_day():
-	if Global.current_energy == 0:
-		Global.current_energy = 9
-	else:
-		Global.current_energy = Global.start_energy 
+	Global.refill_energy()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://8bb3sh6ua0ar"]
+[gd_scene load_steps=26 format=3 uid="uid://8bb3sh6ua0ar"]
 
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
 [ext_resource type="PackedScene" uid="uid://jhph2qilg4x3" path="res://Blender Objects/Vegetable/Environment/path.blend" id="2_ov0ka"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/CropArea.gd" id="4_g6x4t"]
 [ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="4_u0oma"]
 [ext_resource type="PackedScene" uid="uid://d064xu0qtx7ms" path="res://Objects/Crop Area/FieldUnplowed.tscn" id="6_dirvw"]
+[ext_resource type="PackedScene" uid="uid://bnwr7trxoehqq" path="res://User Interface/Energy Bar/control.tscn" id="6_okv1m"]
 [ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="7_n5i0b"]
 [ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="9_ybhkc"]
 [ext_resource type="PackedScene" uid="uid://dunolb6ev3g35" path="res://Objects/Sings/sign_shop.tscn" id="11_74v6e"]
@@ -118,8 +119,10 @@ current = true
 fov = 40.0
 script = ExtResource("3_eubuw")
 
-[node name="GameHandler" type="Node3D" parent="."]
+[node name="GameHandler" type="Node3D" parent="." groups=["GameHandler"]]
 script = ExtResource("4_66nis")
+
+[node name="Energy_bar" parent="GameHandler" groups=["EnergyBar"] instance=ExtResource("6_okv1m")]
 
 [node name="CropArea" type="Node3D" parent="."]
 script = ExtResource("4_g6x4t")

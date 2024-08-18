@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cppiokpqqwp5h"]
 
-[ext_resource type="Script" path="res://Objects/Field Placer/field_placer.gd" id="1_ebu33"]
-[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="2_7qwav"]
-[ext_resource type="Material" uid="uid://cxnmularaknuj" path="res://Colors/field_placer_occupied.tres" id="2_382qe"]
-[ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="3_wmos6"]
-[ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="4_l3oag"]
+[ext_resource type="Script" path="res://Objects/Field Placer/field_placer.gd" id="1_85yuh"]
+[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="2_b13l2"]
+[ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="3_rqlni"]
+[ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="4_j8484"]
+[ext_resource type="Material" uid="uid://cxnmularaknuj" path="res://Colors/field_placer_occupied.tres" id="5_dp54w"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n2y48"]
 size = Vector3(2.9, 0.1, 2.9)
@@ -15,14 +15,14 @@ size = Vector3(2.9, 0.5, 2.9)
 [node name="FieldPlacer" type="Node3D"]
 process_mode = 3
 top_level = true
-script = ExtResource("1_ebu33")
-field_small = ExtResource("2_7qwav")
-field_medium = ExtResource("3_wmos6")
-field_large = ExtResource("4_l3oag")
+script = ExtResource("1_85yuh")
+field_small = ExtResource("2_b13l2")
+field_medium = ExtResource("3_rqlni")
+field_large = ExtResource("4_j8484")
 size = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("2_382qe")
+material_override = ExtResource("5_dp54w")
 mesh = SubResource("BoxMesh_n2y48")
 
 [node name="FieldDetector" type="Area3D" parent="."]

@@ -9,12 +9,13 @@
 size = Vector3(2.1, 2, 2.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_y83w8"]
-size = Vector3(2, 0.7, 2)
+size = Vector3(1, 0.2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i0wox"]
 size = Vector3(1, 0.1, 1)
 
 [node name="FieldSmall" type="StaticBody3D"]
+process_mode = 3
 script = ExtResource("1_ceoc7")
 plant = ExtResource("2_yit43")
 
