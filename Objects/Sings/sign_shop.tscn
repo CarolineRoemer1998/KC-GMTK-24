@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dk1kxx4h5oohj" path="res://Blender Objects/Vegetable/Environment/sign_shop.blend" id="1_xufbm"]
 [ext_resource type="Script" path="res://Objects/Sings/sign_shop.gd" id="2_6cj54"]
-[ext_resource type="PackedScene" uid="uid://b3nlt4ukxr2aq" path="res://Objects/Sings/shop_ui.tscn" id="3_qldkl"]
+[ext_resource type="PackedScene" uid="uid://b3nlt4ukxr2aq" path="res://User Interface/Shop/shop_ui.tscn" id="3_qldkl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_durm4"]
 size = Vector3(2.5, 1, 2.5)

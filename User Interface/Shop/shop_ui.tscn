@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3nlt4ukxr2aq"]
 
-[ext_resource type="Script" path="res://Shop_Ui.gd" id="1_cuwug"]
-[ext_resource type="PackedScene" uid="uid://c8hlfhlcflaao" path="res://field_placer_small.tscn" id="2_jkb1h"]
-[ext_resource type="PackedScene" uid="uid://56yqyfpprrfd" path="res://field_placer_medium.tscn" id="3_gpxn2"]
-[ext_resource type="PackedScene" uid="uid://cppiokpqqwp5h" path="res://field_placer_large.tscn" id="4_a8px8"]
+[ext_resource type="Script" path="res://User Interface/Shop/Shop_Ui.gd" id="1_r2r25"]
+[ext_resource type="PackedScene" uid="uid://c8hlfhlcflaao" path="res://Objects/Field Placer/field_placer_small.tscn" id="2_jfn8x"]
+[ext_resource type="PackedScene" uid="uid://56yqyfpprrfd" path="res://Objects/Field Placer/field_placer_medium.tscn" id="3_2s2f0"]
+[ext_resource type="PackedScene" uid="uid://cppiokpqqwp5h" path="res://Objects/Field Placer/field_placer_large.tscn" id="4_nwqan"]
 
 [node name="Shop_Ui" type="CanvasLayer"]
-script = ExtResource("1_cuwug")
-field_placer_small = ExtResource("2_jkb1h")
-field_placer_medium = ExtResource("3_gpxn2")
-field_placer_large = ExtResource("4_a8px8")
+script = ExtResource("1_r2r25")
+field_placer_small = ExtResource("2_jfn8x")
+field_placer_medium = ExtResource("3_2s2f0")
+field_placer_large = ExtResource("4_nwqan")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 89.0

@@ -1,26 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8hlfhlcflaao"]
+[gd_scene load_steps=8 format=3 uid="uid://56yqyfpprrfd"]
 
-[ext_resource type="Script" path="res://field_placer.gd" id="1_ymvm0"]
-[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="2_e4yot"]
-[ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="3_g6hjx"]
-[ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="4_gveqt"]
+[ext_resource type="Script" path="res://Objects/Field Placer/field_placer.gd" id="1_muehm"]
+[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="2_0drab"]
+[ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="3_iwrgq"]
+[ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="4_wvld8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mynk8"]
 transparency = 1
 albedo_color = Color(0.34902, 1, 1, 0.196078)
 
 [sub_resource type="BoxMesh" id="BoxMesh_n2y48"]
-size = Vector3(0.9, 0.1, 0.9)
+size = Vector3(1.9, 0.1, 1.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlp1e"]
-size = Vector3(0.9, 0.5, 0.9)
+size = Vector3(1.9, 0.5, 1.9)
 
 [node name="FieldPlacer" type="Node3D"]
+process_mode = 3
 top_level = true
-script = ExtResource("1_ymvm0")
-field_small = ExtResource("2_e4yot")
-field_medium = ExtResource("3_g6hjx")
-field_large = ExtResource("4_gveqt")
+script = ExtResource("1_muehm")
+field_small = ExtResource("2_0drab")
+field_medium = ExtResource("3_iwrgq")
+field_large = ExtResource("4_wvld8")
+size = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_mynk8")

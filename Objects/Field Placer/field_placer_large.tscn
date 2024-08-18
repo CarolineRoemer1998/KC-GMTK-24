@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cppiokpqqwp5h"]
 
-[ext_resource type="Script" path="res://field_placer.gd" id="1_ebu33"]
+[ext_resource type="Script" path="res://Objects/Field Placer/field_placer.gd" id="1_ebu33"]
 [ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="2_7qwav"]
 [ext_resource type="Material" uid="uid://cxnmularaknuj" path="res://Colors/field_placer_occupied.tres" id="2_382qe"]
 [ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="3_wmos6"]

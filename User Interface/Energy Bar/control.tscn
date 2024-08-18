@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnwr7trxoehqq"]
 
-[ext_resource type="Script" path="res://Control.gd" id="1_eokre"]
+[ext_resource type="Script" path="res://User Interface/Energy Bar/Control.gd" id="1_eokre"]
 [ext_resource type="Texture2D" uid="uid://csfa6nyyafaq4" path="res://icon.svg" id="2_cj3oq"]
 
 [node name="Energy_bar" type="Control"]
