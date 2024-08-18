@@ -1,15 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bytoofwnuu85b"]
+[gd_scene load_steps=8 format=3 uid="uid://bytoofwnuu85b"]
 
-[ext_resource type="Material" uid="uid://cq84kdc0ioyti" path="res://Colors/field_plowed.tres" id="1_3k7b8"]
 [ext_resource type="Script" path="res://Objects/Crop Area/Field.gd" id="1_13scp"]
 [ext_resource type="Material" uid="uid://dw64apji1s71" path="res://Colors/FieldHighlight.tres" id="2_n0ohp"]
 [ext_resource type="PackedScene" uid="uid://djgi83idvlrxb" path="res://Objects/Plants/plant.tscn" id="2_rh1dn"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_7c6t6"]
-size = Vector3(2.9, 0.1, 2.9)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_t5yyu"]
-data = PackedVector3Array(-1.45, 0.05, 1.45, 1.45, 0.05, 1.45, -1.45, -0.05, 1.45, 1.45, 0.05, 1.45, 1.45, -0.05, 1.45, -1.45, -0.05, 1.45, 1.45, 0.05, -1.45, -1.45, 0.05, -1.45, 1.45, -0.05, -1.45, -1.45, 0.05, -1.45, -1.45, -0.05, -1.45, 1.45, -0.05, -1.45, 1.45, 0.05, 1.45, 1.45, 0.05, -1.45, 1.45, -0.05, 1.45, 1.45, 0.05, -1.45, 1.45, -0.05, -1.45, 1.45, -0.05, 1.45, -1.45, 0.05, -1.45, -1.45, 0.05, 1.45, -1.45, -0.05, -1.45, -1.45, 0.05, 1.45, -1.45, -0.05, 1.45, -1.45, -0.05, -1.45, 1.45, 0.05, 1.45, -1.45, 0.05, 1.45, 1.45, 0.05, -1.45, -1.45, 0.05, 1.45, -1.45, 0.05, -1.45, 1.45, 0.05, -1.45, -1.45, -0.05, 1.45, 1.45, -0.05, 1.45, -1.45, -0.05, -1.45, 1.45, -0.05, 1.45, 1.45, -0.05, -1.45, -1.45, -0.05, -1.45)
+[ext_resource type="PackedScene" uid="uid://th1yt6lao3v" path="res://Blender Objects/Environment/field_large.blend" id="3_p41be"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xu4ov"]
 size = Vector3(3, 0.2, 3)
@@ -17,18 +11,16 @@ size = Vector3(3, 0.2, 3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_grpt5"]
 size = Vector3(2.5, 0.1, 2.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_26bar"]
+size = Vector3(6.1, 1, 6.1)
+
 [node name="FieldLarge" type="StaticBody3D"]
-collision_layer = 4
+collision_layer = 5
 script = ExtResource("1_13scp")
 size = 2
 plant = ExtResource("2_rh1dn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_3k7b8")
-mesh = SubResource("BoxMesh_7c6t6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_t5yyu")
+[node name="field_large" parent="." instance=ExtResource("3_p41be")]
 
 [node name="Highlight" type="MeshInstance3D" parent="."]
 visible = false
@@ -40,3 +32,9 @@ collision_layer = 4
 
 [node name="DetectionCollider" type="CollisionShape3D" parent="DetectableArea"]
 shape = SubResource("BoxShape3D_grpt5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_26bar")
+
+[editable path="field_large"]

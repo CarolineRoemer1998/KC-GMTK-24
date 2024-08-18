@@ -9,7 +9,7 @@
 [node name="SignShop" type="Node3D"]
 script = ExtResource("2_6cj54")
 
-[node name="sign_shop" parent="." instance=ExtResource("1_xufbm")]
+[node name="sign_shop" type="Node3D" parent="."]
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
@@ -20,6 +20,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
 shape = SubResource("BoxShape3D_durm4")
 
 [node name="Shop_Ui" parent="." instance=ExtResource("3_qldkl")]
+
+[node name="sign_shop2" parent="." instance=ExtResource("1_xufbm")]
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
