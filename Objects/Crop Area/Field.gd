@@ -11,14 +11,37 @@ var plant_offset : Vector3
 var is_chosen: bool 
 var is_occupied: bool
 
+# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+@onready var mesh: MeshInstance3D
+var color_unwatered = preload("res://Colors/watering_state_unwatered.tres")
+var color_watered = preload("res://Colors/watering_state_watered.tres")
+
+var plant_is_watered : bool = false
+
+func set_watered(is_watered : bool):
+	if is_watered:
+		mesh.material_override = color_watered
+		plant_is_watered = true
+	else:
+		mesh.material_override = color_unwatered
+		plant_is_watered = false
+	
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	#set_plant_offset()
 	is_chosen = false
 	print(name, is_chosen)
 	is_occupied = false
+	# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+	for child in get_children():
+		if child.name == "field":
+			for _mesh in child.get_children():
+				mesh = _mesh
+
+	# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

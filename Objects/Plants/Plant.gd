@@ -2,10 +2,10 @@ extends Node3D
 
 class_name Plant
 
-enum plant_type {carrot, strawberry}
+enum plant_type {carrot, strawberry, zucchini, cauliflower}
 enum growth_size {small, medium, large}
 
-@export var needs_water : bool = false
+@export var needs_water : bool = true
 @export var isInfested : bool = false
 
 @export var field: Field
@@ -22,20 +22,50 @@ enum growth_size {small, medium, large}
 
 @export_range(0,4) var level: int = 0 
 
-
 var growth_stages: Array = []
 var last_stage 
 var current_stage
 var max_level: int
 var field_size: String
-# Getter method
-func get_level() -> int:
-	return level
 
-# Setter method with min and max constraints
-func set_level(new_level: int) -> void:
-	level = clamp(new_level, 0, 4)
-	
+# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+var contest_points : int
+var watering_frequency : int
+var days_since_last_watering : int
+
+func set_watering_frequency():
+	match type:
+		plant_type.carrot:
+			watering_frequency = 2
+		plant_type.strawberry:
+			watering_frequency = 2
+		plant_type.cauliflower:
+			watering_frequency = 3
+		plant_type.zucchini:
+			watering_frequency = 1
+			
+
+func update_to_new_day():
+	days_since_last_watering += 1
+	if watering_frequency <= days_since_last_watering:
+		needs_water = true
+		field.set_watered(false)
+	if watering_frequency >= days_since_last_watering:
+		grow()
+
+func water():
+	if needs_water:
+		days_since_last_watering = 0
+		contest_points += 1
+		field.set_watered(true)
+
+func _process(delta: float) -> void:
+	if field.is_chosen:
+		if Input.is_action_just_pressed("water"):
+			# TODO: Start Minigame, return value for contest_points
+			water()
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -53,7 +83,23 @@ func _ready():
 		growth_stages.append(carrot_medium)
 		growth_stages.append(carrot_large)
 		
+	# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+	field = get_parent()
+	days_since_last_watering = watering_frequency
+	
+	contest_points = 0
+	set_watering_frequency()
+	# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+# Getter method
+func get_level() -> int:
+	return level
+
+# Setter method with min and max constraints
+func set_level(new_level: int) -> void:
+	level = clamp(new_level, 0, 4)
+	
+		
 func grow():
 	if get_level() < growth_stages.size()-1 && get_level() < max_level:
 		current_growth_points -= 1

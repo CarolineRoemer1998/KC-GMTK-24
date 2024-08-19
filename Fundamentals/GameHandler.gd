@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	
 		
 func end_day():
-	get_tree().call_group("Plant","grow")
+	get_tree().call_group("Plant","update_to_new_day")
 	start_new_day()
 	#for child in Scene.get_children:
 		#print(child.name)
