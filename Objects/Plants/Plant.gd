@@ -14,11 +14,34 @@ enum growth_size {small, medium, large}
 @export var current_growth_points: int = 3
 @export var type: plant_type
 
+@onready var carrot_stages: Node3D = $CarrotStages
 @onready var carrot_seeds = $CarrotStages/carrot_seeds
 @onready var carrot_sprout = $CarrotStages/carrot_sprout
 @onready var carrot_small = $CarrotStages/carrot_small
 @onready var carrot_medium = $CarrotStages/carrot_medium
 @onready var carrot_large = $CarrotStages/carrot_large
+
+@onready var strawberry_stages: Node3D = $StrawberryStages
+@onready var strawberry_seeds: Node3D = $StrawberryStages/strawberry_seeds
+@onready var strawberry_sprout: Node3D = $StrawberryStages/strawberry_sprout
+@onready var strawberry_small: Node3D = $StrawberryStages/strawberry_small
+@onready var strawberry_medium: Node3D = $StrawberryStages/strawberry_medium
+@onready var strawberry_large: Node3D = $StrawberryStages/strawberry_large
+
+@onready var cauliflower_stages: Node3D = $CauliflowerStages
+@onready var cauliflower_seeds: Node3D = $CauliflowerStages/cauliflower_seeds
+@onready var cauliflower_sprout: Node3D = $CauliflowerStages/cauliflower_sprout
+@onready var cauliflower_small: Node3D = $CauliflowerStages/cauliflower_small
+@onready var cauliflower_medium: Node3D = $CauliflowerStages/cauliflower_medium
+@onready var cauliflower_large: Node3D = $CauliflowerStages/cauliflower_large
+
+@onready var zucchini_stages: Node3D = $ZucchiniStages
+@onready var zucchini_seeds: Node3D = $ZucchiniStages/zucchini_seeds
+@onready var zucchini_sprout: Node3D = $ZucchiniStages/zucchini_sprout
+@onready var zucchini_small: Node3D = $ZucchiniStages/zucchini_small
+@onready var zucchini_medium: Node3D = $ZucchiniStages/zucchini_medium
+@onready var zucchini_large: Node3D = $ZucchiniStages/zucchini_large
+
 
 @export_range(0,4) var level: int = 0 
 
@@ -74,16 +97,41 @@ func _ready():
 	current_growth_points = start_growth_points
 	
 	#nur zu testzwecken
-	type = plant_type.carrot
+	type = plant_type.cauliflower
 	
-	if type == plant_type.carrot:
-		growth_stages.append(carrot_seeds)
-		growth_stages.append(carrot_sprout)
-		growth_stages.append(carrot_small)
-		growth_stages.append(carrot_medium)
-		growth_stages.append(carrot_large)
 		
 	# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+	match type:
+		plant_type.carrot:
+			carrot_stages.visible = true
+			growth_stages.append(carrot_seeds)
+			growth_stages.append(carrot_sprout)
+			growth_stages.append(carrot_small)
+			growth_stages.append(carrot_medium)
+			growth_stages.append(carrot_large)
+		plant_type.strawberry:
+			strawberry_stages.visible = true
+			growth_stages.append(strawberry_seeds)
+			growth_stages.append(strawberry_sprout)
+			growth_stages.append(strawberry_small)
+			growth_stages.append(strawberry_medium)
+			growth_stages.append(strawberry_large)
+		plant_type.cauliflower:
+			cauliflower_stages.visible = true
+			growth_stages.append(cauliflower_seeds)
+			growth_stages.append(cauliflower_sprout)
+			growth_stages.append(cauliflower_small)
+			growth_stages.append(cauliflower_medium)
+			growth_stages.append(cauliflower_large)
+		plant_type.zucchini:
+			zucchini_stages.visible = true
+			growth_stages.append(zucchini_seeds)
+			growth_stages.append(zucchini_sprout)
+			growth_stages.append(zucchini_small)
+			growth_stages.append(zucchini_medium)
+			growth_stages.append(zucchini_large)
+			
+			
 	field = get_parent()
 	days_since_last_watering = watering_frequency
 	

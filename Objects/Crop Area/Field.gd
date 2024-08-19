@@ -53,7 +53,7 @@ func plant_seed():
 	is_occupied = true
 	var new_plant = plant.instantiate()
 	add_child(new_plant)
-	#new_plant.global_position += plant_offset
+	new_plant.global_position += Vector3(0,0.25,0)
 	
 
 #func set_plant_offset():
