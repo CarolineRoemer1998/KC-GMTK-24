@@ -56,7 +56,6 @@ func get_weight(level : int) -> Player.Weight:
 
 func store_plant(delta : float):
 	t += delta*2
-	print("throwing...")
 	current_position = carrying_plant.global_position
 	new_position = chest_position
 	carrying_plant.global_position = carrying_plant.global_position.lerp(chest_position, t)
