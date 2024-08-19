@@ -9,6 +9,16 @@ var placer_height: float = 0.0
 var mouse_position
 var field: Field
 var player: Player
+
+# Harvested Plant handling
+var carrying_plant : Plant
+var t = 0.0
+var current_position : Vector3
+var new_position : Vector3
+var is_throwing : bool = false
+var in_front_of_chest : bool = false
+var chest_position : Vector3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent()
@@ -21,9 +31,11 @@ func harvest():
 	if plant != null:
 		var mesh = plant.growth_stages[plant.get_level()]
 		if field.has_harvestable_plant:
-			mesh.reparent(bone_attachment)
-			mesh.position = plant.get_carrying_position()
-			mesh.rotation_degrees = plant.get_carrying_rotation()
+			plant.reparent(bone_attachment)
+			#print(mesh.name, mesh. )
+			carrying_plant = plant
+			plant.position = plant.get_carrying_position()
+			plant.rotation_degrees = plant.get_carrying_rotation()
 			player.carrying_weight = get_weight(plant.get_level())
 
 func get_plant() -> Plant:
@@ -42,19 +54,25 @@ func get_weight(level : int) -> Player.Weight:
 	else:
 		return Player.Weight.none
 
+func store_plant(delta : float):
+	t += delta*2
+	print("throwing...")
+	current_position = carrying_plant.global_position
+	new_position = chest_position
+	carrying_plant.global_position = carrying_plant.global_position.lerp(chest_position, t)
+	if carrying_plant.global_position.distance_to(chest_position) < 0.1:
+		t=0.0
+		current_position = new_position
+		is_throwing = false
+	
+
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-	#if Input.is_action_just_pressed("T_Small"):
-		#
-	#if Input.is_action_just_pressed("T_Med"):
-		#var new_field_placer_medium = field_placer_medium .instantiate()
-		#add_child(new_field_placer_medium)
-	#if Input.is_action_just_pressed("T_Large"):
-		#var new_field_placer_large = field_placer_large.instantiate()
-		#add_child(new_field_placer_large)
+	if is_throwing:
+		store_plant(delta)
+	
 		
 
 func calculate_camera_ray():

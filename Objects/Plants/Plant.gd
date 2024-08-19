@@ -23,11 +23,11 @@ var energy_gain : int
 @export var type: plant_type
 
 @onready var carrot_stages: Node3D = $CarrotStages
-@onready var carrot_seeds = $CarrotStages/carrot_seeds
-@onready var carrot_sprout = $CarrotStages/carrot_sprout
-@onready var carrot_small = $CarrotStages/carrot_small
-@onready var carrot_medium = $CarrotStages/carrot_medium
-@onready var carrot_large = $CarrotStages/carrot_large
+@onready var carrot_seeds: Node3D = $CarrotStages/carrot_seeds
+@onready var carrot_sprout: Node3D = $CarrotStages/carrot_sprout
+@onready var carrot_small: Node3D = $CarrotStages/carrot_small
+@onready var carrot_medium: Node3D = $CarrotStages/carrot_medium
+@onready var carrot_large: Node3D = $CarrotStages/carrot_large
 
 @onready var strawberry_stages: Node3D = $StrawberryStages
 @onready var strawberry_seeds: Node3D = $StrawberryStages/strawberry_seeds
@@ -50,6 +50,7 @@ var energy_gain : int
 @onready var zucchini_medium: Node3D = $ZucchiniStages/zucchini_medium
 @onready var zucchini_large: Node3D = $ZucchiniStages/zucchini_large
 
+@onready var animation_handler: Node3D = $AnimationHandler
 
 @export_range(0,4) var level: int = 0 
 
@@ -58,6 +59,8 @@ var last_stage
 var current_stage
 var max_level: int
 var field_size: String
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 var days_since_last_watering : int

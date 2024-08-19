@@ -34,7 +34,6 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	#set_plant_offset()
 	is_chosen = false
-	print(name, is_chosen)
 	is_occupied = false
 	# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 	for child in get_children():
@@ -48,6 +47,12 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("T_Plant") && is_chosen && !is_occupied:
 		plant_seed()
+		print("planting...")
+
+func reset():
+	set_watered(false)
+	is_occupied = false
+	has_harvestable_plant = false
 
 func plant_seed():
 	Global.lose_energy(energy_cost)
