@@ -1,0 +1,187 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvypfmkur1wyc"]
+
+[ext_resource type="Texture2D" uid="uid://c0410aiehxggi" path="res://Scenes/Minigames/pngtree-black-ring-png-image_2319165.png" id="1_1neft"]
+[ext_resource type="Script" path="res://Scenes/Minigames/lawnmowing_game.gd" id="1_x22d6"]
+[ext_resource type="Texture2D" uid="uid://5tn56u1dctcn" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/24.png" id="2_m0cy1"]
+[ext_resource type="Script" path="res://Scenes/Minigames/Lawnmover.gd" id="3_7vu1c"]
+[ext_resource type="Texture2D" uid="uid://csfa6nyyafaq4" path="res://icon.svg" id="4_vcdnn"]
+[ext_resource type="Texture2D" uid="uid://vmkfbuu07q7i" path="res://User Interface/Imported Asstes Ui/StarIcon.png" id="5_ycysx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btyp4"]
+size = Vector2(52.5843, 136.066)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbfi7"]
+size = Vector2(49, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pac7n"]
+size = Vector2(115.81, 125.714)
+
+[node name="Lawnmowing_Game" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x22d6")
+
+[node name="Outer_Circle" type="Sprite2D" parent="."]
+position = Vector2(600, 300)
+texture = ExtResource("1_1neft")
+
+[node name="Lawnmower_Spinner" type="Node2D" parent="Outer_Circle"]
+rotation = -6.28319
+
+[node name="Lawnmover" type="Sprite2D" parent="Outer_Circle/Lawnmower_Spinner"]
+position = Vector2(-82.7704, -4.08743)
+scale = Vector2(0.779698, 0.161686)
+texture = ExtResource("2_m0cy1")
+script = ExtResource("3_7vu1c")
+
+[node name="Stone_Detector" type="Area2D" parent="Outer_Circle/Lawnmower_Spinner/Lawnmover"]
+position = Vector2(-72.1172, 6.72552)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Lawnmower_Spinner/Lawnmover/Stone_Detector" groups=["GameHandler"]]
+position = Vector2(1.92395, -6.18481)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_btyp4")
+
+[node name="Lawnmover_short" type="Sprite2D" parent="Outer_Circle/Lawnmower_Spinner"]
+visible = false
+position = Vector2(-63.9846, -5)
+scale = Vector2(0.556052, 0.161686)
+texture = ExtResource("2_m0cy1")
+
+[node name="Inner_Circle" type="Sprite2D" parent="Outer_Circle"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_1neft")
+
+[node name="Stone" type="Sprite2D" parent="Outer_Circle"]
+position = Vector2(5, 132)
+scale = Vector2(0.382812, 0.273437)
+texture = ExtResource("4_vcdnn")
+
+[node name="Stone" type="Area2D" parent="Outer_Circle/Stone"]
+position = Vector2(-1.30603, -1.82849)
+scale = Vector2(2.61225, 3.65715)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Stone/Stone"]
+position = Vector2(-3.05176e-05, -3.05176e-05)
+shape = SubResource("RectangleShape2D_mbfi7")
+
+[node name="Stone2" type="Sprite2D" parent="Outer_Circle"]
+position = Vector2(49, -131)
+scale = Vector2(0.382812, 0.273437)
+texture = ExtResource("4_vcdnn")
+
+[node name="Stone" type="Area2D" parent="Outer_Circle/Stone2"]
+position = Vector2(-1.30603, -1.82849)
+scale = Vector2(2.61225, 3.65715)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Stone2/Stone"]
+position = Vector2(-3.05176e-05, -3.05176e-05)
+shape = SubResource("RectangleShape2D_mbfi7")
+
+[node name="Gras" type="Sprite2D" parent="Outer_Circle"]
+position = Vector2(141, -2.99997)
+scale = Vector2(0.492188, 0.4375)
+texture = ExtResource("5_ycysx")
+
+[node name="Gras" type="Area2D" parent="Outer_Circle/Gras"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras/Gras"]
+position = Vector2(0, 1.14282)
+shape = SubResource("RectangleShape2D_pac7n")
+
+[node name="Gras2" type="Sprite2D" parent="Outer_Circle"]
+position = Vector2(-66, 113)
+scale = Vector2(0.492188, 0.4375)
+texture = ExtResource("5_ycysx")
+
+[node name="Gras" type="Area2D" parent="Outer_Circle/Gras2"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras2/Gras"]
+position = Vector2(0, 1.14282)
+shape = SubResource("RectangleShape2D_pac7n")
+
+[node name="Gras3" type="Sprite2D" parent="Outer_Circle"]
+position = Vector2(-129, 54)
+scale = Vector2(0.492188, 0.4375)
+texture = ExtResource("5_ycysx")
+
+[node name="Gras" type="Area2D" parent="Outer_Circle/Gras3"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras3/Gras"]
+position = Vector2(0, 1.14282)
+shape = SubResource("RectangleShape2D_pac7n")
+
+[node name="Gras4" type="Sprite2D" parent="Outer_Circle"]
+position = Vector2(-121, -71)
+scale = Vector2(0.492188, 0.4375)
+texture = ExtResource("5_ycysx")
+
+[node name="Gras" type="Area2D" parent="Outer_Circle/Gras4"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras4/Gras"]
+position = Vector2(0, 1.14282)
+shape = SubResource("RectangleShape2D_pac7n")
+
+[node name="Gras5" type="Sprite2D" parent="Outer_Circle"]
+position = Vector2(-39, -138)
+scale = Vector2(0.492188, 0.4375)
+texture = ExtResource("5_ycysx")
+
+[node name="Gras" type="Area2D" parent="Outer_Circle/Gras5"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras5/Gras"]
+position = Vector2(0, 1.14282)
+shape = SubResource("RectangleShape2D_pac7n")
+
+[node name="Gras6" type="Sprite2D" parent="Outer_Circle"]
+position = Vector2(113, -86)
+scale = Vector2(0.492188, 0.4375)
+texture = ExtResource("5_ycysx")
+
+[node name="Gras" type="Area2D" parent="Outer_Circle/Gras6"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras6/Gras"]
+position = Vector2(0, 1.14282)
+shape = SubResource("RectangleShape2D_pac7n")
+
+[node name="Gras7" type="Sprite2D" parent="Outer_Circle"]
+position = Vector2(98, 89)
+scale = Vector2(0.492188, 0.4375)
+texture = ExtResource("5_ycysx")
+
+[node name="Gras" type="Area2D" parent="Outer_Circle/Gras7"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras7/Gras"]
+position = Vector2(0, 1.14282)
+shape = SubResource("RectangleShape2D_pac7n")
+
+[connection signal="area_entered" from="Outer_Circle/Lawnmower_Spinner/Lawnmover/Stone_Detector" to="Outer_Circle/Lawnmower_Spinner/Lawnmover" method="_on_stone_detector_area_entered"]
