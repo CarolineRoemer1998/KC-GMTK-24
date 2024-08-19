@@ -2203,7 +2203,7 @@ mesh = SubResource("ArrayMesh_0xgmj")
 skin = SubResource("Skin_vwcsp")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Body/Armature/Skeleton3D"]
-transform = Transform3D(0.997463, 0.0711801, -0.00016552, -0.0584023, 0.81973, 0.569765, 0.0406916, -0.56831, 0.821808, 0, 0.267576, -0.00537779)
+transform = Transform3D(0.997463, 0.0711802, -0.000165576, -0.0584023, 0.819729, 0.569766, 0.0406918, -0.568311, 0.821807, 0, 0.267576, -0.00537779)
 bone_name = "body"
 bone_idx = 1
 

@@ -7,10 +7,10 @@
 [ext_resource type="Material" uid="uid://cxnmularaknuj" path="res://Colors/field_placer_occupied.tres" id="5_dp54w"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n2y48"]
-size = Vector3(2.9, 0.1, 2.9)
+size = Vector3(5.8, 0.1, 5.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlp1e"]
-size = Vector3(2.9, 0.5, 2.9)
+size = Vector3(5.8, 0.5, 5.8)
 
 [node name="FieldPlacer" type="Node3D"]
 process_mode = 3
