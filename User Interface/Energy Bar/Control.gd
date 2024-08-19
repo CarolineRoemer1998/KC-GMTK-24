@@ -11,9 +11,7 @@ func _ready():
 			for energy in child.get_children():
 				if energy is Sprite2D:
 					slices.append(energy)
-					print("hello")
 	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

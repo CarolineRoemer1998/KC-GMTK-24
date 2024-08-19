@@ -320,6 +320,20 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_f4djr")
 text = "Straw"
 icon_alignment = 1
 
+[node name="Close_Shop" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.904
+anchor_top = 0.112
+anchor_right = 0.904
+anchor_bottom = 0.112
+offset_left = -21.688
+offset_top = -31.776
+offset_right = 24.312
+offset_bottom = 31.224
+theme_override_font_sizes/font_size = 40
+text = "X"
+
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_small_field" to="." method="_on_buy_small_field_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_med_field" to="." method="_on_buy_med_field_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_large_field" to="." method="_on_buy_large_field_pressed"]
@@ -327,3 +341,4 @@ icon_alignment = 1
 [connection signal="pressed" from="Panel/Buy_Cauliflower" to="." method="_on_buy_cauliflower_pressed"]
 [connection signal="pressed" from="Panel/Buy_Zucchini" to="." method="_on_buy_zucchini_pressed"]
 [connection signal="pressed" from="Panel/Buy_Strawberry" to="." method="_on_buy_strawberry_pressed"]
+[connection signal="pressed" from="Panel/Close_Shop" to="." method="_on_close_shop_pressed"]

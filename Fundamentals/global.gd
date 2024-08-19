@@ -9,6 +9,10 @@ var current_energy : int
 var energy_bar 
 var game_handler
 
+var current_day : int
+var contest_day : int = 10
+var days_until_contest: int
+
 var is_affordable: bool
 
 # Called when the node enters the scene tree for the first time.
@@ -48,3 +52,9 @@ func check_money(price: int):
 	else:
 		is_affordable = false
 		print("Sorry, not enough Money!")
+
+func start_contest():
+	get_tree().paused = true
+	get_tree().change_scene_to_file("res://Scenes/Contest.tscn")
+	print("test")
+	get_tree().paused = false

@@ -39,7 +39,6 @@ func close_shop():
 
 
 
-
 func _on_buy_small_field_pressed():
 	Global.check_money(price_dic["small_field"])
 	if Global.is_affordable:
@@ -71,18 +70,26 @@ func _on_buy_carrot_pressed():
 	Global.check_money(price_dic["carrot"])
 	if Global.is_affordable:
 		Global.spend_money(price_dic["carrot"])
+		Inventory.amount_carrots += 1
 
 func _on_buy_cauliflower_pressed():
 	Global.check_money(price_dic["cauliflower"])
 	if Global.is_affordable:
 		Global.spend_money(price_dic["cauliflower"])
+		Inventory.amount_cauliflowers += 1
 
 func _on_buy_zucchini_pressed():
 	Global.check_money(price_dic["zucchini"])
 	if Global.is_affordable:
 		Global.spend_money(price_dic["zucchini"])
+		Inventory.amount_zucchinis += 1
 
 func _on_buy_strawberry_pressed():
 	Global.check_money(price_dic["strawberry"])
 	if Global.is_affordable:
 		Global.spend_money(price_dic["strawberry"])
+		Inventory.amount_strawberries += 1
+
+
+func _on_close_shop_pressed():
+	close_shop()
