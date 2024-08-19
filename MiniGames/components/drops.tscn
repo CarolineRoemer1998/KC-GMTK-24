@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://yysfvogq4pke"]
+
+[ext_resource type="Texture2D" uid="uid://clyywxhcbhgla" path="res://Blender Objects/ui/Minigames/drop.png" id="1_opp5k"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+scale = Vector2(0.2, 0.2)
+emitting = false
+lifetime = 0.7
+local_coords = true
+texture = ExtResource("1_opp5k")
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(0, 5000)
+angle_min = -2.0
+angle_max = 2.0
+scale_amount_min = 0.2
+scale_amount_max = 0.2

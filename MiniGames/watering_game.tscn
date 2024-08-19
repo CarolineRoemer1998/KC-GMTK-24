@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://baxc7rtvf0s8f"]
+
+[ext_resource type="Script" path="res://WateringGame.gd" id="1_q86r8"]
+[ext_resource type="Texture2D" uid="uid://ul8ujutyfaoi" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/07.png" id="2_t4cbe"]
+[ext_resource type="Texture2D" uid="uid://de4a4r0l4y2c8" path="res://Blender Objects/ui/Minigames/carrot_unwatered.png" id="4_jpsao"]
+[ext_resource type="Texture2D" uid="uid://cnt6nvd6n63ln" path="res://Blender Objects/ui/Minigames/watering-can.png" id="4_tb1h7"]
+[ext_resource type="Texture2D" uid="uid://b1w518u63bro7" path="res://Blender Objects/ui/Minigames/carrot_watered.png" id="5_myea5"]
+[ext_resource type="Texture2D" uid="uid://g128onubqh04" path="res://User Interface/PNG/Vector/Style 3/emote__.png" id="7_4c1td"]
+[ext_resource type="PackedScene" uid="uid://yysfvogq4pke" path="res://MiniGames/components/drops.tscn" id="7_tec5r"]
+[ext_resource type="Texture2D" uid="uid://dl2bjkkd8s5nj" path="res://MeshLibrary/svg/left_mouse_button_light.svg" id="8_w361u"]
+
+[sub_resource type="Animation" id="Animation_51jpq"]
+resource_name = "watering"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("carrot/Watering-can:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.785398, -0.785398]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"stop_emitting_drops"
+}, {
+"args": [],
+"method": &"emit_drops"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_x1tfh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("carrot/Watering-can:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2y2lm"]
+_data = {
+"RESET": SubResource("Animation_x1tfh"),
+"watering": SubResource("Animation_51jpq")
+}
+
+[node name="WateringGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q86r8")
+
+[node name="carrot" type="Sprite2D" parent="."]
+position = Vector2(269, 365)
+scale = Vector2(1.55, 1.55)
+texture = ExtResource("2_t4cbe")
+
+[node name="Watering-can" type="Sprite2D" parent="carrot"]
+position = Vector2(43.2258, -154.839)
+rotation = 0.785398
+scale = Vector2(0.214813, 0.214813)
+texture = ExtResource("4_tb1h7")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="carrot"]
+offset_left = -56.129
+offset_top = -81.2903
+offset_right = 1443.87
+offset_bottom = 1618.71
+scale = Vector2(0.08, 0.08)
+step = 0.0
+fill_mode = 3
+texture_under = ExtResource("4_jpsao")
+texture_progress = ExtResource("5_myea5")
+
+[node name="ProgressBar" type="ProgressBar" parent="carrot"]
+offset_left = -93.5484
+offset_top = -83.2258
+offset_right = -70.5484
+offset_bottom = 56.7742
+fill_mode = 3
+
+[node name="drops" parent="." instance=ExtResource("7_tec5r")]
+position = Vector2(304, 241)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2y2lm")
+}
+
+[node name="Speechbubble" type="Sprite2D" parent="."]
+position = Vector2(452, 273)
+rotation = 2.61799
+scale = Vector2(3, 2.72368)
+texture = ExtResource("7_4c1td")
+
+[node name="LeftClickIcon" type="Sprite2D" parent="Speechbubble"]
+position = Vector2(0.133987, -2.4585)
+rotation = -2.57518
+scale = Vector2(0.342101, 0.358995)
+skew = -0.083617
+texture = ExtResource("8_w361u")
+
+[node name="TimerStartWatering" type="Timer" parent="."]
+wait_time = 0.6
+
+[connection signal="timeout" from="TimerStartWatering" to="." method="_on_timer_start_watering_timeout"]
