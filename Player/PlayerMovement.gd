@@ -1,27 +1,37 @@
 extends CharacterBody3D
 class_name Player
-@onready var body: MeshInstance3D = $Body
 
+enum Weight {none, light, medium, heavy}
+
+@onready var body: MeshInstance3D = $Body
 @onready var collision_shape_3d = $CollisionShape3D
 @onready var object_detector = $Body/ObjectDetector
 @onready var interaction = $Interaction
+@onready var animation_player: AnimationPlayer = $Body/AnimationPlayer
 
 var SPEED = 4.5
+
 var can_move: bool = true
-@onready var animation_player: AnimationPlayer = $Body/AnimationPlayer
+var carrying_weight : Weight = Weight.none
 
 
 func _physics_process(delta: float) -> void:
-
 	if can_move:
-		if Input.get_vector("left", "right", "up", "down") != Vector2(0.0,0.0):
-			animation_player.play("walk")
-		if Input.get_vector("left", "right", "up", "down") == Vector2(0.0,0.0):
-			animation_player.play("idle")
+		handle_animations()
+		
 		if Input.is_action_pressed("run"):
 			SPEED = 10
 		if Input.is_action_just_released("run"):
-			SPEED = 4.5
+			match carrying_weight:
+				Weight.none:
+					SPEED = 4.5
+				Weight.light:
+					SPEED = 4.5
+				Weight.medium:
+					SPEED = 4.0
+				Weight.heavy:
+					SPEED = 1.0
+					print(SPEED)
 		# Get the input direction and handle the movement/deceleration.
 		var input_dir := Input.get_vector("left", "right", "up", "down")
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -40,3 +50,26 @@ func _physics_process(delta: float) -> void:
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 
 		move_and_slide()
+
+func handle_animations():
+	if Input.get_vector("left", "right", "up", "down") != Vector2(0.0,0.0):
+		match carrying_weight:
+			Weight.none:
+				animation_player.play("walk")
+			Weight.light:
+				animation_player.play("walk_holding_s")
+			Weight.medium:
+				animation_player.play("walk_holding_m")
+			Weight.heavy:
+				animation_player.play("walk_holding_l")
+	if Input.get_vector("left", "right", "up", "down") == Vector2(0.0,0.0):
+		match carrying_weight:
+			Weight.none:
+				animation_player.play("idle")
+			Weight.light:
+				animation_player.play("idle_holding_s")
+			Weight.medium:
+				animation_player.play("idle_holding_m")
+			Weight.heavy:
+				animation_player.play("idle_holding_l")
+

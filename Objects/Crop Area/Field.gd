@@ -17,6 +17,7 @@ var color_unwatered = preload("res://Colors/watering_state_unwatered.tres")
 var color_watered = preload("res://Colors/watering_state_watered.tres")
 
 var plant_is_watered : bool = false
+var has_harvestable_plant : bool = false
 
 func set_watered(is_watered : bool):
 	if is_watered:

@@ -12,6 +12,9 @@ func _process(delta: float) -> void:
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("T_Grow"):
 		end_day()
+	if Input.is_action_just_pressed("harvest"):
+		get_tree().call_group("Interaction","harvest")
+		print("pressed H")
 	
 	
 		

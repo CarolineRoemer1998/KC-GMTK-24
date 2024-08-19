@@ -97,7 +97,7 @@ func _ready():
 	current_growth_points = start_growth_points
 	
 	#nur zu testzwecken
-	type = plant_type.cauliflower
+	type = plant_type.carrot
 	
 		
 	# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
@@ -146,6 +146,8 @@ func get_level() -> int:
 # Setter method with min and max constraints
 func set_level(new_level: int) -> void:
 	level = clamp(new_level, 0, 4)
+	if level >= 2:
+		field.has_harvestable_plant = true
 	
 		
 func grow():
@@ -180,3 +182,66 @@ func set_max_level():
 	elif field_size == str(field.field_size.large):
 		max_level = 4 
 	
+func get_carrying_position() -> Vector3:
+	match type:
+		plant_type.carrot:
+			if get_level() == 2:
+				return Vector3(0,1,1.1)
+			if get_level() == 3:
+				return Vector3(0,2.1,1.7)
+			if get_level() == 4:
+				return Vector3(0,3.2,2.2)
+		plant_type.strawberry:
+			if get_level() == 2:
+				return Vector3(0,1.2,0.9)
+			if get_level() == 3:
+				return Vector3(0.1,1.1,1.5)
+			if get_level() == 4:
+				return Vector3(0,1.6,2.3)
+		plant_type.cauliflower:
+			if get_level() == 2:
+				return Vector3(0,0.7,0.7)
+			if get_level() == 3:
+				return Vector3(0,0.5,1.5)
+			if get_level() == 4:
+				return Vector3(0,0.4,2)
+		plant_type.zucchini:
+			if get_level() == 2:
+				return Vector3(0.4,-0.1,0.8)
+			if get_level() == 3:
+				return Vector3(0.1,1.1,0.8)
+			if get_level() == 4:
+				return Vector3(0.12,0.8,1.9)
+	return Vector3(0,0,0)
+
+func get_carrying_rotation() -> Vector3:
+	match type:
+		plant_type.carrot:
+			if get_level() == 2:
+				return Vector3(0,0,0)
+			if get_level() == 3:
+				return Vector3(11,1,0)
+			if get_level() == 4:
+				return Vector3(7,0,0)
+		plant_type.strawberry:
+			if get_level() == 2:
+				return Vector3(-16,-1,0)
+			if get_level() == 3:
+				return Vector3(17.5,3.7,-5.2)
+			if get_level() == 4:
+				return Vector3(10,1,0)
+		plant_type.cauliflower:
+			if get_level() == 2:
+				return Vector3(0,0,0)
+			if get_level() == 3:
+				return Vector3(0,0,0)
+			if get_level() == 4:
+				return Vector3(9,0,0)
+		plant_type.zucchini:
+			if get_level() == 2:
+				return Vector3(2,9,-35)
+			if get_level() == 3:
+				return Vector3(-5.5,38,27)
+			if get_level() == 4:
+				return Vector3(10,80,65)
+	return Vector3(0,0,0)
