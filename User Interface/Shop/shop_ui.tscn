@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3nlt4ukxr2aq"]
+[gd_scene load_steps=12 format=3 uid="uid://b3nlt4ukxr2aq"]
 
 [ext_resource type="Script" path="res://User Interface/Shop/Shop_Ui.gd" id="1_r2r25"]
 [ext_resource type="PackedScene" uid="uid://c8hlfhlcflaao" path="res://Objects/Field Placer/field_placer_small.tscn" id="2_jfn8x"]
 [ext_resource type="PackedScene" uid="uid://56yqyfpprrfd" path="res://Objects/Field Placer/field_placer_medium.tscn" id="3_2s2f0"]
 [ext_resource type="PackedScene" uid="uid://cppiokpqqwp5h" path="res://Objects/Field Placer/field_placer_large.tscn" id="4_nwqan"]
+[ext_resource type="Theme" uid="uid://blh1becode1fw" path="res://User Interface/Shop/ShopTheme.tres" id="5_v16ev"]
+[ext_resource type="Texture2D" uid="uid://bclwgx3o5ead5" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/Buttons/PNG/BtnGray.png" id="6_dac6y"]
+[ext_resource type="Texture2D" uid="uid://dlgeuh1om1x7x" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/Buttons/PNG/BtnDarkGray.png" id="7_32clf"]
+[ext_resource type="Texture2D" uid="uid://bs658gfylwvi6" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/06.png" id="7_mxl52"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iyqw1"]
+content_margin_bottom = 13.0
+texture = ExtResource("6_dac6y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uui01"]
+texture = ExtResource("7_32clf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uf3tk"]
+texture = ExtResource("7_32clf")
 
 [node name="Shop_Ui" type="CanvasLayer"]
 script = ExtResource("1_r2r25")
@@ -16,6 +30,7 @@ offset_left = 89.0
 offset_top = 14.0
 offset_right = 1061.0
 offset_bottom = 637.0
+theme = ExtResource("5_v16ev")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 0
@@ -27,12 +42,17 @@ theme_override_constants/separation = 100
 
 [node name="Buy_small_field" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.705882, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0.490196, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0.596078, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0.603922, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0.596078, 0, 1)
-text = "Buy small field"
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_iyqw1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uui01")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uf3tk")
+text = "Buy Field
+ (Small)"
 
 [node name="Buy_med_field" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
@@ -65,18 +85,106 @@ text = "Super duper Shop"
 layout_mode = 0
 offset_left = 377.0
 offset_top = 274.0
-offset_right = 555.0
-offset_bottom = 349.0
+offset_right = 543.0
+offset_bottom = 354.0
 theme_override_font_sizes/font_size = 30
 text = "Scale Farm"
 
 [node name="Button2" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 843.0
-offset_top = 34.0
-offset_right = 947.0
-offset_bottom = 91.0
+layout_mode = 2
+offset_left = 63.0
+offset_top = 18.0
+offset_right = 156.0
+offset_bottom = 79.0
 text = "Close Shop"
+
+[node name="Top Shop Ribbon" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_left = 63.0
+offset_top = 18.0
+offset_right = 103.0
+offset_bottom = 58.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Top Shop Ribbon"]
+layout_mode = 2
+offset_left = -21.0
+offset_top = -4.0
+offset_right = 78.0
+offset_bottom = 81.0
+texture = ExtResource("7_mxl52")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/Top Shop Ribbon"]
+layout_mode = 2
+offset_left = 78.0
+offset_top = -4.0
+offset_right = 177.0
+offset_bottom = 81.0
+texture = ExtResource("7_mxl52")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/Top Shop Ribbon"]
+layout_mode = 2
+offset_left = 177.0
+offset_top = -4.0
+offset_right = 276.0
+offset_bottom = 81.0
+texture = ExtResource("7_mxl52")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Panel/Top Shop Ribbon"]
+layout_mode = 2
+offset_left = 276.0
+offset_top = -4.0
+offset_right = 375.0
+offset_bottom = 81.0
+texture = ExtResource("7_mxl52")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="Panel/Top Shop Ribbon"]
+layout_mode = 2
+offset_left = 375.0
+offset_top = -4.0
+offset_right = 474.0
+offset_bottom = 81.0
+texture = ExtResource("7_mxl52")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="Panel/Top Shop Ribbon"]
+layout_mode = 2
+offset_left = 474.0
+offset_top = -4.0
+offset_right = 573.0
+offset_bottom = 81.0
+texture = ExtResource("7_mxl52")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="Panel/Top Shop Ribbon"]
+layout_mode = 2
+offset_left = 573.0
+offset_top = -4.0
+offset_right = 672.0
+offset_bottom = 81.0
+texture = ExtResource("7_mxl52")
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="Panel/Top Shop Ribbon"]
+layout_mode = 2
+offset_left = 672.0
+offset_top = -4.0
+offset_right = 771.0
+offset_bottom = 81.0
+texture = ExtResource("7_mxl52")
+expand_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="Panel/Top Shop Ribbon"]
+layout_mode = 2
+offset_left = 770.0
+offset_top = -4.0
+offset_right = 869.0
+offset_bottom = 81.0
+texture = ExtResource("7_mxl52")
+expand_mode = 1
 
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_small_field" to="." method="_on_buy_small_field_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_med_field" to="." method="_on_buy_med_field_pressed"]

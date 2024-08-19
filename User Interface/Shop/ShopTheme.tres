@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://blh1becode1fw"]
+
+[ext_resource type="Texture2D" uid="uid://d1jlweqvlqn53" path="res://User Interface/Imported Asstes Ui/SaveMenu.png" id="1_a0jb4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y653e"]
+texture = ExtResource("1_a0jb4")
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_y653e")
