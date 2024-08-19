@@ -12,6 +12,7 @@
 
 [node name="UI Control" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -27,6 +28,7 @@ offset_left = -44.0
 offset_top = 57.0
 offset_right = -44.0
 offset_bottom = 57.0
+grow_horizontal = 2
 scale = Vector2(0.0752012, 0.0752012)
 
 [node name="Energy8" type="Sprite2D" parent="EnergyCircle"]

@@ -73,3 +73,4 @@ func handle_animations():
 			Weight.heavy:
 				animation_player.play("idle_holding_l")
 
+

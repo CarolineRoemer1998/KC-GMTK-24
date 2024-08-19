@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://8bb3sh6ua0ar"]
+[gd_scene load_steps=23 format=3 uid="uid://8bb3sh6ua0ar"]
 
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
 [ext_resource type="PackedScene" uid="uid://jhph2qilg4x3" path="res://Blender Objects/Vegetable/Environment/path.blend" id="2_ov0ka"]
@@ -13,7 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="9_ybhkc"]
 [ext_resource type="PackedScene" uid="uid://dunolb6ev3g35" path="res://Objects/Sings/sign_shop.tscn" id="11_74v6e"]
 [ext_resource type="PackedScene" uid="uid://csstquwad0nt5" path="res://Objects/Sings/sign_market.tscn" id="11_tn0k4"]
-[ext_resource type="PackedScene" uid="uid://ch4q8yskse70p" path="res://Objects/chest.tscn" id="14_rh132"]
+[ext_resource type="PackedScene" uid="uid://c4uoghoik8i2c" path="res://Objects/chest.tscn" id="14_rh132"]
+[ext_resource type="PackedScene" uid="uid://q8laufrl13tj" path="res://Objects/House.tscn" id="15_6ilke"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -86,9 +87,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -11)
 [node name="tree4" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, -9.5)
 
-[node name="tree5" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -11)
-
 [node name="tree6" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -9.5)
 
@@ -100,9 +98,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.5, -15)
 
 [node name="tree10" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -15)
-
-[node name="tree11" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -15)
 
 [node name="tree12" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, -15)
@@ -446,3 +441,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -7.5)
 
 [node name="Chest" parent="." instance=ExtResource("14_rh132")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26967, 0, -8.47746)
+
+[node name="House" parent="." instance=ExtResource("15_6ilke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18249, 0, -14.2641)
