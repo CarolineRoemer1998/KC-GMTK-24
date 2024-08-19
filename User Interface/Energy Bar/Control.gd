@@ -1,6 +1,7 @@
 extends Control
 
 @onready var slices: Array
+@onready var money_counter = $Money/Money_counter
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +19,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("T_Place"):
 		Global.lose_energy(1)
-		
+	money_counter.text = str(Global.current_money)
 		
 func update_slices():
 	for i in range(Global.start_energy):
