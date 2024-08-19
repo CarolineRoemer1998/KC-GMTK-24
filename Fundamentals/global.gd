@@ -1,13 +1,15 @@
 extends Node
 
 var start_money: int = 3
-var current_money: int
+var current_money: int 
 
 var start_energy : int = 8
 var current_energy : int
 
 var energy_bar 
 var game_handler
+
+var is_affordable: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +36,15 @@ func refill_energy():
 	energy_bar.update_slices()
 	
 func spend_money(amount : int):
-	current_money -= amount
+	current_money = clamp(current_money - amount,0,9999)
 	
 func gain_money(amount : int):
-	current_money += amount
+	current_money = clamp(current_money + amount,0,9999)
+
+func check_money(price: int):
+	if price <= current_money:
+		is_affordable = true
+		print("There you go!")
+	else:
+		is_affordable = false
+		print("Sorry, not enough Money!")
