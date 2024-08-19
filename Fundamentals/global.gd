@@ -56,5 +56,3 @@ func check_money(price: int):
 func start_contest():
 	get_tree().paused = true
 	get_tree().change_scene_to_file("res://Scenes/Contest.tscn")
-	print("test")
-	get_tree().paused = false

@@ -50,7 +50,6 @@ var energy_gain : int
 @onready var zucchini_medium: Node3D = $ZucchiniStages/zucchini_medium
 @onready var zucchini_large: Node3D = $ZucchiniStages/zucchini_large
 
-@onready var animation_handler: Node3D = $AnimationHandler
 
 @export_range(0,4) var level: int = 0 
 
