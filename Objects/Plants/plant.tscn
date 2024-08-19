@@ -93,3 +93,5 @@ visible = false
 
 [node name="zucchini_large" parent="ZucchiniStages" instance=ExtResource("21_v2n7t")]
 visible = false
+
+[node name="Properties" type="Node3D" parent="."]

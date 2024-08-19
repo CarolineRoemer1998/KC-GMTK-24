@@ -5,6 +5,14 @@ class_name Plant
 enum plant_type {carrot, strawberry, zucchini, cauliflower}
 enum growth_size {small, medium, large}
 
+# Eigenschaften der Pflanze
+var cost: int 
+var selling_price_small: int 
+var selling_price_medium: int 
+var selling_price_large: int 
+var watering_frequency : int  
+var energy_gain : int
+
 @export var needs_water : bool = true
 @export var isInfested : bool = false
 
@@ -52,9 +60,8 @@ var max_level: int
 var field_size: String
 
 # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-var contest_points : int
-var watering_frequency : int
 var days_since_last_watering : int
+var contest_points : int = 0
 
 func set_watering_frequency():
 	match type:
@@ -94,51 +101,88 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_field_size()
 	set_max_level()
+	field = get_parent()
 	current_growth_points = start_growth_points
 	
 	#nur zu testzwecken
 	type = plant_type.carrot
+	load_meshes(type)
+
+			
 	
-		
-	# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-	match type:
-		plant_type.carrot:
-			carrot_stages.visible = true
-			growth_stages.append(carrot_seeds)
-			growth_stages.append(carrot_sprout)
-			growth_stages.append(carrot_small)
-			growth_stages.append(carrot_medium)
-			growth_stages.append(carrot_large)
-		plant_type.strawberry:
-			strawberry_stages.visible = true
-			growth_stages.append(strawberry_seeds)
-			growth_stages.append(strawberry_sprout)
-			growth_stages.append(strawberry_small)
-			growth_stages.append(strawberry_medium)
-			growth_stages.append(strawberry_large)
-		plant_type.cauliflower:
-			cauliflower_stages.visible = true
-			growth_stages.append(cauliflower_seeds)
-			growth_stages.append(cauliflower_sprout)
-			growth_stages.append(cauliflower_small)
-			growth_stages.append(cauliflower_medium)
-			growth_stages.append(cauliflower_large)
-		plant_type.zucchini:
-			zucchini_stages.visible = true
-			growth_stages.append(zucchini_seeds)
-			growth_stages.append(zucchini_sprout)
-			growth_stages.append(zucchini_small)
-			growth_stages.append(zucchini_medium)
-			growth_stages.append(zucchini_large)
-			
-			
-	field = get_parent()
 	days_since_last_watering = watering_frequency
 	
 	contest_points = 0
-	set_watering_frequency()
-	# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+func set_properties(type: plant_type):
+	match type:
+		plant_type.carrot:
+			cost = 1
+			selling_price_small = 1
+			selling_price_medium = 2
+			selling_price_large = 3
+			watering_frequency = 2
+			energy_gain = 1
+		plant_type.cauliflower:
+			cost = 2
+			selling_price_small = 2
+			selling_price_medium = 4
+			selling_price_large = 6
+			watering_frequency = 3
+			energy_gain = 3
+		plant_type.zucchini:
+			cost = 2
+			selling_price_small = 1
+			selling_price_medium = 3
+			selling_price_large = 12
+			watering_frequency = 3
+			energy_gain = 2
+		plant_type.strawberry:
+			cost = 3
+			selling_price_small = 4
+			selling_price_medium = 8
+			selling_price_large = 10
+			watering_frequency = 2
+			energy_gain = 2
 
+func load_meshes(type:plant_type):
+		match type:
+			plant_type.carrot:
+				carrot_stages.visible = true
+				growth_stages.append(carrot_seeds)
+				growth_stages.append(carrot_sprout)
+				growth_stages.append(carrot_small)
+				growth_stages.append(carrot_medium)
+				growth_stages.append(carrot_large)
+				set_properties(plant_type.carrot)
+				
+			plant_type.cauliflower:
+				cauliflower_stages.visible = true
+				growth_stages.append(cauliflower_seeds)
+				growth_stages.append(cauliflower_sprout)
+				growth_stages.append(cauliflower_small)
+				growth_stages.append(cauliflower_medium)
+				growth_stages.append(cauliflower_large)
+				set_properties(plant_type.cauliflower)
+				
+			plant_type.zucchini:
+				zucchini_stages.visible = true
+				growth_stages.append(zucchini_seeds)
+				growth_stages.append(zucchini_sprout)
+				growth_stages.append(zucchini_small)
+				growth_stages.append(zucchini_medium)
+				growth_stages.append(zucchini_large)
+				set_properties(plant_type.zucchini)
+				
+			plant_type.strawberry:
+				strawberry_stages.visible = true
+				growth_stages.append(strawberry_seeds)
+				growth_stages.append(strawberry_sprout)
+				growth_stages.append(strawberry_small)
+				growth_stages.append(strawberry_medium)
+				growth_stages.append(strawberry_large)
+				set_properties(plant_type.strawberry)
+				
 # Getter method
 func get_level() -> int:
 	return level
