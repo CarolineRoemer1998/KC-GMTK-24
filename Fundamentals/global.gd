@@ -58,3 +58,6 @@ func start_contest():
 	get_tree().change_scene_to_file("res://Scenes/Contest.tscn")
 	print("test")
 	get_tree().paused = false
+
+func evaluate_minigame():
+	pass

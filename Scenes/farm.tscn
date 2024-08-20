@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://8bb3sh6ua0ar"]
+[gd_scene load_steps=25 format=3 uid="uid://8bb3sh6ua0ar"]
 
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
 [ext_resource type="PackedScene" uid="uid://jhph2qilg4x3" path="res://Blender Objects/Vegetable/Environment/path.blend" id="2_ov0ka"]
@@ -9,12 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="4_u0oma"]
 [ext_resource type="PackedScene" uid="uid://d064xu0qtx7ms" path="res://Objects/Crop Area/FieldUnplowed.tscn" id="6_dirvw"]
 [ext_resource type="PackedScene" uid="uid://bnwr7trxoehqq" path="res://User Interface/Energy Bar/control.tscn" id="6_okv1m"]
+[ext_resource type="PackedScene" uid="uid://cvypfmkur1wyc" path="res://Scenes/Minigames/lawnmowing_game.tscn" id="7_hhp2j"]
 [ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="7_n5i0b"]
 [ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="9_ybhkc"]
 [ext_resource type="PackedScene" uid="uid://dunolb6ev3g35" path="res://Objects/Sings/sign_shop.tscn" id="11_74v6e"]
 [ext_resource type="PackedScene" uid="uid://csstquwad0nt5" path="res://Objects/Sings/sign_market.tscn" id="11_tn0k4"]
 [ext_resource type="PackedScene" uid="uid://ch4q8yskse70p" path="res://Objects/chest.tscn" id="14_rh132"]
 [ext_resource type="PackedScene" uid="uid://baxc7rtvf0s8f" path="res://MiniGames/watering_game.tscn" id="15_u3tqt"]
+[ext_resource type="PackedScene" uid="uid://q8laufrl13tj" path="res://Objects/House.tscn" id="16_7m2m2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -87,9 +89,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -11)
 [node name="tree4" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, -9.5)
 
-[node name="tree5" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -11)
-
 [node name="tree6" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -9.5)
 
@@ -101,9 +100,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.5, -15)
 
 [node name="tree10" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -15)
-
-[node name="tree11" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -15)
 
 [node name="tree12" parent="Ground2/Trees" instance=ExtResource("4_fy60d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, -15)
@@ -293,6 +289,9 @@ script = ExtResource("4_66nis")
 
 [node name="Energy_bar" parent="GameHandler" groups=["EnergyBar"] instance=ExtResource("6_okv1m")]
 
+[node name="Lawnmowing_Game" parent="GameHandler" instance=ExtResource("7_hhp2j")]
+visible = false
+
 [node name="CropArea" type="Node3D" parent="."]
 script = ExtResource("4_g6x4t")
 
@@ -451,3 +450,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26967, 0, -8.47746)
 [node name="MiniGames" type="Node3D" parent="."]
 
 [node name="WateringGame" parent="MiniGames" instance=ExtResource("15_u3tqt")]
+
+[node name="House" parent="." instance=ExtResource("16_7m2m2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23028, 0, -15.5683)
