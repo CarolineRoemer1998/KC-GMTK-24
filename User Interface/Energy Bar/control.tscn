@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnwr7trxoehqq"]
+[gd_scene load_steps=11 format=3 uid="uid://bnwr7trxoehqq"]
 
 [ext_resource type="Script" path="res://User Interface/Energy Bar/Control.gd" id="1_eokre"]
 [ext_resource type="Texture2D" uid="uid://dhnuvijv1d3v3" path="res://Blender Objects/ui/energy_1.png" id="2_kuuqx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bs6tsauk166uk" path="res://Blender Objects/ui/energy_6.png" id="7_k23m0"]
 [ext_resource type="Texture2D" uid="uid://b1rg21hfeayqa" path="res://Blender Objects/ui/energy_7.png" id="8_h7vc5"]
 [ext_resource type="Texture2D" uid="uid://bu6ffhu8jiolg" path="res://Blender Objects/ui/energy_8.png" id="9_iegdl"]
+[ext_resource type="PackedScene" uid="uid://cw0w0k5ug1ndh" path="res://User Interface/money.tscn" id="10_j3wy4"]
 
 [node name="UI Control" type="Control"]
 layout_mode = 3
@@ -64,14 +65,4 @@ texture = ExtResource("3_ygfhy")
 position = Vector2(560, 314)
 texture = ExtResource("2_kuuqx")
 
-[node name="Money" type="Node2D" parent="."]
-
-[node name="Money_counter" type="Label" parent="Money"]
-offset_left = 49.0
-offset_top = 47.0
-offset_right = 273.0
-offset_bottom = 117.0
-theme_override_font_sizes/font_size = 50
-text = "Test Geld"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Money" parent="." instance=ExtResource("10_j3wy4")]
