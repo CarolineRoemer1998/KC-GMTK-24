@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://8bb3sh6ua0ar"]
+[gd_scene load_steps=26 format=3 uid="uid://8bb3sh6ua0ar"]
 
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
 [ext_resource type="PackedScene" uid="uid://jhph2qilg4x3" path="res://Blender Objects/Vegetable/Environment/path.blend" id="2_ov0ka"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bnwr7trxoehqq" path="res://User Interface/Energy Bar/control.tscn" id="6_okv1m"]
 [ext_resource type="PackedScene" uid="uid://cvypfmkur1wyc" path="res://Scenes/Minigames/lawnmowing_game.tscn" id="7_hhp2j"]
 [ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="7_n5i0b"]
+[ext_resource type="PackedScene" uid="uid://cvtnkq82q0ltn" path="res://User Interface/action_overlay.tscn" id="9_l68vm"]
 [ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="9_ybhkc"]
 [ext_resource type="PackedScene" uid="uid://dunolb6ev3g35" path="res://Objects/Sings/sign_shop.tscn" id="11_74v6e"]
 [ext_resource type="PackedScene" uid="uid://csstquwad0nt5" path="res://Objects/Sings/sign_market.tscn" id="11_tn0k4"]
@@ -290,6 +291,9 @@ lawnmowing_minigame = ExtResource("7_hhp2j")
 watering_minigame = ExtResource("15_u3tqt")
 
 [node name="Energy_bar" parent="GameHandler" groups=["EnergyBar"] instance=ExtResource("6_okv1m")]
+
+[node name="ActionOverlay" parent="GameHandler" instance=ExtResource("9_l68vm")]
+visible = false
 
 [node name="CropArea" type="Node3D" parent="."]
 script = ExtResource("4_g6x4t")

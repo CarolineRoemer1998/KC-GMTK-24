@@ -1,11 +1,13 @@
 extends Node3D
 
+class_name GameHandler
 var player : Player 
 var chest : Chest
 var stored_plants_ui : StoredPlantsUI
 #@onready var lawnmowing_game = $Lawnmowing_Game
 @export var lawnmowing_minigame: PackedScene
 @export var watering_minigame: PackedScene
+@onready var action_overlay = $ActionOverlay
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -40,6 +42,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("StartMinigame"):
 		start_watering_minigame()
 
+func show_action_overlay():
+	action_overlay.visible = true
+	
+func hide_action_overlay():
+	action_overlay.visible = false
+	
 func start_lawnmowing_minigame():
 	var new_lawnmowing_minigame = lawnmowing_minigame.instantiate()
 	add_child(new_lawnmowing_minigame)

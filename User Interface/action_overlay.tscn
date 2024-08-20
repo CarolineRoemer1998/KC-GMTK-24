@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8e7c31chv56h"]
+[gd_scene load_steps=3 format=3 uid="uid://cvtnkq82q0ltn"]
 
 [ext_resource type="Texture2D" uid="uid://8jdgr0s3jb2s" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/10.png" id="1_62jdy"]
+[ext_resource type="Script" path="res://User Interface/action_overlay.gd" id="1_owwlo"]
 
 [node name="ActionOverlay" type="Control"]
 layout_mode = 3
@@ -9,13 +10,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_owwlo")
 
 [node name="water" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.517647)
-offset_left = 469.0
-offset_top = 111.0
-offset_right = 569.0
-offset_bottom = 211.0
+layout_mode = 0
+offset_left = 676.0
+offset_top = 171.0
+offset_right = 776.0
+offset_bottom = 271.0
 mouse_default_cursor_shape = 2
 texture = ExtResource("1_62jdy")
 expand_mode = 1
@@ -27,10 +30,14 @@ offset_bottom = 40.0
 
 [node name="pull_weeds" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.517647)
-offset_left = 586.0
-offset_top = 111.0
-offset_right = 686.0
-offset_bottom = 211.0
+layout_mode = 0
+offset_left = 793.0
+offset_top = 171.0
+offset_right = 893.0
+offset_bottom = 271.0
 mouse_default_cursor_shape = 2
 texture = ExtResource("1_62jdy")
 expand_mode = 1
+
+[connection signal="gui_input" from="water" to="." method="_on_water_gui_input"]
+[connection signal="gui_input" from="pull_weeds" to="." method="_on_pull_weeds_gui_input"]
