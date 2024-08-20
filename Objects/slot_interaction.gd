@@ -3,6 +3,7 @@ extends TextureRect
 @onready var plant_statistics: TextureRect = $PlantStatistics
 
 var slot_plant : Plant
+@onready var plant_image: TextureRect = $plant_image
 
 
 func fill_stats(plant : Plant):
@@ -36,6 +37,8 @@ func get_plant_price(plant : Plant) -> String:
 func remove_plant() -> Plant:
 	var removed_plant = slot_plant
 	slot_plant = null
+	plant_image.texture = null
+	print("Removed")
 	return removed_plant
 
 

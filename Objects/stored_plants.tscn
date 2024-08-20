@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dw58tpnwtkwp0" path="res://Objects/storage_slot.tscn" id="7_cd3kh"]
 
 [node name="StoredPlants" type="Control" groups=["StoredPlants"]]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

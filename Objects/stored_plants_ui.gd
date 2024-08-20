@@ -16,13 +16,12 @@ const CAULIFLOWER = preload("res://Blender Objects/ui/plant_images/cauliflower.p
 const STRAWBERRY = preload("res://Blender Objects/ui/plant_images/strawberry.png")
 const ZUCCHINI = preload("res://Blender Objects/ui/plant_images/zucchini.png")
 
-
-
 @export var carrot_image : PackedScene
 @export var strawberry_image : PackedScene
 @export var zucchini_image : PackedScene
 @export var cauliflower_image : PackedScene
 
+var player : Player
 var slots 
 
 func _ready():
@@ -36,6 +35,7 @@ func _ready():
 	slot_7: null,
 	slot_8: null,
 	}
+	player = get_tree().get_first_node_in_group("Player")
 
 func store_plant(plant : Plant) -> bool:
 	var was_successful : bool = false
@@ -58,5 +58,11 @@ func set_plant_image(slot : TextureRect, plant : Plant):
 
 
 func _on_slot_1_gui_input(event: InputEvent) -> void:
-	var removed_plant = slot_1.remove_plant()
-	
+	if Input.is_action_just_pressed("mouse_left"):
+		var removed_plant : Plant = slot_1.remove_plant()
+		removed_plant.reparent(player.interaction.bone_attachment)
+		player.interaction.carrying_plant = removed_plant
+		removed_plant.position = removed_plant.get_carrying_position()
+		removed_plant.rotation_degrees = removed_plant.get_carrying_rotation()
+		player.carrying_weight = player.interaction.get_weight(removed_plant.get_level())
+		removed_plant.animation_player.play_backwards("shrink")

@@ -33,8 +33,8 @@ func _process(delta: float) -> void:
 			else:
 				# TODO: Nachricht, dass Kiste voll ist
 				pass
-	if Input.is_action_just_pressed("open_chest"):
-		stored_plants_ui.show()
+	#if Input.is_action_just_pressed("open_chest"):
+		#stored_plants_ui.show()
 	
 		
 func end_day():

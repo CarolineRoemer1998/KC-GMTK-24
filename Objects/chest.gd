@@ -18,12 +18,14 @@ func _on_detect_player_area_body_entered(player: Node3D) -> void:
 		animation_player.play("Open")
 		player.interaction.in_front_of_chest = true
 		player.interaction.chest_position = global_position
+		stored_plants.show()
 
 
 func _on_detect_player_area_body_exited(player: Node3D) -> void:
 	if player is Player:
 		animation_player.play_backwards("Open")
 		player.interaction.in_front_of_chest = false
+		stored_plants.hide()
 	
 func add_plant(plant : Plant):
 	match plant.type:
