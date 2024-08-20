@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://8bb3sh6ua0ar"]
+[gd_scene load_steps=24 format=3 uid="uid://8bb3sh6ua0ar"]
 
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
 [ext_resource type="PackedScene" uid="uid://jhph2qilg4x3" path="res://Blender Objects/Vegetable/Environment/path.blend" id="2_ov0ka"]
@@ -6,13 +6,10 @@
 [ext_resource type="Script" path="res://Fundamentals/GameHandler.gd" id="4_66nis"]
 [ext_resource type="PackedScene" uid="uid://de7x4ni83xrpk" path="res://Blender Objects/Environment/tree.blend" id="4_fy60d"]
 [ext_resource type="Script" path="res://Scenes/CropArea.gd" id="4_g6x4t"]
-[ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="4_u0oma"]
 [ext_resource type="PackedScene" uid="uid://d064xu0qtx7ms" path="res://Objects/Crop Area/FieldUnplowed.tscn" id="6_dirvw"]
 [ext_resource type="PackedScene" uid="uid://bnwr7trxoehqq" path="res://User Interface/Energy Bar/control.tscn" id="6_okv1m"]
 [ext_resource type="PackedScene" uid="uid://cvypfmkur1wyc" path="res://Scenes/Minigames/lawnmowing_game.tscn" id="7_hhp2j"]
-[ext_resource type="PackedScene" uid="uid://6klk0jw85r3t" path="res://Objects/Crop Area/FieldMedium.tscn" id="7_n5i0b"]
 [ext_resource type="PackedScene" uid="uid://cvtnkq82q0ltn" path="res://User Interface/action_overlay.tscn" id="9_l68vm"]
-[ext_resource type="PackedScene" uid="uid://bytoofwnuu85b" path="res://Objects/Crop Area/FieldLarge.tscn" id="9_ybhkc"]
 [ext_resource type="PackedScene" uid="uid://dunolb6ev3g35" path="res://Objects/Sings/sign_shop.tscn" id="11_74v6e"]
 [ext_resource type="PackedScene" uid="uid://csstquwad0nt5" path="res://Objects/Sings/sign_market.tscn" id="11_tn0k4"]
 [ext_resource type="PackedScene" uid="uid://ch4q8yskse70p" path="res://Objects/chest.tscn" id="14_rh132"]
@@ -42,6 +39,9 @@ size = Vector3(42, 1, 24)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_voo1g"]
 size = Vector3(14, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xg8wc"]
+size = Vector3(10, 20, 10)
 
 [node name="Farm" type="Node3D"]
 
@@ -298,39 +298,6 @@ visible = false
 [node name="CropArea" type="Node3D" parent="."]
 script = ExtResource("4_g6x4t")
 
-[node name="FieldSmall" parent="CropArea" instance=ExtResource("4_u0oma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 1)
-
-[node name="FieldSmall2" parent="CropArea" instance=ExtResource("4_u0oma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -1)
-
-[node name="FieldSmall3" parent="CropArea" instance=ExtResource("4_u0oma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -3)
-
-[node name="FieldSmall4" parent="CropArea" instance=ExtResource("4_u0oma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 1)
-
-[node name="FieldSmall6" parent="CropArea" instance=ExtResource("4_u0oma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -3)
-
-[node name="FieldSmall7" parent="CropArea" instance=ExtResource("4_u0oma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 1)
-
-[node name="FieldSmall8" parent="CropArea" instance=ExtResource("4_u0oma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -1)
-
-[node name="FieldSmall9" parent="CropArea" instance=ExtResource("4_u0oma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -3)
-
-[node name="FieldMedium" parent="CropArea" instance=ExtResource("7_n5i0b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
-
-[node name="FieldMedium2" parent="CropArea" instance=ExtResource("7_n5i0b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 6)
-
-[node name="FieldLarge" parent="CropArea" instance=ExtResource("9_ybhkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5)
-
 [node name="FieldUnplowed19" parent="CropArea" instance=ExtResource("6_dirvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
 
@@ -439,6 +406,114 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, 
 [node name="FieldUnplowed54" parent="CropArea" instance=ExtResource("6_dirvw")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 1, 0, 3)
 
+[node name="FieldUnplowed55" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0735, 0, -3)
+
+[node name="FieldUnplowed56" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0735, 0, -1)
+
+[node name="FieldUnplowed57" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0735, 0, 1)
+
+[node name="FieldUnplowed58" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.07351, 0, -3)
+
+[node name="FieldUnplowed59" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.07351, 0, -1)
+
+[node name="FieldUnplowed60" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.07351, 0, 1)
+
+[node name="FieldUnplowed61" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.07351, 0, -3)
+
+[node name="FieldUnplowed62" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.07351, 0, -1)
+
+[node name="FieldUnplowed63" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.07351, 0, 1)
+
+[node name="FieldUnplowed64" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.07351, 0, -3)
+
+[node name="FieldUnplowed65" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.07351, 0, -1)
+
+[node name="FieldUnplowed66" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07351, 0, 1)
+
+[node name="FieldUnplowed67" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.07351, 0, -3)
+
+[node name="FieldUnplowed68" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.07351, 0, -1)
+
+[node name="FieldUnplowed69" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.07351, 0, 1)
+
+[node name="FieldUnplowed70" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.07351, 0, -3)
+
+[node name="FieldUnplowed71" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07351, 0, -1)
+
+[node name="FieldUnplowed72" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.07351, 0, 1)
+
+[node name="FieldUnplowed73" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.07351, 0, 7)
+
+[node name="FieldUnplowed74" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.07351, 0, 5)
+
+[node name="FieldUnplowed75" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.07351, 0, 3)
+
+[node name="FieldUnplowed76" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -3.07351, 0, 7)
+
+[node name="FieldUnplowed77" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -3.07351, 0, 5)
+
+[node name="FieldUnplowed78" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.07351, 0, 3)
+
+[node name="FieldUnplowed79" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.07351, 0, 7)
+
+[node name="FieldUnplowed80" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.07351, 0, 5)
+
+[node name="FieldUnplowed81" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -5.07351, 0, 3)
+
+[node name="FieldUnplowed82" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -7.07351, 0, 7)
+
+[node name="FieldUnplowed83" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -7.07351, 0, 5)
+
+[node name="FieldUnplowed84" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.07351, 0, 3)
+
+[node name="FieldUnplowed85" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.07351, 0, 7)
+
+[node name="FieldUnplowed86" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -9.07351, 0, 5)
+
+[node name="FieldUnplowed87" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.07351, 0, 3)
+
+[node name="FieldUnplowed88" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -11.0735, 0, 7)
+
+[node name="FieldUnplowed89" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.0735, 0, 5)
+
+[node name="FieldUnplowed90" parent="CropArea" instance=ExtResource("6_dirvw")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -11.0735, 0, 3)
+
 [node name="InteractableObjects" type="Node3D" parent="."]
 
 [node name="sign_market" parent="InteractableObjects" instance=ExtResource("11_tn0k4")]
@@ -452,3 +527,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26967, 0, -8.47746)
 
 [node name="House" parent="." instance=ExtResource("16_7m2m2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23028, 0, -15.5683)
+
+[node name="Node3D" type="StaticBody3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.14973, -19.5203, 7.18627, 15.5683)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House/Node3D"]
+shape = SubResource("BoxShape3D_xg8wc")
+
+[node name="Node3D4" type="StaticBody3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.14973, 20.8315, 7.18627, 15.5683)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House/Node3D4"]
+shape = SubResource("BoxShape3D_xg8wc")
+
+[node name="Node3D2" type="StaticBody3D" parent="House"]
+transform = Transform3D(-6.50876e-08, 0, -5.6417, 0, 1, 0, 1.48903, 0, -2.46606e-07, -3.8089, 7.18627, -5.94329)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House/Node3D2"]
+shape = SubResource("BoxShape3D_xg8wc")
+
+[node name="Node3D3" type="StaticBody3D" parent="House"]
+transform = Transform3D(-6.50876e-08, 0, -5.6417, 0, 1, 0, 1.48903, 0, -2.46606e-07, -3.8089, 7.18627, 31.2072)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House/Node3D3"]
+shape = SubResource("BoxShape3D_xg8wc")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 75.0
+offset_top = 41.0
+offset_right = 1071.0
+offset_bottom = 566.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 1010.0
+offset_bottom = 487.0
+theme_override_font_sizes/font_size = 30
+text = "Hey,
+
+thank you for testing or gamejam entry - Project Carrot. 
+
+The last few days, me and my girlfriend spent hours over hours to 
+programm, model and animate this prototype.
+
+Unfortunately we could finish our game in time. But we wanted to 
+commit it anyway.
+
+So thanks alot and we hope you had a great Gmtk24 GameJam!"
