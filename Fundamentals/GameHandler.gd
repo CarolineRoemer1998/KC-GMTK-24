@@ -46,7 +46,8 @@ func _process(delta: float) -> void:
 		start_watering_minigame()
 
 func show_action_overlay():
-	action_overlay.visible = true
+	if player.interaction.field.is_occupied:
+		action_overlay.visible = true
 	
 func hide_action_overlay():
 	action_overlay.visible = false

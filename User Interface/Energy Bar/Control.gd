@@ -1,7 +1,8 @@
 extends Control
 
 @onready var slices: Array
-@onready var money_counter = $Money/Money_counter
+@onready var money_counter: Label = $Money/TextureRect/Money_counter
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
