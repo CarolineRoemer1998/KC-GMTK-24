@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvypfmkur1wyc"]
+[gd_scene load_steps=11 format=3 uid="uid://cvypfmkur1wyc"]
 
 [ext_resource type="Texture2D" uid="uid://c0410aiehxggi" path="res://Scenes/Minigames/pngtree-black-ring-png-image_2319165.png" id="1_1neft"]
 [ext_resource type="Script" path="res://Scenes/Minigames/lawnmowing_game.gd" id="1_x22d6"]
 [ext_resource type="Texture2D" uid="uid://5tn56u1dctcn" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/24.png" id="2_m0cy1"]
+[ext_resource type="Texture2D" uid="uid://ul8ujutyfaoi" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/07.png" id="2_ye8y0"]
 [ext_resource type="Script" path="res://Scenes/Minigames/Lawnmover.gd" id="3_7vu1c"]
-[ext_resource type="Texture2D" uid="uid://csfa6nyyafaq4" path="res://icon.svg" id="4_vcdnn"]
-[ext_resource type="Texture2D" uid="uid://vmkfbuu07q7i" path="res://User Interface/Imported Asstes Ui/StarIcon.png" id="5_ycysx"]
+[ext_resource type="Texture2D" uid="uid://x84krugg36kn" path="res://Scenes/Minigames/stone.png" id="6_n8qai"]
+[ext_resource type="Texture2D" uid="uid://cvgf2fp4v7724" path="res://Blender Objects/ui/Minigames/watering_plant.png" id="7_22a43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btyp4"]
 size = Vector2(52.5843, 136.066)
@@ -30,15 +31,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x22d6")
 
+[node name="07" type="Sprite2D" parent="."]
+position = Vector2(601, 314)
+scale = Vector2(1.74286, 1.7)
+texture = ExtResource("2_ye8y0")
+
 [node name="Outer_Circle" type="Sprite2D" parent="."]
 position = Vector2(600, 300)
-texture = ExtResource("1_1neft")
 
 [node name="Lawnmower_Spinner" type="Node2D" parent="Outer_Circle"]
+position = Vector2(1, 0)
 rotation = -6.28319
 
 [node name="Lawnmover" type="Sprite2D" parent="Outer_Circle/Lawnmower_Spinner"]
-position = Vector2(-82.7704, -4.08743)
+position = Vector2(-79, 0.999653)
 scale = Vector2(0.779698, 0.161686)
 texture = ExtResource("2_m0cy1")
 script = ExtResource("3_7vu1c")
@@ -59,17 +65,17 @@ scale = Vector2(0.556052, 0.161686)
 texture = ExtResource("2_m0cy1")
 
 [node name="Inner_Circle" type="Sprite2D" parent="Outer_Circle"]
+visible = false
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_1neft")
 
 [node name="Stone" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(5, 132)
-scale = Vector2(0.382812, 0.273437)
-texture = ExtResource("4_vcdnn")
+position = Vector2(10, 133)
+scale = Vector2(0.0529629, 0.0378307)
+texture = ExtResource("6_n8qai")
 
 [node name="Stone" type="Area2D" parent="Outer_Circle/Stone"]
-position = Vector2(-1.30603, -1.82849)
-scale = Vector2(2.61225, 3.65715)
+scale = Vector2(18.8811, 26.4336)
 collision_layer = 128
 collision_mask = 0
 
@@ -78,13 +84,13 @@ position = Vector2(-3.05176e-05, -3.05176e-05)
 shape = SubResource("RectangleShape2D_mbfi7")
 
 [node name="Stone2" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(49, -131)
-scale = Vector2(0.382812, 0.273437)
-texture = ExtResource("4_vcdnn")
+position = Vector2(57, -133)
+rotation = -2.70719
+scale = Vector2(0.0529629, 0.0378307)
+texture = ExtResource("6_n8qai")
 
 [node name="Stone" type="Area2D" parent="Outer_Circle/Stone2"]
-position = Vector2(-1.30603, -1.82849)
-scale = Vector2(2.61225, 3.65715)
+scale = Vector2(18.8811, 26.4336)
 collision_layer = 128
 collision_mask = 0
 
@@ -93,11 +99,13 @@ position = Vector2(-3.05176e-05, -3.05176e-05)
 shape = SubResource("RectangleShape2D_mbfi7")
 
 [node name="Gras" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(141, -2.99997)
-scale = Vector2(0.492188, 0.4375)
-texture = ExtResource("5_ycysx")
+position = Vector2(91.1659, 100.584)
+rotation = -3.83279
+scale = Vector2(0.0351501, 0.027077)
+texture = ExtResource("7_22a43")
 
 [node name="Gras" type="Area2D" parent="Outer_Circle/Gras"]
+scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
@@ -106,11 +114,13 @@ position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
 [node name="Gras2" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(-66, 113)
-scale = Vector2(0.492188, 0.4375)
-texture = ExtResource("5_ycysx")
+position = Vector2(133, 38)
+rotation = 1.83103
+scale = Vector2(0.0351501, 0.027077)
+texture = ExtResource("7_22a43")
 
 [node name="Gras" type="Area2D" parent="Outer_Circle/Gras2"]
+scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
@@ -119,11 +129,13 @@ position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
 [node name="Gras3" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(-129, 54)
-scale = Vector2(0.492188, 0.4375)
-texture = ExtResource("5_ycysx")
+position = Vector2(132, -29)
+rotation = 1.50902
+scale = Vector2(0.0351501, 0.027077)
+texture = ExtResource("7_22a43")
 
 [node name="Gras" type="Area2D" parent="Outer_Circle/Gras3"]
+scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
@@ -132,11 +144,13 @@ position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
 [node name="Gras4" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(-121, -71)
-scale = Vector2(0.492188, 0.4375)
-texture = ExtResource("5_ycysx")
+position = Vector2(110, -94)
+rotation = 0.875435
+scale = Vector2(0.0351501, 0.027077)
+texture = ExtResource("7_22a43")
 
 [node name="Gras" type="Area2D" parent="Outer_Circle/Gras4"]
+scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
@@ -145,11 +159,13 @@ position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
 [node name="Gras5" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(-39, -138)
-scale = Vector2(0.492188, 0.4375)
-texture = ExtResource("5_ycysx")
+position = Vector2(-16, -139)
+rotation = 2.91625
+scale = Vector2(0.0351501, 0.027077)
+texture = ExtResource("7_22a43")
 
 [node name="Gras" type="Area2D" parent="Outer_Circle/Gras5"]
+scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
@@ -158,11 +174,13 @@ position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
 [node name="Gras6" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(113, -86)
-scale = Vector2(0.492188, 0.4375)
-texture = ExtResource("5_ycysx")
+position = Vector2(-93, -98)
+rotation = 2.33614
+scale = Vector2(0.0351501, 0.027077)
+texture = ExtResource("7_22a43")
 
 [node name="Gras" type="Area2D" parent="Outer_Circle/Gras6"]
+scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
@@ -171,15 +189,32 @@ position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
 [node name="Gras7" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(98, 89)
-scale = Vector2(0.492188, 0.4375)
-texture = ExtResource("5_ycysx")
+position = Vector2(-119, 57)
+rotation = 1.08605
+scale = Vector2(0.0351501, 0.027077)
+texture = ExtResource("7_22a43")
 
 [node name="Gras" type="Area2D" parent="Outer_Circle/Gras7"]
+scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras7/Gras"]
+position = Vector2(0, 1.14282)
+shape = SubResource("RectangleShape2D_pac7n")
+
+[node name="Gras8" type="Sprite2D" parent="Outer_Circle"]
+position = Vector2(-70, 112)
+rotation = 0.576705
+scale = Vector2(0.0351501, 0.027077)
+texture = ExtResource("7_22a43")
+
+[node name="Gras" type="Area2D" parent="Outer_Circle/Gras8"]
+scale = Vector2(11.7878, 11.7878)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras8/Gras"]
 position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 

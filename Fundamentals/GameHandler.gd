@@ -3,7 +3,7 @@ extends Node3D
 var player : Player 
 var chest : Chest
 var stored_plants_ui : StoredPlantsUI
-
+@onready var lawnmowing_game = $Lawnmowing_Game
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -35,7 +35,13 @@ func _process(delta: float) -> void:
 				pass
 	if Input.is_action_just_pressed("open_chest"):
 		stored_plants_ui.show()
-	
+	if Input.is_action_just_pressed("StartMinigame"):
+		start_lawnmowing_minigame()
+
+func start_lawnmowing_minigame():
+	lawnmowing_game.visible = true
+	lawnmowing_game.lawnmover.start_lawnmower()
+	disable_player()
 		
 func end_day():
 	get_tree().call_group("Plant","update_to_new_day")
@@ -46,3 +52,10 @@ func start_new_day():
 	Global.refill_energy()
 	#if Global.current_day == Global.contest_day:
 		#Global.start_contest()
+		
+func enable_player():
+		#get_parent().add_child(player)
+	pass
+func disable_player():
+		#get_parent().remove_child(player)
+	pass
