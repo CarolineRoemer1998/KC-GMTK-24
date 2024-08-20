@@ -17,8 +17,8 @@ var is_affordable: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
 	
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	energy_bar = get_tree().get_first_node_in_group("EnergyBar")
 	game_handler = get_tree().get_first_node_in_group("GameHandler")
 		

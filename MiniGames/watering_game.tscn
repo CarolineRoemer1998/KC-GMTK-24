@@ -9,6 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://yysfvogq4pke" path="res://MiniGames/components/drops.tscn" id="7_tec5r"]
 [ext_resource type="Texture2D" uid="uid://dl2bjkkd8s5nj" path="res://MeshLibrary/svg/left_mouse_button_light.svg" id="8_w361u"]
 
+[sub_resource type="Animation" id="Animation_x1tfh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("carrot/Watering-can:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
+
 [sub_resource type="Animation" id="Animation_51jpq"]
 resource_name = "watering"
 length = 0.6
@@ -40,21 +55,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"emit_drops"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_x1tfh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("carrot/Watering-can:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.785398]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2y2lm"]
