@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8e7c31chv56h"]
+[gd_scene load_steps=9 format=3 uid="uid://b8e7c31chv56h"]
 
 [ext_resource type="Texture2D" uid="uid://8jdgr0s3jb2s" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/10.png" id="1_62jdy"]
 [ext_resource type="Script" path="res://User Interface/action_overlay.gd" id="1_owwlo"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cortgsbqq8x1p" path="res://MeshLibrary/png/1_light.png" id="4_6ua0h"]
 [ext_resource type="Texture2D" uid="uid://cvgf2fp4v7724" path="res://Blender Objects/ui/Minigames/watering_plant.png" id="5_qjrgv"]
 [ext_resource type="Texture2D" uid="uid://cek4cn8kmpdgp" path="res://MeshLibrary/png/2_light.png" id="6_exupe"]
+[ext_resource type="Texture2D" uid="uid://d2juhi3fywjiw" path="res://Blender Objects/ui/plant_images/carrot.png" id="7_hujy5"]
+[ext_resource type="Texture2D" uid="uid://ba6d7lobnfbof" path="res://MeshLibrary/png/3_light.png" id="8_f37r6"]
 
 [node name="ActionOverlay" type="Control" groups=["ActionOverlay"]]
 layout_mode = 3
@@ -15,14 +17,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_owwlo")
+metadata/_edit_use_anchors_ = true
 
 [node name="water" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.517647)
-layout_mode = 0
-offset_left = 676.0
-offset_top = 171.0
-offset_right = 776.0
-offset_bottom = 271.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63
+anchor_top = 0.341
+anchor_right = 0.63
+anchor_bottom = 0.341
+offset_left = -49.7601
+offset_top = -49.968
+offset_right = 50.2399
+offset_bottom = 50.032
 mouse_default_cursor_shape = 2
 texture = ExtResource("1_62jdy")
 expand_mode = 1
@@ -42,11 +50,16 @@ texture = ExtResource("4_6ua0h")
 
 [node name="pull_weeds" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.517647)
-layout_mode = 0
-offset_left = 793.0
-offset_top = 171.0
-offset_right = 893.0
-offset_bottom = 271.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.732
+anchor_top = 0.341
+anchor_right = 0.732
+anchor_bottom = 0.341
+offset_left = -50.264
+offset_top = -49.968
+offset_right = 49.736
+offset_bottom = 50.032
 mouse_default_cursor_shape = 2
 texture = ExtResource("1_62jdy")
 expand_mode = 1
@@ -64,5 +77,31 @@ expand_mode = 2
 position = Vector2(85, 82)
 texture = ExtResource("6_exupe")
 
-[connection signal="gui_input" from="water" to="." method="_on_water_gui_input"]
-[connection signal="gui_input" from="pull_weeds" to="." method="_on_pull_weeds_gui_input"]
+[node name="Harvest" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.517647)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.832
+anchor_top = 0.341
+anchor_right = 0.832
+anchor_bottom = 0.341
+offset_left = -49.464
+offset_top = -49.968
+offset_right = 50.536
+offset_bottom = 50.032
+mouse_default_cursor_shape = 2
+texture = ExtResource("1_62jdy")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="Harvest"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 24.0
+offset_right = 69.0
+offset_bottom = 64.0
+texture = ExtResource("7_hujy5")
+expand_mode = 2
+
+[node name="2Light" type="Sprite2D" parent="Harvest"]
+position = Vector2(85, 82)
+texture = ExtResource("8_f37r6")

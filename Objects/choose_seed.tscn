@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cvn6031bgx45c" path="res://Blender Objects/ui/plant_images/seed_bag_cauliflower.png" id="6_b32aa"]
 
 [node name="ChooseSeed" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,11 +18,16 @@ script = ExtResource("1_c6uw7")
 
 [node name="carrot_seeds" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.517647)
-layout_mode = 0
-offset_left = 469.0
-offset_top = 111.0
-offset_right = 569.0
-offset_bottom = 211.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.451
+anchor_top = 0.248
+anchor_right = 0.451
+anchor_bottom = 0.248
+offset_left = -50.5521
+offset_top = -49.704
+offset_right = 49.4479
+offset_bottom = 50.296
 mouse_default_cursor_shape = 2
 texture = ExtResource("2_agl8x")
 expand_mode = 1
@@ -39,11 +43,16 @@ expand_mode = 1
 
 [node name="strawberry_seeds" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.517647)
-layout_mode = 0
-offset_left = 586.0
-offset_top = 111.0
-offset_right = 686.0
-offset_bottom = 211.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.552
+anchor_top = 0.248
+anchor_right = 0.552
+anchor_bottom = 0.248
+offset_left = -49.9041
+offset_top = -49.704
+offset_right = 50.0959
+offset_bottom = 50.296
 mouse_default_cursor_shape = 2
 texture = ExtResource("2_agl8x")
 expand_mode = 1
@@ -59,11 +68,16 @@ expand_mode = 1
 
 [node name="zucchini_seeds" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.517647)
-layout_mode = 0
-offset_left = 414.0
-offset_top = 229.0
-offset_right = 514.0
-offset_bottom = 329.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.403
+anchor_top = 0.431
+anchor_right = 0.403
+anchor_bottom = 0.431
+offset_left = -50.256
+offset_top = -50.288
+offset_right = 49.744
+offset_bottom = 49.712
 mouse_default_cursor_shape = 2
 texture = ExtResource("2_agl8x")
 expand_mode = 1
@@ -79,11 +93,16 @@ expand_mode = 1
 
 [node name="cauliflower_seeds" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.509804)
-layout_mode = 0
-offset_left = 645.0
-offset_top = 229.0
-offset_right = 745.0
-offset_bottom = 329.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.603
+anchor_top = 0.431
+anchor_right = 0.603
+anchor_bottom = 0.431
+offset_left = -49.6561
+offset_top = -50.288
+offset_right = 50.3439
+offset_bottom = 49.712
 mouse_default_cursor_shape = 2
 texture = ExtResource("2_agl8x")
 expand_mode = 1

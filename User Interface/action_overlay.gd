@@ -32,3 +32,5 @@ func _process(delta):
 		game_handler.start_lawnmowing_minigame()
 		hide()
 		set_process(false)
+	elif Input.is_action_just_pressed("Harvest"):
+		player.interaction.harvest()
