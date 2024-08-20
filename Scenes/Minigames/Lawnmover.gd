@@ -6,6 +6,7 @@ class_name Lawnmower
 @onready var collision_shape_2d = $Stone_Detector/CollisionShape2D
 @onready var grasses = $"../../Grasses"
 
+var player : Player
 var actionOverlay : ActionOverlay
 
 var gras_remaining : Array = []
@@ -17,6 +18,7 @@ var game_won: bool
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	player = get_tree().get_first_node_in_group("Player")
 	spinner = get_parent()
 	actionOverlay = get_tree().get_first_node_in_group("ActionOverlay")
 	
@@ -33,6 +35,7 @@ func _process(delta):
 		else:
 			game_won = false
 		Global.evaluate_minigame(game_won)
+		
 		stop_lawnmover()
 	
 func start_lawnmower():
@@ -61,5 +64,6 @@ func _on_stone_detector_area_entered(area):
 		hit_count += 1
 	if area.name == "Gras":
 		print("yuhu Gras")
+		player.interaction.field.delete_weed()
 		gras_remaining.erase(area.get_parent())
 		area.get_parent().queue_free()

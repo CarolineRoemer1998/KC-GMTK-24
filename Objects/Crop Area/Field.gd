@@ -79,6 +79,12 @@ func grow_weed():
 		if size == field_size.large:
 			var new_weed = weed_large.instantiate()
 			add_child(new_weed)
+			
+func delete_weed():
+	for child in get_children(true):
+		if child.is_in_group("weed"):
+			child.queue_free()
+		
 
 func check_for_weed():
 	if has_weed and is_occupied:
