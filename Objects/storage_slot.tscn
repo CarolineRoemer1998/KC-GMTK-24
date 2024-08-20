@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw58tpnwtkwp0"]
+[gd_scene load_steps=6 format=3 uid="uid://dw58tpnwtkwp0"]
 
 [ext_resource type="Texture2D" uid="uid://ul8ujutyfaoi" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/07.png" id="1_qmmme"]
 [ext_resource type="Script" path="res://Objects/slot_interaction.gd" id="2_typoa"]
 [ext_resource type="PackedScene" uid="uid://dbky61jh3i24y" path="res://Objects/plant_statistics.tscn" id="3_fi7c5"]
+[ext_resource type="Texture2D" uid="uid://32ssn0qf1dju" path="res://Blender Objects/hello.png" id="4_8ugst"]
+[ext_resource type="Texture2D" uid="uid://32unrys5mpv4" path="res://MeshLibrary/png/left_mouse_button_light.png" id="5_rn660"]
 
 [node name="Slot1" type="TextureRect"]
 offset_right = 150.0
@@ -35,6 +37,20 @@ offset_bottom = 23.0
 
 [node name="Value" parent="PlantStatistics/VBoxContainer/L_ContestPoints" index="0"]
 offset_bottom = 23.0
+
+[node name="ClickToTake" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 127.0
+offset_top = -12.0
+offset_right = 167.0
+offset_bottom = 28.0
+texture = ExtResource("4_8ugst")
+expand_mode = 1
+
+[node name="LeftMouseButtonLight" type="Sprite2D" parent="ClickToTake"]
+position = Vector2(-19, 23)
+texture = ExtResource("5_rn660")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

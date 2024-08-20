@@ -6,6 +6,7 @@ class_name Slot
 
 var slot_plant : Plant
 @onready var plant_image: TextureRect = $plant_image
+@onready var click_to_take: TextureRect = $ClickToTake
 
 const CARROT = preload("res://Blender Objects/ui/plant_images/carrot.png")
 const CAULIFLOWER = preload("res://Blender Objects/ui/plant_images/cauliflower.png")
@@ -62,7 +63,9 @@ func set_plant_image(plant : Plant):
 func _on_mouse_entered() -> void:
 	if slot_plant != null:
 		plant_statistics.visible = true
+		click_to_take.visible = true
 
 
 func _on_mouse_exited() -> void:
 	plant_statistics.visible = false
+	click_to_take.visible = false

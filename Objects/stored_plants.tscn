@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0f7ab64nqyut"]
+[gd_scene load_steps=10 format=3 uid="uid://d0f7ab64nqyut"]
 
 [ext_resource type="Theme" uid="uid://1ih2p82wt28l" path="res://User Interface/Shop/ShopTheme.tres" id="1_j4m8l"]
 [ext_resource type="Script" path="res://Objects/stored_plants_ui.gd" id="1_oo8i7"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://b568wn6e1ho53" path="res://Objects/PlantImages/image_zucchini.tscn" id="4_ob87h"]
 [ext_resource type="PackedScene" uid="uid://02bdxjuu6032" path="res://Objects/PlantImages/image_cauliflower.tscn" id="5_0cxen"]
 [ext_resource type="PackedScene" uid="uid://dw58tpnwtkwp0" path="res://Objects/storage_slot.tscn" id="7_cd3kh"]
+[ext_resource type="Texture2D" uid="uid://c7mqebt0i5rtw" path="res://MeshLibrary/png/space_light.png" id="8_hccw7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j52bc"]
+font_size = 12
+font_color = Color(0.254902, 0.105882, 0.0705882, 1)
 
 [node name="StoredPlants" type="Control" groups=["StoredPlants"]]
 layout_mode = 3
@@ -86,6 +91,19 @@ offset_left = 750.0
 offset_top = 351.0
 offset_right = 900.0
 offset_bottom = 501.0
+
+[node name="SpaceLight" type="Sprite2D" parent="."]
+position = Vector2(990, 592)
+scale = Vector2(1.94444, 1.79268)
+texture = ExtResource("8_hccw7")
+
+[node name="Label" type="Label" parent="SpaceLight"]
+offset_left = -57.6
+offset_top = -9.48299
+offset_right = 118.4
+offset_bottom = 13.517
+text = "Press Space to store"
+label_settings = SubResource("LabelSettings_j52bc")
 
 [connection signal="gui_input" from="Slot1" to="." method="_on_slot_1_gui_input"]
 [connection signal="gui_input" from="Slot2" to="." method="_on_slot_2_gui_input"]

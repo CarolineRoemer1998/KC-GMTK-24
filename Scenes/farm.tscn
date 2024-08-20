@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://8bb3sh6ua0ar"]
+[gd_scene load_steps=25 format=3 uid="uid://8bb3sh6ua0ar"]
 
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
 [ext_resource type="PackedScene" uid="uid://jhph2qilg4x3" path="res://Blender Objects/Vegetable/Environment/path.blend" id="2_ov0ka"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ch4q8yskse70p" path="res://Objects/chest.tscn" id="14_rh132"]
 [ext_resource type="PackedScene" uid="uid://baxc7rtvf0s8f" path="res://MiniGames/watering_game.tscn" id="15_u3tqt"]
 [ext_resource type="PackedScene" path="res://Objects/House.tscn" id="16_7m2m2"]
+[ext_resource type="PackedScene" uid="uid://byycvp7iexgtg" path="res://Blender Objects/Vegetable/Environment/sign_home.blend" id="16_c3ky1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -574,3 +575,6 @@ Unfortunately we could finish our game in time. But we wanted to
 commit it anyway.
 
 So thanks alot and we hope you had a great Gmtk24 GameJam!"
+
+[node name="sign_home" parent="." instance=ExtResource("16_c3ky1")]
+transform = Transform3D(0.845812, 0, -0.533482, 0, 1, 0, 0.533482, 0, 0.845812, 4.96571, 0, -7.80594)
