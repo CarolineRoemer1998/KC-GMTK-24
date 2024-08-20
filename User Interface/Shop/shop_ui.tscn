@@ -54,16 +54,25 @@ field_placer_large = ExtResource("4_nwqan")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 92.0
+offset_top = 40.0
+offset_right = -86.0
+offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_v16ev")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
-layout_mode = 0
-offset_left = 212.0
-offset_top = 456.0
-offset_right = 844.0
-offset_bottom = 535.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.458
+anchor_top = 0.765
+anchor_right = 0.458
+anchor_bottom = 0.765
+offset_left = -315.616
+offset_top = -39.72
+offset_right = 316.384
+offset_bottom = 39.28
 theme_override_constants/separation = 100
 
 [node name="Buy_small_field" type="Button" parent="Panel/HBoxContainer"]
@@ -80,6 +89,21 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_uf3tk")
 text = "Buy Field
  (Small)"
 
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Buy_small_field"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.545
+anchor_top = -0.272
+anchor_right = 0.545
+anchor_bottom = -0.272
+offset_left = -19.956
+offset_top = -21.017
+offset_right = 20.044
+offset_bottom = 20.983
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+
 [node name="Buy_med_field" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -92,6 +116,21 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_np3x2")
 theme_override_styles/hover = SubResource("StyleBoxTexture_5nsms")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_oynvi")
 text = "Buy medium field"
+
+[node name="Label2" type="Label" parent="Panel/HBoxContainer/Buy_med_field"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.247
+anchor_right = 0.5
+anchor_bottom = -0.247
+offset_left = -6.47601
+offset_top = -20.992
+offset_right = 33.524
+offset_bottom = 21.008
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "3"
 
 [node name="Buy_large_field" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
@@ -106,14 +145,20 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_ew6x1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_74f1s")
 text = "Buy large field"
 
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 52.0
-offset_top = 99.0
-offset_right = 914.0
-offset_bottom = 261.0
-theme_override_font_sizes/font_size = 100
-text = "Super duper Shop"
+[node name="Label3" type="Label" parent="Panel/HBoxContainer/Buy_large_field"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.247
+anchor_right = 0.5
+anchor_bottom = -0.247
+offset_left = -10.476
+offset_top = -20.992
+offset_right = 29.524
+offset_bottom = 21.008
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "5"
 
 [node name="ButtonScaleFarm" type="Button" parent="Panel"]
 visible = false
@@ -214,47 +259,133 @@ texture = ExtResource("7_mxl52")
 expand_mode = 1
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 63.0
-offset_top = 18.0
-offset_right = 156.0
-offset_bottom = 79.0
+anchors_preset = -1
+anchor_left = 0.743
+anchor_top = 0.113
+anchor_right = 0.743
+anchor_bottom = 0.113
+offset_left = 46.064
+offset_top = 7.77599
+offset_right = 139.064
+offset_bottom = 68.776
+grow_horizontal = 0
 text = "Close Shop"
 
 [node name="CarrotSeeds" type="TextureButton" parent="."]
-offset_left = 212.0
-offset_top = 264.0
-offset_right = 349.0
-offset_bottom = 401.0
+anchors_preset = -1
+anchor_left = 0.253
+anchor_top = 0.454
+anchor_right = 0.253
+anchor_bottom = 0.454
+offset_left = -68.456
+offset_top = -68.192
+offset_right = 68.544
+offset_bottom = 68.808
 texture_normal = ExtResource("9_lfjgn")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Label5" type="Label" parent="CarrotSeeds"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.754
+anchor_top = -0.124
+anchor_right = -0.754
+anchor_bottom = -0.124
+offset_left = 158.298
+offset_top = -22.012
+offset_right = 198.298
+offset_bottom = 19.988
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+
 [node name="StrawberrySeeds" type="TextureButton" parent="."]
-offset_left = 370.0
-offset_top = 261.0
-offset_right = 507.0
-offset_bottom = 398.0
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.461
+anchor_right = 0.7
+anchor_bottom = 0.461
+offset_left = -68.4
+offset_top = -68.728
+offset_right = 68.6
+offset_bottom = 68.272
 texture_normal = ExtResource("10_rfrii")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Label5" type="Label" parent="StrawberrySeeds"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.672
+anchor_top = -0.088
+anchor_right = 1.672
+anchor_bottom = -0.088
+offset_left = -163.064
+offset_top = -26.944
+offset_right = -123.064
+offset_bottom = 17.028
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "3"
+
 [node name="ZucchiniSeeds" type="TextureButton" parent="."]
-offset_left = 538.0
-offset_top = 261.0
-offset_right = 675.0
-offset_bottom = 398.0
+anchors_preset = -1
+anchor_left = 0.559
+anchor_top = 0.458
+anchor_right = 0.559
+anchor_bottom = 0.458
+offset_left = -68.968
+offset_top = -68.784
+offset_right = 68.032
+offset_bottom = 68.216
 texture_normal = ExtResource("11_xdo4e")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Label6" type="Label" parent="ZucchiniSeeds"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.088
+anchor_right = 0.5
+anchor_bottom = -0.088
+offset_left = -12.5
+offset_top = -27.944
+offset_right = 27.5
+offset_bottom = 16.028
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "2"
+
 [node name="CauliflowerSeeds" type="TextureButton" parent="."]
-offset_left = 691.0
-offset_top = 261.0
-offset_right = 828.0
-offset_bottom = 398.0
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.461
+anchor_right = 0.404
+anchor_bottom = 0.461
+offset_left = -68.408
+offset_top = -68.728
+offset_right = 68.592
+offset_bottom = 68.272
 texture_normal = ExtResource("12_etnld")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Label4" type="Label" parent="CauliflowerSeeds"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.124
+anchor_right = 0.5
+anchor_bottom = -0.124
+offset_left = -12.5
+offset_top = -21.012
+offset_right = 27.5
+offset_bottom = 20.988
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "2"
 
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_small_field" to="." method="_on_buy_small_field_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_med_field" to="." method="_on_buy_med_field_pressed"]
