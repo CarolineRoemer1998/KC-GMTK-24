@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b568wn6e1ho53"]
+
+[ext_resource type="Texture2D" uid="uid://c6bc44i0i3ff2" path="res://Blender Objects/ui/plant_images/zucchini.png" id="1_aawxc"]
+
+[node name="ImageZucchini" type="TextureRect"]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("1_aawxc")
+expand_mode = 1

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://02bdxjuu6032"]
+
+[ext_resource type="Texture2D" uid="uid://caep1r8do80lc" path="res://Blender Objects/ui/plant_images/cauliflower.png" id="1_oc163"]
+
+[node name="ImageCauliflower" type="TextureRect"]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("1_oc163")
+expand_mode = 1

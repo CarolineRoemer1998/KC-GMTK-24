@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://p0o176fi5pem"]
+
+[ext_resource type="Texture2D" uid="uid://ci8n4er7vqve1" path="res://Blender Objects/ui/plant_images/strawberry.png" id="1_4ja33"]
+
+[node name="ImageStrawberry" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = -1102.0
+offset_bottom = -598.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4ja33")
+expand_mode = 1

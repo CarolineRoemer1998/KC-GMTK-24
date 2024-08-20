@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://djgi83idvlrxb"]
+[gd_scene load_steps=29 format=3 uid="uid://djgi83idvlrxb"]
 
 [ext_resource type="Script" path="res://Objects/Plants/Plant.gd" id="1_i2vis"]
 [ext_resource type="PackedScene" uid="uid://dalgpffw3ukn8" path="res://Blender Objects/Vegetable/carrot/carrot_large.blend" id="2_jhsub"]
@@ -6,21 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://d2wj4qtq7iypd" path="res://Blender Objects/Vegetable/carrot/carrot_seeds.blend" id="4_cqqu7"]
 [ext_resource type="PackedScene" uid="uid://d231oxij0i73g" path="res://Blender Objects/Vegetable/carrot/carrot_small.blend" id="5_6eve1"]
 [ext_resource type="PackedScene" uid="uid://lhqers2whvfy" path="res://Blender Objects/Vegetable/carrot/carrot_sprout.blend" id="6_3j56d"]
+[ext_resource type="PackedScene" uid="uid://037n6oxs5f7r" path="res://Objects/PlantImages/image_carrot.tscn" id="7_3ctln"]
 [ext_resource type="PackedScene" uid="uid://bhed0c0ystkid" path="res://Blender Objects/Vegetable/strawberry/strawberry_seeds.blend" id="7_ijcmy"]
 [ext_resource type="PackedScene" uid="uid://c8msquuec2ti7" path="res://Blender Objects/Vegetable/strawberry/strawberry_sprout.blend" id="8_t0sv5"]
 [ext_resource type="PackedScene" uid="uid://uep2vhg103p8" path="res://Blender Objects/Vegetable/strawberry/strawberry_small.blend" id="9_ami1s"]
 [ext_resource type="PackedScene" uid="uid://7fw63qbtucsp" path="res://Blender Objects/Vegetable/strawberry/strawberry_medium.blend" id="10_agg1f"]
 [ext_resource type="PackedScene" uid="uid://csjusaejygo08" path="res://Blender Objects/Vegetable/strawberry/strawberry_large.blend" id="11_ms3yt"]
 [ext_resource type="PackedScene" uid="uid://bx1mlm6lpaje0" path="res://Blender Objects/Vegetable/cauliflower/cauliflower_seeds.blend" id="12_0dtgp"]
+[ext_resource type="PackedScene" uid="uid://p0o176fi5pem" path="res://Objects/PlantImages/image_strawberry.tscn" id="13_2djob"]
 [ext_resource type="PackedScene" uid="uid://crxkbor8tv4w2" path="res://Blender Objects/Vegetable/cauliflower/cauliflower_sprout.blend" id="13_paeae"]
 [ext_resource type="PackedScene" uid="uid://m2v7ipk2ve86" path="res://Blender Objects/Vegetable/cauliflower/cauliflower_small.blend" id="14_lfg1x"]
 [ext_resource type="PackedScene" uid="uid://bcy8a86jabt32" path="res://Blender Objects/Vegetable/cauliflower/cauliflower_medium.blend" id="15_x25y1"]
 [ext_resource type="PackedScene" uid="uid://fyaa00kpf7tv" path="res://Blender Objects/Vegetable/cauliflower/cauliflower_large.blend" id="16_jbl6e"]
 [ext_resource type="PackedScene" uid="uid://b2tsol8ng0m7w" path="res://Blender Objects/Vegetable/Zucchini/zucchini_seeds.blend" id="17_mhx3k"]
 [ext_resource type="PackedScene" uid="uid://bhgj7jy2lnof2" path="res://Blender Objects/Vegetable/Zucchini/zucchini_sprout.blend" id="18_krqkf"]
+[ext_resource type="PackedScene" uid="uid://02bdxjuu6032" path="res://Objects/PlantImages/image_cauliflower.tscn" id="19_0rng1"]
 [ext_resource type="PackedScene" uid="uid://bvktmd7mrun78" path="res://Blender Objects/Vegetable/Zucchini/zucchini_small.blend" id="19_ipld4"]
 [ext_resource type="PackedScene" uid="uid://dgj0ctgngeo28" path="res://Blender Objects/Vegetable/Zucchini/zucchini_medium.blend" id="20_y4bhy"]
 [ext_resource type="PackedScene" uid="uid://c4cpir84uq6gt" path="res://Blender Objects/Vegetable/Zucchini/zucchini_large.blend" id="21_v2n7t"]
+[ext_resource type="PackedScene" uid="uid://b568wn6e1ho53" path="res://Objects/PlantImages/image_zucchini.tscn" id="25_afbdh"]
 
 [sub_resource type="Animation" id="Animation_5xupg"]
 length = 0.001
@@ -80,6 +84,9 @@ visible = false
 [node name="carrot_large" parent="CarrotStages" instance=ExtResource("2_jhsub")]
 visible = false
 
+[node name="ImageCarrot" parent="CarrotStages" instance=ExtResource("7_3ctln")]
+visible = false
+
 [node name="StrawberryStages" type="Node3D" parent="."]
 visible = false
 
@@ -96,6 +103,13 @@ visible = false
 
 [node name="strawberry_large" parent="StrawberryStages" instance=ExtResource("11_ms3yt")]
 visible = false
+
+[node name="ImageStrawberry" parent="StrawberryStages" instance=ExtResource("13_2djob")]
+visible = false
+offset_left = -384.0
+offset_top = -636.0
+offset_right = 384.0
+offset_bottom = 636.0
 
 [node name="CauliflowerStages" type="Node3D" parent="."]
 visible = false
@@ -114,6 +128,9 @@ visible = false
 [node name="cauliflower_large" parent="CauliflowerStages" instance=ExtResource("16_jbl6e")]
 visible = false
 
+[node name="ImageCauliflower" parent="CauliflowerStages" instance=ExtResource("19_0rng1")]
+visible = false
+
 [node name="ZucchiniStages" type="Node3D" parent="."]
 visible = false
 
@@ -129,6 +146,9 @@ visible = false
 visible = false
 
 [node name="zucchini_large" parent="ZucchiniStages" instance=ExtResource("21_v2n7t")]
+visible = false
+
+[node name="ImageZucchini" parent="ZucchiniStages" instance=ExtResource("25_afbdh")]
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

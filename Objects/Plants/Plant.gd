@@ -50,6 +50,7 @@ var energy_gain : int
 @onready var zucchini_medium: Node3D = $ZucchiniStages/zucchini_medium
 @onready var zucchini_large: Node3D = $ZucchiniStages/zucchini_large
 
+var plant_image : TextureRect
 
 @export_range(0,4) var level: int = 0 
 
@@ -110,42 +111,40 @@ func _ready():
 	type = plant_type.carrot
 	load_meshes(type)
 
-			
-	
 	days_since_last_watering = watering_frequency
-	
 	contest_points = 0
+	
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 func set_properties(type: plant_type):
 	match type:
 		plant_type.carrot:
-			cost = 1
 			selling_price_small = 1
 			selling_price_medium = 2
 			selling_price_large = 3
 			watering_frequency = 2
 			energy_gain = 1
+			cost = 1
 		plant_type.cauliflower:
-			cost = 2
 			selling_price_small = 2
 			selling_price_medium = 4
 			selling_price_large = 6
 			watering_frequency = 3
 			energy_gain = 3
-		plant_type.zucchini:
 			cost = 2
+		plant_type.zucchini:
 			selling_price_small = 1
 			selling_price_medium = 3
 			selling_price_large = 12
 			watering_frequency = 3
 			energy_gain = 2
+			cost = 2
 		plant_type.strawberry:
-			cost = 3
 			selling_price_small = 4
 			selling_price_medium = 8
 			selling_price_large = 10
 			watering_frequency = 2
 			energy_gain = 2
+			cost = 3
 
 func load_meshes(type:plant_type):
 		match type:

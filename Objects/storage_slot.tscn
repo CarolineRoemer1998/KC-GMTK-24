@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw58tpnwtkwp0"]
+
+[ext_resource type="Texture2D" uid="uid://ul8ujutyfaoi" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/07.png" id="1_qmmme"]
+[ext_resource type="Script" path="res://Objects/slot_interaction.gd" id="2_typoa"]
+[ext_resource type="PackedScene" uid="uid://dbky61jh3i24y" path="res://Objects/plant_statistics.tscn" id="3_fi7c5"]
+
+[node name="Slot1" type="TextureRect"]
+offset_right = 150.0
+offset_bottom = 150.0
+texture = ExtResource("1_qmmme")
+expand_mode = 1
+script = ExtResource("2_typoa")
+
+[node name="plant_image" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 20.0
+offset_right = 125.0
+offset_bottom = 120.0
+expand_mode = 1
+
+[node name="PlantStatistics" parent="." instance=ExtResource("3_fi7c5")]
+layout_mode = 0
+offset_left = -71.0
+offset_top = 47.0
+offset_right = 79.0
+offset_bottom = 197.0
+mouse_filter = 2
+
+[node name="Value" parent="PlantStatistics/VBoxContainer/L_SellingPrice" index="0"]
+offset_bottom = 23.0
+
+[node name="Value" parent="PlantStatistics/VBoxContainer/L_Size" index="0"]
+offset_bottom = 23.0
+
+[node name="Value" parent="PlantStatistics/VBoxContainer/L_ContestPoints" index="0"]
+offset_bottom = 23.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+
+[editable path="PlantStatistics"]

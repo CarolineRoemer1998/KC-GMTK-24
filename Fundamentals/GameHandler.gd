@@ -25,11 +25,14 @@ func _process(delta: float) -> void:
 		player.interaction.field.reset()
 	if Input.is_action_just_pressed("store_plant"):
 		if !player.carrying_weight == Player.Weight.none:
-			player.interaction.carrying_plant.reparent(chest)
-			chest.add_plant(player.interaction.carrying_plant)
-			player.interaction.is_throwing = true
-			player.interaction.carrying_plant.animation_player.play("shrink")
-			player.carrying_weight = Player.Weight.none
+			if chest.stored_plants.store_plant(player.interaction.carrying_plant):
+				chest.add_plant(player.interaction.carrying_plant)
+				player.interaction.is_throwing = true
+				player.interaction.carrying_plant.animation_player.play("shrink")
+				player.carrying_weight = Player.Weight.none
+			else:
+				# TODO: Nachricht, dass Kiste voll ist
+				pass
 	if Input.is_action_just_pressed("open_chest"):
 		stored_plants_ui.show()
 	

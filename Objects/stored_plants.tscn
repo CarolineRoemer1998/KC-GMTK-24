@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0f7ab64nqyut"]
+[gd_scene load_steps=8 format=3 uid="uid://d0f7ab64nqyut"]
 
 [ext_resource type="Theme" uid="uid://1ih2p82wt28l" path="res://User Interface/Shop/ShopTheme.tres" id="1_j4m8l"]
 [ext_resource type="Script" path="res://Objects/stored_plants_ui.gd" id="1_oo8i7"]
+[ext_resource type="PackedScene" uid="uid://037n6oxs5f7r" path="res://Objects/PlantImages/image_carrot.tscn" id="2_dup7i"]
+[ext_resource type="PackedScene" uid="uid://p0o176fi5pem" path="res://Objects/PlantImages/image_strawberry.tscn" id="3_bvbid"]
+[ext_resource type="PackedScene" uid="uid://b568wn6e1ho53" path="res://Objects/PlantImages/image_zucchini.tscn" id="4_ob87h"]
+[ext_resource type="PackedScene" uid="uid://02bdxjuu6032" path="res://Objects/PlantImages/image_cauliflower.tscn" id="5_0cxen"]
+[ext_resource type="PackedScene" uid="uid://dw58tpnwtkwp0" path="res://Objects/storage_slot.tscn" id="7_cd3kh"]
 
 [node name="StoredPlants" type="Control" groups=["StoredPlants"]]
 visible = false
@@ -11,11 +16,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 script = ExtResource("1_oo8i7")
+carrot_image = ExtResource("2_dup7i")
+strawberry_image = ExtResource("3_bvbid")
+zucchini_image = ExtResource("4_ob87h")
+cauliflower_image = ExtResource("5_0cxen")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,3 +31,61 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_j4m8l")
+
+[node name="Slot1" parent="." instance=ExtResource("7_cd3kh")]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 151.0
+offset_right = 301.0
+offset_bottom = 301.0
+
+[node name="Slot2" parent="." instance=ExtResource("7_cd3kh")]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 151.0
+offset_right = 501.0
+offset_bottom = 301.0
+
+[node name="Slot3" parent="." instance=ExtResource("7_cd3kh")]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 151.0
+offset_right = 700.0
+offset_bottom = 301.0
+
+[node name="Slot4" parent="." instance=ExtResource("7_cd3kh")]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 151.0
+offset_right = 900.0
+offset_bottom = 301.0
+
+[node name="Slot5" parent="." instance=ExtResource("7_cd3kh")]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 351.0
+offset_right = 301.0
+offset_bottom = 501.0
+
+[node name="Slot6" parent="." instance=ExtResource("7_cd3kh")]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 351.0
+offset_right = 501.0
+offset_bottom = 501.0
+
+[node name="Slot7" parent="." instance=ExtResource("7_cd3kh")]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 351.0
+offset_right = 700.0
+offset_bottom = 501.0
+
+[node name="Slot8" parent="." instance=ExtResource("7_cd3kh")]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 351.0
+offset_right = 900.0
+offset_bottom = 501.0
+
+[connection signal="gui_input" from="Slot1" to="." method="_on_slot_1_gui_input"]

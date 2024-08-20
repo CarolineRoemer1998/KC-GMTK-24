@@ -3,6 +3,7 @@ extends StaticBody3D
 class_name Chest
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var stored_plants: StoredPlantsUI = $StoredPlants
 
 var plants = []
 var amount_carrots : int = 0
