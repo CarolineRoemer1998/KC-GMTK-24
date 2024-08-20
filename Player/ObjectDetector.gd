@@ -28,6 +28,7 @@ func _on_area_entered(area: Area3D) -> void:
 				child.visible = true
 				child.get_parent().is_chosen = true
 		game_handler.show_action_overlay()
+		game_handler.show_seed_overlay()
 
 func _on_area_exited(area: Area3D) -> void:
 	current_detected = null
@@ -36,3 +37,4 @@ func _on_area_exited(area: Area3D) -> void:
 			child.visible = false
 			child.get_parent().is_chosen = false
 	game_handler.hide_action_overlay()
+	game_handler.hide_seed_overlay()

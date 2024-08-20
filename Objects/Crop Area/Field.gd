@@ -56,14 +56,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("T_Plant") && is_chosen && !is_occupied:
-		player.ui_choose_seed.show()
-		player.ui_choose_seed.visible = true
-	if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"):
-		player.ui_choose_seed.hide()
-		player.ui_choose_seed.visible = false
-	#plant_seed()
-	#print("planting...")
+	pass
 
 func grow_weed():
 	rand_weed.randomize()

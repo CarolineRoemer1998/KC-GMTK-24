@@ -52,6 +52,16 @@ func show_action_overlay():
 func hide_action_overlay():
 	action_overlay.visible = false
 	
+	
+func show_seed_overlay():
+	if player.interaction.field.is_occupied == false:
+		player.ui_choose_seed.show()
+		player.ui_choose_seed.visible = true
+	
+func hide_seed_overlay():
+	player.ui_choose_seed.hide()
+	player.ui_choose_seed.visible = false
+	
 func start_lawnmowing_minigame():
 	if player.interaction.field.is_occupied and player.interaction.field.has_weed:
 		var new_lawnmowing_minigame = lawnmowing_minigame.instantiate()
@@ -81,3 +91,5 @@ func enable_player():
 func disable_player():
 		#get_parent().remove_child(player)
 	pass
+	
+	
