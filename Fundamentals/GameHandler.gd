@@ -1,6 +1,7 @@
 extends Node3D
 
 class_name GameHandler
+@onready var panel: Panel = $"../Panel"
 var player : Player 
 var chest : Chest
 var stored_plants_ui : StoredPlantsUI
@@ -18,6 +19,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("mouse_left"):
+		panel.visible = false
 	if Input.is_action_just_pressed("Close Game"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("Reload"):

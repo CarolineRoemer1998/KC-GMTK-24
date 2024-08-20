@@ -9,12 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://d064xu0qtx7ms" path="res://Objects/Crop Area/FieldUnplowed.tscn" id="6_dirvw"]
 [ext_resource type="PackedScene" uid="uid://bnwr7trxoehqq" path="res://User Interface/Energy Bar/control.tscn" id="6_okv1m"]
 [ext_resource type="PackedScene" uid="uid://cvypfmkur1wyc" path="res://Scenes/Minigames/lawnmowing_game.tscn" id="7_hhp2j"]
-[ext_resource type="PackedScene" uid="uid://cvtnkq82q0ltn" path="res://User Interface/action_overlay.tscn" id="9_l68vm"]
+[ext_resource type="PackedScene" uid="uid://b8e7c31chv56h" path="res://User Interface/action_overlay.tscn" id="9_l68vm"]
 [ext_resource type="PackedScene" uid="uid://dunolb6ev3g35" path="res://Objects/Sings/sign_shop.tscn" id="11_74v6e"]
 [ext_resource type="PackedScene" uid="uid://csstquwad0nt5" path="res://Objects/Sings/sign_market.tscn" id="11_tn0k4"]
 [ext_resource type="PackedScene" uid="uid://ch4q8yskse70p" path="res://Objects/chest.tscn" id="14_rh132"]
 [ext_resource type="PackedScene" uid="uid://baxc7rtvf0s8f" path="res://MiniGames/watering_game.tscn" id="15_u3tqt"]
-[ext_resource type="PackedScene" uid="uid://q8laufrl13tj" path="res://Objects/House.tscn" id="16_7m2m2"]
+[ext_resource type="PackedScene" path="res://Objects/House.tscn" id="16_7m2m2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
