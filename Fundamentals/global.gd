@@ -8,6 +8,7 @@ var current_energy : int
 
 var energy_bar 
 var game_handler
+var player: Player
 
 var current_day : int
 var contest_day : int = 10
@@ -21,7 +22,8 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	energy_bar = get_tree().get_first_node_in_group("EnergyBar")
 	game_handler = get_tree().get_first_node_in_group("GameHandler")
-		
+	player = get_tree().get_first_node_in_group("Player")
+	
 	current_energy = start_energy
 	current_money = start_money
 
@@ -59,5 +61,8 @@ func start_contest():
 	print("test")
 	get_tree().paused = false
 
-func evaluate_minigame():
-	pass
+func evaluate_minigame(game_won: bool):
+	if game_won:
+		print("yuhu!")
+	else:
+		print("buh!")

@@ -65,156 +65,159 @@ scale = Vector2(0.556052, 0.161686)
 texture = ExtResource("2_m0cy1")
 
 [node name="Inner_Circle" type="Sprite2D" parent="Outer_Circle"]
-visible = false
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_1neft")
 
-[node name="Stone" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(10, 133)
+[node name="Stones" type="Node2D" parent="Outer_Circle"]
+
+[node name="Stone" type="Sprite2D" parent="Outer_Circle/Stones"]
+position = Vector2(7.55798, 131.568)
 scale = Vector2(0.0529629, 0.0378307)
 texture = ExtResource("6_n8qai")
 
-[node name="Stone" type="Area2D" parent="Outer_Circle/Stone"]
+[node name="Stone" type="Area2D" parent="Outer_Circle/Stones/Stone"]
 scale = Vector2(18.8811, 26.4336)
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Stone/Stone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Stones/Stone/Stone"]
 position = Vector2(-3.05176e-05, -3.05176e-05)
 shape = SubResource("RectangleShape2D_mbfi7")
 
-[node name="Stone2" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(57, -133)
+[node name="Stone2" type="Sprite2D" parent="Outer_Circle/Stones"]
+position = Vector2(51.558, -134.432)
 rotation = -2.70719
 scale = Vector2(0.0529629, 0.0378307)
 texture = ExtResource("6_n8qai")
 
-[node name="Stone" type="Area2D" parent="Outer_Circle/Stone2"]
+[node name="Stone" type="Area2D" parent="Outer_Circle/Stones/Stone2"]
 scale = Vector2(18.8811, 26.4336)
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Stone2/Stone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Stones/Stone2/Stone"]
 position = Vector2(-3.05176e-05, -3.05176e-05)
 shape = SubResource("RectangleShape2D_mbfi7")
 
-[node name="Gras" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(91.1659, 100.584)
-rotation = -3.83279
+[node name="Grasses" type="Node2D" parent="Outer_Circle"]
+
+[node name="Gras" type="Sprite2D" parent="Outer_Circle/Grasses"]
+position = Vector2(88.7239, 101.152)
+rotation = 2.45039
 scale = Vector2(0.0351501, 0.027077)
 texture = ExtResource("7_22a43")
 
-[node name="Gras" type="Area2D" parent="Outer_Circle/Gras"]
+[node name="Gras" type="Area2D" parent="Outer_Circle/Grasses/Gras"]
 scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras/Gras"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Grasses/Gras/Gras"]
 position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
-[node name="Gras2" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(133, 38)
+[node name="Gras2" type="Sprite2D" parent="Outer_Circle/Grasses"]
+position = Vector2(130.558, 38.5681)
 rotation = 1.83103
 scale = Vector2(0.0351501, 0.027077)
 texture = ExtResource("7_22a43")
 
-[node name="Gras" type="Area2D" parent="Outer_Circle/Gras2"]
+[node name="Gras" type="Area2D" parent="Outer_Circle/Grasses/Gras2"]
 scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras2/Gras"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Grasses/Gras2/Gras"]
 position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
-[node name="Gras3" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(132, -29)
+[node name="Gras3" type="Sprite2D" parent="Outer_Circle/Grasses"]
+position = Vector2(129.558, -28.432)
 rotation = 1.50902
 scale = Vector2(0.0351501, 0.027077)
 texture = ExtResource("7_22a43")
 
-[node name="Gras" type="Area2D" parent="Outer_Circle/Gras3"]
+[node name="Gras" type="Area2D" parent="Outer_Circle/Grasses/Gras3"]
 scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras3/Gras"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Grasses/Gras3/Gras"]
 position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
-[node name="Gras4" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(110, -94)
+[node name="Gras4" type="Sprite2D" parent="Outer_Circle/Grasses"]
+position = Vector2(107.558, -93.4319)
 rotation = 0.875435
 scale = Vector2(0.0351501, 0.027077)
 texture = ExtResource("7_22a43")
 
-[node name="Gras" type="Area2D" parent="Outer_Circle/Gras4"]
+[node name="Gras" type="Area2D" parent="Outer_Circle/Grasses/Gras4"]
 scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras4/Gras"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Grasses/Gras4/Gras"]
 position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
-[node name="Gras5" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(-16, -139)
+[node name="Gras5" type="Sprite2D" parent="Outer_Circle/Grasses"]
+position = Vector2(-18.442, -138.432)
 rotation = 2.91625
 scale = Vector2(0.0351501, 0.027077)
 texture = ExtResource("7_22a43")
 
-[node name="Gras" type="Area2D" parent="Outer_Circle/Gras5"]
+[node name="Gras" type="Area2D" parent="Outer_Circle/Grasses/Gras5"]
 scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras5/Gras"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Grasses/Gras5/Gras"]
 position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
-[node name="Gras6" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(-93, -98)
+[node name="Gras6" type="Sprite2D" parent="Outer_Circle/Grasses"]
+position = Vector2(-95.442, -97.4319)
 rotation = 2.33614
 scale = Vector2(0.0351501, 0.027077)
 texture = ExtResource("7_22a43")
 
-[node name="Gras" type="Area2D" parent="Outer_Circle/Gras6"]
+[node name="Gras" type="Area2D" parent="Outer_Circle/Grasses/Gras6"]
 scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras6/Gras"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Grasses/Gras6/Gras"]
 position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
-[node name="Gras7" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(-119, 57)
+[node name="Gras7" type="Sprite2D" parent="Outer_Circle/Grasses"]
+position = Vector2(-121.442, 57.568)
 rotation = 1.08605
 scale = Vector2(0.0351501, 0.027077)
 texture = ExtResource("7_22a43")
 
-[node name="Gras" type="Area2D" parent="Outer_Circle/Gras7"]
+[node name="Gras" type="Area2D" parent="Outer_Circle/Grasses/Gras7"]
 scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras7/Gras"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Grasses/Gras7/Gras"]
 position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
-[node name="Gras8" type="Sprite2D" parent="Outer_Circle"]
-position = Vector2(-70, 112)
+[node name="Gras8" type="Sprite2D" parent="Outer_Circle/Grasses"]
+position = Vector2(-72.442, 112.568)
 rotation = 0.576705
 scale = Vector2(0.0351501, 0.027077)
 texture = ExtResource("7_22a43")
 
-[node name="Gras" type="Area2D" parent="Outer_Circle/Gras8"]
+[node name="Gras" type="Area2D" parent="Outer_Circle/Grasses/Gras8"]
 scale = Vector2(11.7878, 11.7878)
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Gras8/Gras"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Grasses/Gras8/Gras"]
 position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
 
