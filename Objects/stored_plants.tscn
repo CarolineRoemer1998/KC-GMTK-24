@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0f7ab64nqyut"]
+
+[ext_resource type="Theme" uid="uid://1ih2p82wt28l" path="res://User Interface/Shop/ShopTheme.tres" id="1_j4m8l"]
+[ext_resource type="Script" path="res://Objects/stored_plants_ui.gd" id="1_oo8i7"]
+
+[node name="StoredPlants" type="Control" groups=["StoredPlants"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_oo8i7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_j4m8l")

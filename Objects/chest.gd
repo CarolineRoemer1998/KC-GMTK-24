@@ -10,6 +10,8 @@ var amount_strawberries : int = 0
 var amount_zucchini : int = 0
 var amount_cauliflower : int = 0
 
+var chest_size : int = 8
+
 func _on_detect_player_area_body_entered(player: Node3D) -> void:
 	if player is Player:
 		animation_player.play("Open")

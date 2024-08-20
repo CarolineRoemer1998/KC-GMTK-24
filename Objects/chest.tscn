@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://ch4q8yskse70p"]
+[gd_scene load_steps=15 format=3 uid="uid://ch4q8yskse70p"]
 
 [ext_resource type="Script" path="res://Objects/chest.gd" id="1_b2epb"]
+[ext_resource type="PackedScene" uid="uid://d0f7ab64nqyut" path="res://Objects/stored_plants.tscn" id="2_x1x17"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lin4m"]
 resource_name = "wood"
@@ -203,6 +204,8 @@ shape = SubResource("BoxShape3D_xki12")
 [node name="DetectionCollider" type="CollisionShape3D" parent="DetectPlayerArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00552368, 0.97406, 1.87732)
 shape = SubResource("BoxShape3D_5aovn")
+
+[node name="StoredPlants" parent="." instance=ExtResource("2_x1x17")]
 
 [connection signal="body_entered" from="DetectPlayerArea" to="." method="_on_detect_player_area_body_entered"]
 [connection signal="body_exited" from="DetectPlayerArea" to="." method="_on_detect_player_area_body_exited"]

@@ -2,12 +2,14 @@ extends Node3D
 
 var player : Player 
 var chest : Chest
+var stored_plants_ui : StoredPlantsUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	player = get_tree().get_first_node_in_group("Player")
 	chest = get_tree().get_first_node_in_group("Chest")
+	stored_plants_ui = get_tree().get_first_node_in_group("StoredPlants")
 	Global.current_day = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,7 +31,7 @@ func _process(delta: float) -> void:
 			player.interaction.carrying_plant.animation_player.play("shrink")
 			player.carrying_weight = Player.Weight.none
 	if Input.is_action_just_pressed("open_chest"):
-		player
+		stored_plants_ui.show()
 	
 		
 func end_day():
