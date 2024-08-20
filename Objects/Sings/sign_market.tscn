@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://csstquwad0nt5"]
+[gd_scene load_steps=5 format=3 uid="uid://csstquwad0nt5"]
 
 [ext_resource type="PackedScene" uid="uid://c71ohgq74ug24" path="res://Blender Objects/Vegetable/Environment/sign_market.blend" id="1_g50sa"]
 [ext_resource type="Script" path="res://Objects/Sings/sign_market.gd" id="2_cligo"]
+[ext_resource type="PackedScene" uid="uid://d2yr88sv0uiov" path="res://User Interface/Market/market_ui.tscn" id="3_n3beh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8m3vo"]
 size = Vector3(2.5, 1, 2.5)
@@ -17,6 +18,8 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, 0.75)
 shape = SubResource("BoxShape3D_8m3vo")
+
+[node name="Market_ui" parent="." index="4" instance=ExtResource("3_n3beh")]
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

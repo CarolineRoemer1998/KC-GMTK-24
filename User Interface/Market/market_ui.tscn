@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2yr88sv0uiov"]
+
+[ext_resource type="Script" path="res://User Interface/Market/market_ui.gd" id="1_g0ykg"]
+[ext_resource type="PackedScene" uid="uid://dw58tpnwtkwp0" path="res://Objects/storage_slot.tscn" id="2_gkx26"]
+
+[node name="Market_ui" type="CanvasLayer"]
+script = ExtResource("1_g0ykg")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 23.0
+offset_right = -38.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.427
+anchor_right = 0.481
+anchor_bottom = 0.427
+offset_left = -75.379
+offset_top = -0.076004
+offset_right = 75.621
+offset_bottom = 134.924
+text = "Sell Plant"
+
+[node name="Selling_Plant" parent="Panel" instance=ExtResource("2_gkx26")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.286
+anchor_top = 0.361
+anchor_right = 0.286
+anchor_bottom = 0.361
+offset_left = -74.874
+offset_top = 26.732
+offset_right = 75.126
+offset_bottom = 176.732
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

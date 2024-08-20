@@ -1,5 +1,6 @@
 extends Node3D
 
+@onready var market_ui = $Market_ui
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,8 +13,8 @@ func _process(delta):
 
 
 func _on_area_3d_area_entered(area):
-	print("Hello Markt")
+	market_ui.show_market(area.get_parent().get_parent())
 
 
 func _on_area_3d_area_exited(area):
-	print("Tschaui")
+	market_ui.close_market()
