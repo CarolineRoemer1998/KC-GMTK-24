@@ -19,6 +19,8 @@ var price_dic = {
 		
 }
 
+@onready var timer: Timer = $Timer
+@onready var mouseclick: TextureRect = $mouseclick
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,6 +42,8 @@ func close_shop():
 
 
 func _on_buy_small_field_pressed():
+	timer.start()
+	mouseclick.visible = true
 	Global.check_money(price_dic["small_field"])
 	if Global.is_affordable:
 		visible = false
@@ -49,6 +53,8 @@ func _on_buy_small_field_pressed():
 		Global.spend_money(price_dic["small_field"])
 	
 func _on_buy_med_field_pressed():
+	timer.start()
+	mouseclick.visible = true
 	Global.check_money(price_dic["medium_field"])
 	if Global.is_affordable:
 		visible = false
@@ -58,6 +64,8 @@ func _on_buy_med_field_pressed():
 		Global.spend_money(price_dic["medium_field"])
 
 func _on_buy_large_field_pressed():
+	timer.start()
+	mouseclick.visible = true
 	Global.check_money(price_dic["large_field"])
 	if Global.is_affordable:
 		visible = false
@@ -93,3 +101,7 @@ func _on_buy_strawberry_pressed():
 
 func _on_close_shop_pressed():
 	close_shop()
+
+
+func _on_timer_timeout() -> void:
+	mouseclick.visible = false

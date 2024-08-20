@@ -91,6 +91,7 @@ func water():
 		days_since_last_watering = 0
 		contest_points += 1
 		field.set_watered(true)
+		Global.lose_energy(1)
 
 func _process(delta: float) -> void:
 	if field.is_chosen:

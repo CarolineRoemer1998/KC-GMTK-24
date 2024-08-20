@@ -23,6 +23,7 @@ field_medium = ExtResource("3_4nadw")
 field_large = ExtResource("4_mlgxs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.497749, 0)
 material_override = SubResource("StandardMaterial3D_mynk8")
 mesh = SubResource("BoxMesh_n2y48")
 

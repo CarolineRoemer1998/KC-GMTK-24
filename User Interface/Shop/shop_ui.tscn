@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b3nlt4ukxr2aq"]
+[gd_scene load_steps=23 format=3 uid="uid://b3nlt4ukxr2aq"]
 
 [ext_resource type="Script" path="res://User Interface/Shop/Shop_Ui.gd" id="1_r2r25"]
 [ext_resource type="PackedScene" uid="uid://c8hlfhlcflaao" path="res://Objects/Field Placer/field_placer_small.tscn" id="2_jfn8x"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://07pt6yo5rfs3" path="res://Blender Objects/ui/plant_images/seed_bag_strawberry.png" id="10_rfrii"]
 [ext_resource type="Texture2D" uid="uid://4gx26cyf7k5b" path="res://Blender Objects/ui/plant_images/seed_bag_zucchini.png" id="11_xdo4e"]
 [ext_resource type="Texture2D" uid="uid://cvn6031bgx45c" path="res://Blender Objects/ui/plant_images/seed_bag_cauliflower.png" id="12_etnld"]
+[ext_resource type="Texture2D" uid="uid://dl2bjkkd8s5nj" path="res://MeshLibrary/svg/left_mouse_button_light.svg" id="13_jngup"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iyqw1"]
 content_margin_bottom = 13.0
@@ -387,6 +388,18 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "2"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="mouseclick" type="TextureRect" parent="."]
+visible = false
+offset_left = 1071.0
+offset_top = 556.0
+offset_right = 1111.0
+offset_bottom = 604.0
+texture = ExtResource("13_jngup")
+
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_small_field" to="." method="_on_buy_small_field_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_med_field" to="." method="_on_buy_med_field_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_large_field" to="." method="_on_buy_large_field_pressed"]
@@ -395,3 +408,4 @@ text = "2"
 [connection signal="pressed" from="StrawberrySeeds" to="." method="_on_buy_strawberry_pressed"]
 [connection signal="pressed" from="ZucchiniSeeds" to="." method="_on_buy_zucchini_pressed"]
 [connection signal="pressed" from="CauliflowerSeeds" to="." method="_on_buy_cauliflower_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
