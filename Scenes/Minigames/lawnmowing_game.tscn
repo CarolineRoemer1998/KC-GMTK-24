@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvypfmkur1wyc"]
+[gd_scene load_steps=13 format=3 uid="uid://cvypfmkur1wyc"]
 
 [ext_resource type="Texture2D" uid="uid://c0410aiehxggi" path="res://Scenes/Minigames/pngtree-black-ring-png-image_2319165.png" id="1_1neft"]
 [ext_resource type="Script" path="res://Scenes/Minigames/lawnmowing_game.gd" id="1_x22d6"]
 [ext_resource type="Texture2D" uid="uid://5tn56u1dctcn" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/24.png" id="2_m0cy1"]
 [ext_resource type="Texture2D" uid="uid://ul8ujutyfaoi" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/07.png" id="2_ye8y0"]
 [ext_resource type="Script" path="res://Scenes/Minigames/Lawnmover.gd" id="3_7vu1c"]
-[ext_resource type="Texture2D" uid="uid://x84krugg36kn" path="res://Scenes/Minigames/stone.png" id="6_n8qai"]
+[ext_resource type="Texture2D" uid="uid://bl34rrdisxfvs" path="res://Scenes/Minigames/stone.png" id="6_n8qai"]
 [ext_resource type="Texture2D" uid="uid://cvgf2fp4v7724" path="res://Blender Objects/ui/Minigames/watering_plant.png" id="7_22a43"]
+[ext_resource type="Texture2D" uid="uid://g128onubqh04" path="res://User Interface/PNG/Vector/Style 3/emote__.png" id="8_2fcwi"]
+[ext_resource type="Texture2D" uid="uid://dl2bjkkd8s5nj" path="res://MeshLibrary/svg/left_mouse_button_light.svg" id="9_8o623"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btyp4"]
 size = Vector2(52.5843, 136.066)
@@ -220,5 +222,18 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outer_Circle/Grasses/Gras8/Gras"]
 position = Vector2(0, 1.14282)
 shape = SubResource("RectangleShape2D_pac7n")
+
+[node name="Speechbubble" type="Sprite2D" parent="."]
+position = Vector2(792, 474)
+rotation = 2.61799
+scale = Vector2(3, 2.72368)
+texture = ExtResource("8_2fcwi")
+
+[node name="LeftClickIcon" type="Sprite2D" parent="Speechbubble"]
+position = Vector2(0.133987, -2.4585)
+rotation = -2.57518
+scale = Vector2(0.342101, 0.358995)
+skew = -0.083617
+texture = ExtResource("9_8o623")
 
 [connection signal="area_entered" from="Outer_Circle/Lawnmower_Spinner/Lawnmover/Stone_Detector" to="Outer_Circle/Lawnmower_Spinner/Lawnmover" method="_on_stone_detector_area_entered"]

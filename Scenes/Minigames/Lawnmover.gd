@@ -6,6 +6,8 @@ class_name Lawnmower
 @onready var collision_shape_2d = $Stone_Detector/CollisionShape2D
 @onready var grasses = $"../../Grasses"
 
+var actionOverlay : ActionOverlay
+
 var gras_remaining : Array = []
 
 var spinner
@@ -16,6 +18,7 @@ var game_won: bool
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	spinner = get_parent()
+	actionOverlay = get_tree().get_first_node_in_group("ActionOverlay")
 	
 	for gras in grasses.get_children():
 		gras_remaining.append(gras)
@@ -36,6 +39,7 @@ func start_lawnmower():
 	set_process(true)
 
 func stop_lawnmover():
+	actionOverlay.set_process(true)
 	get_parent().get_parent().get_parent().queue_free()
 
 func _input(event):

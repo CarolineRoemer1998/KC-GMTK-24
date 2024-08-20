@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvtnkq82q0ltn"]
+[gd_scene load_steps=7 format=3 uid="uid://b8e7c31chv56h"]
 
 [ext_resource type="Texture2D" uid="uid://8jdgr0s3jb2s" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/10.png" id="1_62jdy"]
 [ext_resource type="Script" path="res://User Interface/action_overlay.gd" id="1_owwlo"]
+[ext_resource type="Texture2D" uid="uid://clyywxhcbhgla" path="res://Blender Objects/ui/Minigames/drop.png" id="3_oyxey"]
+[ext_resource type="Texture2D" uid="uid://cortgsbqq8x1p" path="res://MeshLibrary/png/1_light.png" id="4_6ua0h"]
+[ext_resource type="Texture2D" uid="uid://cvgf2fp4v7724" path="res://Blender Objects/ui/Minigames/watering_plant.png" id="5_qjrgv"]
+[ext_resource type="Texture2D" uid="uid://cek4cn8kmpdgp" path="res://MeshLibrary/png/2_light.png" id="6_exupe"]
 
-[node name="ActionOverlay" type="Control"]
+[node name="ActionOverlay" type="Control" groups=["ActionOverlay"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,8 +29,16 @@ expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="water"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 29.0
+offset_top = 26.0
+offset_right = 69.0
+offset_bottom = 66.0
+texture = ExtResource("3_oyxey")
+expand_mode = 2
+
+[node name="1Light" type="Sprite2D" parent="water"]
+position = Vector2(83, 81)
+texture = ExtResource("4_6ua0h")
 
 [node name="pull_weeds" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.517647)
@@ -38,6 +50,19 @@ offset_bottom = 271.0
 mouse_default_cursor_shape = 2
 texture = ExtResource("1_62jdy")
 expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="pull_weeds"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 24.0
+offset_right = 69.0
+offset_bottom = 64.0
+texture = ExtResource("5_qjrgv")
+expand_mode = 2
+
+[node name="2Light" type="Sprite2D" parent="pull_weeds"]
+position = Vector2(85, 82)
+texture = ExtResource("6_exupe")
 
 [connection signal="gui_input" from="water" to="." method="_on_water_gui_input"]
 [connection signal="gui_input" from="pull_weeds" to="." method="_on_pull_weeds_gui_input"]

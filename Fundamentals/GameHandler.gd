@@ -49,13 +49,15 @@ func hide_action_overlay():
 	action_overlay.visible = false
 	
 func start_lawnmowing_minigame():
-	var new_lawnmowing_minigame = lawnmowing_minigame.instantiate()
-	add_child(new_lawnmowing_minigame)
-	disable_player()
+	if player.interaction.field.is_occupied and player.interaction.field.has_weed:
+		var new_lawnmowing_minigame = lawnmowing_minigame.instantiate()
+		add_child(new_lawnmowing_minigame)
+		disable_player()
 
 func start_watering_minigame():
-	var new_watering_minigame = watering_minigame.instantiate()
-	add_child(new_watering_minigame)
+	if player.interaction.field.is_occupied:
+		var new_watering_minigame = watering_minigame.instantiate()
+		add_child(new_watering_minigame)
 	
 func end_day():
 	get_tree().call_group("Plant","update_to_new_day")
