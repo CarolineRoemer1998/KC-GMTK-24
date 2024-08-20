@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3nlt4ukxr2aq"]
+[gd_scene load_steps=22 format=3 uid="uid://b3nlt4ukxr2aq"]
 
 [ext_resource type="Script" path="res://User Interface/Shop/Shop_Ui.gd" id="1_r2r25"]
 [ext_resource type="PackedScene" uid="uid://c8hlfhlcflaao" path="res://Objects/Field Placer/field_placer_small.tscn" id="2_jfn8x"]
@@ -8,16 +8,42 @@
 [ext_resource type="Texture2D" uid="uid://bclwgx3o5ead5" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/Buttons/PNG/BtnGray.png" id="6_dac6y"]
 [ext_resource type="Texture2D" uid="uid://dlgeuh1om1x7x" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/Buttons/PNG/BtnDarkGray.png" id="7_32clf"]
 [ext_resource type="Texture2D" uid="uid://bs658gfylwvi6" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/06.png" id="7_mxl52"]
-[ext_resource type="Texture2D" uid="uid://8ao4olxbthfn" path="res://Blender Objects/ui/plant_images/seed_bag_carrots_2.png" id="9_hnmkl"]
+[ext_resource type="Texture2D" uid="uid://4cd4vt50nu4e" path="res://Blender Objects/ui/plant_images/seed_bag_carrots.png" id="9_lfjgn"]
+[ext_resource type="Texture2D" uid="uid://07pt6yo5rfs3" path="res://Blender Objects/ui/plant_images/seed_bag_strawberry.png" id="10_rfrii"]
+[ext_resource type="Texture2D" uid="uid://4gx26cyf7k5b" path="res://Blender Objects/ui/plant_images/seed_bag_zucchini.png" id="11_xdo4e"]
+[ext_resource type="Texture2D" uid="uid://cvn6031bgx45c" path="res://Blender Objects/ui/plant_images/seed_bag_cauliflower.png" id="12_etnld"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iyqw1"]
 content_margin_bottom = 13.0
 texture = ExtResource("6_dac6y")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uui01"]
+content_margin_bottom = 13.0
 texture = ExtResource("7_32clf")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uf3tk"]
+content_margin_bottom = 13.0
+texture = ExtResource("7_32clf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np3x2"]
+content_margin_bottom = 13.0
+texture = ExtResource("6_dac6y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5nsms"]
+content_margin_bottom = 13.0
+texture = ExtResource("7_32clf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oynvi"]
+content_margin_bottom = 13.0
+texture = ExtResource("7_32clf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5r8nb"]
+texture = ExtResource("6_dac6y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ew6x1"]
+texture = ExtResource("7_32clf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74f1s"]
 texture = ExtResource("7_32clf")
 
 [node name="Shop_Ui" type="CanvasLayer"]
@@ -36,20 +62,20 @@ theme = ExtResource("5_v16ev")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 178.0
-offset_top = 429.0
-offset_right = 810.0
-offset_bottom = 508.0
+offset_left = 212.0
+offset_top = 456.0
+offset_right = 844.0
+offset_bottom = 535.0
 theme_override_constants/separation = 100
 
 [node name="Buy_small_field" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_pressed_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_hover_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_focus_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.215686, 0.113725, 0.0509804, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_iyqw1")
 theme_override_styles/hover = SubResource("StyleBoxTexture_uui01")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_uf3tk")
@@ -58,20 +84,28 @@ text = "Buy Field
 
 [node name="Buy_med_field" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.705882, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0.490196, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0.596078, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0.603922, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0.596078, 0, 1)
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_pressed_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_hover_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_focus_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_np3x2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5nsms")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_oynvi")
 text = "Buy medium field"
 
 [node name="Buy_large_field" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.705882, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0.490196, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0.596078, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0.603922, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0.596078, 0, 1)
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_pressed_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_hover_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_focus_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.215686, 0.113725, 0.0509804, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_5r8nb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ew6x1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_74f1s")
 text = "Buy large field"
 
 [node name="Label" type="Label" parent="Panel"]
@@ -83,22 +117,15 @@ offset_bottom = 261.0
 theme_override_font_sizes/font_size = 100
 text = "Super duper Shop"
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="ButtonScaleFarm" type="Button" parent="Panel"]
+visible = false
 layout_mode = 0
-offset_left = 377.0
-offset_top = 274.0
-offset_right = 543.0
-offset_bottom = 354.0
+offset_left = 370.0
+offset_top = 266.0
+offset_right = 536.0
+offset_bottom = 346.0
 theme_override_font_sizes/font_size = 30
 text = "Scale Farm"
-
-[node name="Button2" type="Button" parent="Panel"]
-layout_mode = 2
-offset_left = 63.0
-offset_top = 18.0
-offset_right = 156.0
-offset_bottom = 79.0
-text = "Close Shop"
 
 [node name="Top Shop Ribbon" type="Control" parent="Panel"]
 anchors_preset = 0
@@ -188,15 +215,54 @@ offset_bottom = 81.0
 texture = ExtResource("7_mxl52")
 expand_mode = 1
 
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 239.0
-offset_top = 286.0
-offset_right = 376.0
-offset_bottom = 423.0
-texture_normal = ExtResource("9_hnmkl")
+[node name="Button2" type="Button" parent="."]
+offset_left = 63.0
+offset_top = 18.0
+offset_right = 156.0
+offset_bottom = 79.0
+text = "Close Shop"
+
+[node name="CarrotSeeds" type="TextureButton" parent="."]
+offset_left = 212.0
+offset_top = 264.0
+offset_right = 349.0
+offset_bottom = 401.0
+texture_normal = ExtResource("9_lfjgn")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="StrawberrySeeds" type="TextureButton" parent="."]
+offset_left = 370.0
+offset_top = 261.0
+offset_right = 507.0
+offset_bottom = 398.0
+texture_normal = ExtResource("10_rfrii")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ZucchiniSeeds" type="TextureButton" parent="."]
+offset_left = 538.0
+offset_top = 261.0
+offset_right = 675.0
+offset_bottom = 398.0
+texture_normal = ExtResource("11_xdo4e")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CauliflowerSeeds" type="TextureButton" parent="."]
+offset_left = 691.0
+offset_top = 261.0
+offset_right = 828.0
+offset_bottom = 398.0
+texture_normal = ExtResource("12_etnld")
 ignore_texture_size = true
 stretch_mode = 0
 
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_small_field" to="." method="_on_buy_small_field_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_med_field" to="." method="_on_buy_med_field_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/Buy_large_field" to="." method="_on_buy_large_field_pressed"]
+[connection signal="pressed" from="Button2" to="." method="close_shop"]
+[connection signal="pressed" from="CarrotSeeds" to="." method="_on_buy_carrot_pressed"]
+[connection signal="pressed" from="StrawberrySeeds" to="." method="_on_buy_strawberry_pressed"]
+[connection signal="pressed" from="ZucchiniSeeds" to="." method="_on_buy_zucchini_pressed"]
+[connection signal="pressed" from="CauliflowerSeeds" to="." method="_on_buy_cauliflower_pressed"]
