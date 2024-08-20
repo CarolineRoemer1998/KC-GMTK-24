@@ -16,7 +16,7 @@ var game_won: bool
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	spinner = get_parent()
-	set_process(false)
+	
 	for gras in grasses.get_children():
 		gras_remaining.append(gras)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,8 +36,7 @@ func start_lawnmower():
 	set_process(true)
 
 func stop_lawnmover():
-	set_process(false)
-	get_parent().get_parent().get_parent().visible = false
+	get_parent().get_parent().get_parent().queue_free()
 
 func _input(event):
 	if event.is_action_pressed("T_Lawnmower"):

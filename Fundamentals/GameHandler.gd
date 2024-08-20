@@ -3,7 +3,8 @@ extends Node3D
 var player : Player 
 var chest : Chest
 var stored_plants_ui : StoredPlantsUI
-@onready var lawnmowing_game = $Lawnmowing_Game
+#@onready var lawnmowing_game = $Lawnmowing_Game
+@export var lawnmowing_minigame: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -39,8 +40,8 @@ func _process(delta: float) -> void:
 		start_lawnmowing_minigame()
 
 func start_lawnmowing_minigame():
-	lawnmowing_game.visible = true
-	lawnmowing_game.lawnmover.start_lawnmower()
+	var new_lawnmowing_minigame = lawnmowing_minigame.instantiate()
+	add_child(new_lawnmowing_minigame)
 	disable_player()
 		
 func end_day():

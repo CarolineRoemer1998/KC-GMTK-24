@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://csstquwad0nt5" path="res://Objects/Sings/sign_market.tscn" id="11_tn0k4"]
 [ext_resource type="PackedScene" uid="uid://ch4q8yskse70p" path="res://Objects/chest.tscn" id="14_rh132"]
 [ext_resource type="PackedScene" uid="uid://baxc7rtvf0s8f" path="res://MiniGames/watering_game.tscn" id="15_u3tqt"]
-[ext_resource type="PackedScene" path="res://Objects/House.tscn" id="16_7m2m2"]
+[ext_resource type="PackedScene" uid="uid://q8laufrl13tj" path="res://Objects/House.tscn" id="16_7m2m2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -286,11 +286,9 @@ script = ExtResource("3_eubuw")
 
 [node name="GameHandler" type="Node3D" parent="." groups=["GameHandler"]]
 script = ExtResource("4_66nis")
+lawnmowing_minigame = ExtResource("7_hhp2j")
 
 [node name="Energy_bar" parent="GameHandler" groups=["EnergyBar"] instance=ExtResource("6_okv1m")]
-
-[node name="Lawnmowing_Game" parent="GameHandler" instance=ExtResource("7_hhp2j")]
-visible = false
 
 [node name="CropArea" type="Node3D" parent="."]
 script = ExtResource("4_g6x4t")

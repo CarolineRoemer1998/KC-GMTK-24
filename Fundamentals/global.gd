@@ -16,6 +16,8 @@ var days_until_contest: int
 
 var is_affordable: bool
 
+var plant : Plant
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -62,7 +64,12 @@ func start_contest():
 	get_tree().paused = false
 
 func evaluate_minigame(game_won: bool):
+	plant = player.interaction.get_plant()
 	if game_won:
+		if plant != null:
+			plant.contest_points += 3
 		print("yuhu!")
 	else:
+		if plant != null:
+			plant.contest_points += 1
 		print("buh!")
