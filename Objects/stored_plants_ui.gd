@@ -52,9 +52,7 @@ func store_plant(plant : Plant) -> bool:
 	return was_successful
 
 func set_plant_image(slot : TextureRect, plant : Plant):
-	for i in slot.get_children():
-		if i.name == "plant_image" and i is TextureRect:
-			i.set_texture(CARROT)
+	slot.set_plant_image(plant)
 
 func remove_plant(slot : Slot):
 	var removed_plant : Plant = slot.remove_plant()
