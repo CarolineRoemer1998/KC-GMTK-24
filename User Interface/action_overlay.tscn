@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8e7c31chv56h"]
+
+[ext_resource type="Texture2D" uid="uid://8jdgr0s3jb2s" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/10.png" id="1_62jdy"]
+
+[node name="ActionOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="water" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.517647)
+offset_left = 469.0
+offset_top = 111.0
+offset_right = 569.0
+offset_bottom = 211.0
+mouse_default_cursor_shape = 2
+texture = ExtResource("1_62jdy")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="water"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="pull_weeds" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.517647)
+offset_left = 586.0
+offset_top = 111.0
+offset_right = 686.0
+offset_bottom = 211.0
+mouse_default_cursor_shape = 2
+texture = ExtResource("1_62jdy")
+expand_mode = 1
