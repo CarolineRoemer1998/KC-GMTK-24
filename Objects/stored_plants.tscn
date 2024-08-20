@@ -88,3 +88,10 @@ offset_right = 900.0
 offset_bottom = 501.0
 
 [connection signal="gui_input" from="Slot1" to="." method="_on_slot_1_gui_input"]
+[connection signal="gui_input" from="Slot2" to="." method="_on_slot_2_gui_input"]
+[connection signal="gui_input" from="Slot3" to="." method="_on_slot_3_gui_input"]
+[connection signal="gui_input" from="Slot4" to="." method="_on_slot_4_gui_input"]
+[connection signal="gui_input" from="Slot5" to="." method="_on_slot_5_gui_input"]
+[connection signal="gui_input" from="Slot6" to="." method="_on_slot_6_gui_input"]
+[connection signal="gui_input" from="Slot7" to="." method="_on_slot_7_gui_input"]
+[connection signal="gui_input" from="Slot8" to="." method="_on_slot_8_gui_input"]

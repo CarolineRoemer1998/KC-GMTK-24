@@ -39,7 +39,9 @@ func _ready():
 
 func store_plant(plant : Plant) -> bool:
 	var was_successful : bool = false
+	print("storing plant...")
 	for slot in slots:
+		print("looking at slot ", slot,"..., its ", slots[slot])
 		if slots[slot] == null:
 			slots[slot] = plant
 			plant.reparent(slot)
@@ -54,15 +56,53 @@ func set_plant_image(slot : TextureRect, plant : Plant):
 		if i.name == "plant_image" and i is TextureRect:
 			i.set_texture(CARROT)
 
-
-
-
-func _on_slot_1_gui_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("mouse_left"):
-		var removed_plant : Plant = slot_1.remove_plant()
+func remove_plant(slot : Slot):
+	var removed_plant : Plant = slot.remove_plant()
+	slots[slot] = null
+	if removed_plant != null:
 		removed_plant.reparent(player.interaction.bone_attachment)
 		player.interaction.carrying_plant = removed_plant
 		removed_plant.position = removed_plant.get_carrying_position()
 		removed_plant.rotation_degrees = removed_plant.get_carrying_rotation()
 		player.carrying_weight = player.interaction.get_weight(removed_plant.get_level())
 		removed_plant.animation_player.play_backwards("shrink")
+
+
+func _on_slot_1_gui_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("mouse_left"):
+		remove_plant(slot_1)
+
+
+func _on_slot_2_gui_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("mouse_left"):
+		remove_plant(slot_2)
+
+
+func _on_slot_3_gui_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("mouse_left"):
+		remove_plant(slot_3)
+
+
+func _on_slot_4_gui_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("mouse_left"):
+		remove_plant(slot_4)
+
+
+func _on_slot_5_gui_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("mouse_left"):
+		remove_plant(slot_5)
+
+
+func _on_slot_6_gui_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("mouse_left"):
+		remove_plant(slot_6)
+
+
+func _on_slot_7_gui_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("mouse_left"):
+		remove_plant(slot_7)
+
+
+func _on_slot_8_gui_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("mouse_left"):
+		remove_plant(slot_8)

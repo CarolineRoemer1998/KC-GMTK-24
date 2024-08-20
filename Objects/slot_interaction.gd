@@ -1,10 +1,16 @@
 extends TextureRect
 
+class_name Slot
+
 @onready var plant_statistics: TextureRect = $PlantStatistics
 
 var slot_plant : Plant
 @onready var plant_image: TextureRect = $plant_image
 
+const CARROT = preload("res://Blender Objects/ui/plant_images/carrot.png")
+const CAULIFLOWER = preload("res://Blender Objects/ui/plant_images/cauliflower.png")
+const STRAWBERRY = preload("res://Blender Objects/ui/plant_images/strawberry.png")
+const ZUCCHINI = preload("res://Blender Objects/ui/plant_images/zucchini.png")
 
 func fill_stats(plant : Plant):
 	slot_plant = plant
@@ -41,6 +47,17 @@ func remove_plant() -> Plant:
 	print("Removed")
 	return removed_plant
 
+func set_plant_image(plant : Plant):
+	for i in get_children():
+		if i.name == "plant_image" and i is TextureRect:
+			if plant.type == Plant.plant_type.carrot:
+				i.set_texture(CARROT)
+			if plant.type == Plant.plant_type.strawberry:
+				i.set_texture(STRAWBERRY)
+			if plant.type == Plant.plant_type.zucchini:
+				i.set_texture(ZUCCHINI)
+			if plant.type == Plant.plant_type.cauliflower:
+				i.set_texture(CAULIFLOWER)
 
 func _on_mouse_entered() -> void:
 	if slot_plant != null:
