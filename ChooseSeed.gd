@@ -15,11 +15,13 @@ func _on_visibility_changed() -> void:
 	print("Test:", active_field)
 
 func plant_seed(type : Plant.plant_type):
-	active_field.plant_seed(type)
-	print("Planting ", type," seeds...")
+	if !active_field.is_occupied:
+		active_field.plant_seed(type)
+		print("Planting ", type," seeds...")
+		visible = false
+		hide()
 
 func _on_carrot_seeds_gui_input(event: InputEvent) -> void:
-	print("click")
 	if Input.is_action_just_pressed("mouse_left"):
 		plant_seed(Plant.plant_type.carrot)
 

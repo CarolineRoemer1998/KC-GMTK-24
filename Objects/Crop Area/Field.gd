@@ -66,8 +66,8 @@ func plant_seed(plant_type : Plant.plant_type):
 	Global.lose_energy(energy_cost)
 	is_occupied = true
 	var new_plant = plant.instantiate()
-	add_child(new_plant)
 	new_plant.type = plant_type
+	add_child(new_plant)
 	new_plant.global_position += Vector3(0,0.25,0)
 	
 

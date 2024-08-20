@@ -108,7 +108,7 @@ func _ready():
 	current_growth_points = start_growth_points
 	
 	#nur zu testzwecken
-	type = plant_type.carrot
+	#type = plant_type.carrot
 	load_meshes(type)
 
 	days_since_last_watering = watering_frequency
