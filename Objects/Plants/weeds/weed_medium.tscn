@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckga4gdic7ip2"]
+
+[ext_resource type="PackedScene" uid="uid://c4oxqc60t4va6" path="res://Blender Objects/Vegetable/weed_medium.blend" id="1_76p6b"]
+
+[node name="WeedMedium" type="Node3D"]
+
+[node name="weed_medium" parent="." instance=ExtResource("1_76p6b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.605, 0)

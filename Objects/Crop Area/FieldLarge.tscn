@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bytoofwnuu85b"]
+[gd_scene load_steps=13 format=3 uid="uid://bytoofwnuu85b"]
 
 [ext_resource type="Script" path="res://Objects/Crop Area/Field.gd" id="1_13scp"]
 [ext_resource type="Material" uid="uid://dw64apji1s71" path="res://Colors/FieldHighlight.tres" id="2_n0ohp"]
 [ext_resource type="PackedScene" uid="uid://djgi83idvlrxb" path="res://Objects/Plants/plant.tscn" id="2_rh1dn"]
+[ext_resource type="PackedScene" uid="uid://b0g71cor2t3k6" path="res://Objects/Plants/weeds/weed_large.tscn" id="3_37jus"]
+[ext_resource type="PackedScene" uid="uid://dcscjf8tj7f8h" path="res://Objects/Plants/weeds/weed_small.tscn" id="3_b1uac"]
+[ext_resource type="PackedScene" uid="uid://ckga4gdic7ip2" path="res://Objects/Plants/weeds/weed_medium.tscn" id="4_7rgq1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvymh"]
 resource_name = "ground"
@@ -52,12 +55,15 @@ size = Vector3(5, 0.1, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_26bar"]
 size = Vector3(6.1, 1, 6.1)
 
-[node name="FieldLarge" type="StaticBody3D"]
+[node name="FieldLarge" type="StaticBody3D" groups=["Field"]]
 process_mode = 3
 collision_layer = 5
 script = ExtResource("1_13scp")
 size = 2
 plant = ExtResource("2_rh1dn")
+weed_small = ExtResource("3_b1uac")
+weed_medium = ExtResource("4_7rgq1")
+weed_large = ExtResource("3_37jus")
 
 [node name="field" type="Node3D" parent="."]
 

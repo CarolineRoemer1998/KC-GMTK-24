@@ -8,8 +8,15 @@ enum field_size {small, medium, large}
 @export var energy_cost: int = 1
 var plant_offset : Vector3
 
+@export var weed_small : PackedScene
+@export var weed_medium : PackedScene
+@export var weed_large : PackedScene
+
 var is_chosen: bool 
 var is_occupied: bool
+
+var rand_weed
+var has_weed : bool = false
 
 var player : Player 
 
@@ -35,6 +42,7 @@ func set_watered(is_watered : bool):
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	rand_weed = RandomNumberGenerator.new()
 	#set_plant_offset()
 	is_chosen = false
 	is_occupied = false
@@ -56,6 +64,30 @@ func _process(delta):
 		player.ui_choose_seed.visible = false
 	#plant_seed()
 	#print("planting...")
+
+func grow_weed():
+	rand_weed.randomize()
+	var val = rand_weed.randi_range(0, 5)
+	if val == 1 and !has_weed:
+		has_weed = true
+		if size == field_size.small:
+			var new_weed = weed_small.instantiate()
+			add_child(new_weed)
+		if size == field_size.medium:
+			var new_weed = weed_medium.instantiate()
+			add_child(new_weed)
+		if size == field_size.large:
+			var new_weed = weed_large.instantiate()
+			add_child(new_weed)
+
+func check_for_weed():
+	if has_weed and is_occupied:
+		for plant in get_children():
+			if plant is Plant:
+				plant.contest_points -= 1
+				print(plant.name, " lost 1 point -> ", plant.contest_points)
+		
+	
 
 func reset():
 	set_watered(false)

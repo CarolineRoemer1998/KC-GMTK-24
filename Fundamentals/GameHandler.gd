@@ -51,6 +51,8 @@ func start_watering_minigame():
 	
 func end_day():
 	get_tree().call_group("Plant","update_to_new_day")
+	get_tree().call_group("Field", "check_for_weed")
+	get_tree().call_group("Field","grow_weed")
 	start_new_day()
 	
 func start_new_day():

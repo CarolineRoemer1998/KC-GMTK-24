@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcscjf8tj7f8h"]
+
+[ext_resource type="PackedScene" uid="uid://bo7f2u4dyqfyt" path="res://Blender Objects/Vegetable/weed_small.blend" id="1_xw7h4"]
+
+[node name="WeedSmall" type="Node3D"]
+
+[node name="weed_small" parent="." instance=ExtResource("1_xw7h4")]
