@@ -287,6 +287,7 @@ script = ExtResource("3_eubuw")
 [node name="GameHandler" type="Node3D" parent="." groups=["GameHandler"]]
 script = ExtResource("4_66nis")
 lawnmowing_minigame = ExtResource("7_hhp2j")
+watering_minigame = ExtResource("15_u3tqt")
 
 [node name="Energy_bar" parent="GameHandler" groups=["EnergyBar"] instance=ExtResource("6_okv1m")]
 
@@ -444,10 +445,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -7.5)
 
 [node name="Chest" parent="." instance=ExtResource("14_rh132")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26967, 0, -8.47746)
-
-[node name="MiniGames" type="Node3D" parent="."]
-
-[node name="WateringGame" parent="MiniGames" instance=ExtResource("15_u3tqt")]
 
 [node name="House" parent="." instance=ExtResource("16_7m2m2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23028, 0, -15.5683)

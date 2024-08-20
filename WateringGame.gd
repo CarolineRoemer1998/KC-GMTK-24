@@ -40,7 +40,8 @@ func _process(delta: float) -> void:
 			cooldown -= 1
 		
 	
-		
+func close_watering_game():
+	queue_free()
 
 func emit_drops():
 	drops.emitting = true

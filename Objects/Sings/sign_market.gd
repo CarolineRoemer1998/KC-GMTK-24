@@ -14,7 +14,7 @@ func _process(delta):
 
 func _on_area_3d_area_entered(area):
 	market_ui.show_market(area.get_parent().get_parent())
-
+	Global.lose_energy(1)
 
 func _on_area_3d_area_exited(area):
 	market_ui.close_market()

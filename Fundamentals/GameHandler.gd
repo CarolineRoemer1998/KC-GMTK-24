@@ -5,6 +5,7 @@ var chest : Chest
 var stored_plants_ui : StoredPlantsUI
 #@onready var lawnmowing_game = $Lawnmowing_Game
 @export var lawnmowing_minigame: PackedScene
+@export var watering_minigame: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -37,13 +38,17 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("open_chest"):
 		stored_plants_ui.show()
 	if Input.is_action_just_pressed("StartMinigame"):
-		start_lawnmowing_minigame()
+		start_watering_minigame()
 
 func start_lawnmowing_minigame():
 	var new_lawnmowing_minigame = lawnmowing_minigame.instantiate()
 	add_child(new_lawnmowing_minigame)
 	disable_player()
-		
+
+func start_watering_minigame():
+	var new_watering_minigame = watering_minigame.instantiate()
+	add_child(new_watering_minigame)
+	
 func end_day():
 	get_tree().call_group("Plant","update_to_new_day")
 	start_new_day()
