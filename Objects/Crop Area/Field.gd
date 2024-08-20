@@ -11,6 +11,8 @@ var plant_offset : Vector3
 var is_chosen: bool 
 var is_occupied: bool
 
+var player : Player 
+
 # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 @onready var mesh: MeshInstance3D
 var color_unwatered = preload("res://Colors/watering_state_unwatered.tres")
@@ -31,6 +33,7 @@ func set_watered(is_watered : bool):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player = get_tree().get_first_node_in_group("Player")
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	#set_plant_offset()
 	is_chosen = false
@@ -46,19 +49,25 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("T_Plant") && is_chosen && !is_occupied:
-		plant_seed()
-		print("planting...")
+		player.ui_choose_seed.show()
+		player.ui_choose_seed.visible = true
+	if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"):
+		player.ui_choose_seed.hide()
+		player.ui_choose_seed.visible = false
+	#plant_seed()
+	#print("planting...")
 
 func reset():
 	set_watered(false)
 	is_occupied = false
 	has_harvestable_plant = false
 
-func plant_seed():
+func plant_seed(plant_type : Plant.plant_type):
 	Global.lose_energy(energy_cost)
 	is_occupied = true
 	var new_plant = plant.instantiate()
 	add_child(new_plant)
+	new_plant.type = plant_type
 	new_plant.global_position += Vector3(0,0.25,0)
 	
 

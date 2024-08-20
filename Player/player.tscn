@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://1sx1m2sw3kna"]
+[gd_scene load_steps=29 format=3 uid="uid://1sx1m2sw3kna"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_rupub"]
 [ext_resource type="Texture2D" uid="uid://cju2dey8o3tgn" path="res://Blender Objects/Player/face_texture.png" id="2_ao61m"]
 [ext_resource type="Script" path="res://Player/ObjectDetector.gd" id="2_e3h3e"]
 [ext_resource type="Script" path="res://Player/Interaction.gd" id="3_vg6rr"]
+[ext_resource type="PackedScene" uid="uid://djmtg60kycnoi" path="res://Objects/choose_seed.tscn" id="6_h41lt"]
 [ext_resource type="Script" path="res://Player/Inventory.gd" id="6_li5m6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fk28e"]
@@ -2227,5 +2228,8 @@ script = ExtResource("3_vg6rr")
 [node name="Inventory" type="Node3D" parent="."]
 script = ExtResource("6_li5m6")
 
+[node name="ChooseSeed" parent="." instance=ExtResource("6_h41lt")]
+
 [connection signal="area_entered" from="Body/ObjectDetector" to="Body/ObjectDetector" method="_on_area_entered"]
 [connection signal="area_exited" from="Body/ObjectDetector" to="Body/ObjectDetector" method="_on_area_exited"]
+[connection signal="visibility_changed" from="ChooseSeed" to="ChooseSeed" method="_on_visibility_changed"]

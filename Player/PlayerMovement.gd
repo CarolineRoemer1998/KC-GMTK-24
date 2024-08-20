@@ -3,6 +3,8 @@ class_name Player
 
 enum Weight {none, light, medium, heavy}
 
+@onready var ui_choose_seed: Control = $ChooseSeed
+
 @onready var body: MeshInstance3D = $Body
 @onready var collision_shape_3d = $CollisionShape3D
 @onready var object_detector = $Body/ObjectDetector

@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://djmtg60kycnoi"]
+
+[ext_resource type="Script" path="res://ChooseSeed.gd" id="1_c6uw7"]
+[ext_resource type="Texture2D" uid="uid://8jdgr0s3jb2s" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/10.png" id="2_agl8x"]
+[ext_resource type="Texture2D" uid="uid://4cd4vt50nu4e" path="res://Blender Objects/ui/plant_images/seed_bag_carrots.png" id="3_t18ba"]
+[ext_resource type="Texture2D" uid="uid://07pt6yo5rfs3" path="res://Blender Objects/ui/plant_images/seed_bag_strawberry.png" id="4_1vwns"]
+[ext_resource type="Texture2D" uid="uid://4gx26cyf7k5b" path="res://Blender Objects/ui/plant_images/seed_bag_zucchini.png" id="5_fm37h"]
+[ext_resource type="Texture2D" uid="uid://cvn6031bgx45c" path="res://Blender Objects/ui/plant_images/seed_bag_cauliflower.png" id="6_b32aa"]
+
+[node name="ChooseSeed" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c6uw7")
+
+[node name="carrot_seeds" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.517647)
+layout_mode = 0
+offset_left = 469.0
+offset_top = 111.0
+offset_right = 569.0
+offset_bottom = 211.0
+texture = ExtResource("2_agl8x")
+expand_mode = 1
+
+[node name="seeds" type="TextureRect" parent="carrot_seeds"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 80.0
+texture = ExtResource("3_t18ba")
+expand_mode = 1
+
+[node name="strawberry_seeds" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.517647)
+layout_mode = 0
+offset_left = 586.0
+offset_top = 111.0
+offset_right = 686.0
+offset_bottom = 211.0
+texture = ExtResource("2_agl8x")
+expand_mode = 1
+
+[node name="seeds" type="TextureRect" parent="strawberry_seeds"]
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 80.0
+texture = ExtResource("4_1vwns")
+expand_mode = 1
+
+[node name="zucchini_seeds" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.517647)
+layout_mode = 0
+offset_left = 414.0
+offset_top = 229.0
+offset_right = 514.0
+offset_bottom = 329.0
+texture = ExtResource("2_agl8x")
+expand_mode = 1
+
+[node name="seeds" type="TextureRect" parent="zucchini_seeds"]
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 80.0
+texture = ExtResource("5_fm37h")
+expand_mode = 1
+
+[node name="cauliflower_seeds" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.517647)
+layout_mode = 0
+offset_left = 645.0
+offset_top = 229.0
+offset_right = 745.0
+offset_bottom = 329.0
+texture = ExtResource("2_agl8x")
+expand_mode = 1
+
+[node name="seeds" type="TextureRect" parent="cauliflower_seeds"]
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 80.0
+mouse_filter = 2
+texture = ExtResource("6_b32aa")
+expand_mode = 1
+
+[connection signal="gui_input" from="carrot_seeds" to="." method="_on_carrot_seeds_gui_input"]
+[connection signal="gui_input" from="strawberry_seeds" to="." method="_on_strawberry_seeds_gui_input"]
+[connection signal="gui_input" from="zucchini_seeds" to="." method="_on_zucchini_seeds_gui_input"]
+[connection signal="gui_input" from="cauliflower_seeds" to="." method="_on_cauliflower_seeds_gui_input"]
