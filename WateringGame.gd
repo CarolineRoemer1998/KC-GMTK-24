@@ -7,21 +7,33 @@ extends Control
 @onready var speechbubble: Sprite2D = $Speechbubble
 @onready var drops: CPUParticles2D = $drops
 @onready var timer_start_watering: Timer = $TimerStartWatering
+@onready var end_game: Timer = $EndGame
+@onready var goal: TextureRect = $carrot/ProgressBar/goal
 
 var speed : float = 0.6
 var cooldown : float = 0
 var is_watering : bool = false
 var waiting : bool = true
 var tries : int = 2
+var rnd 
+var val
+var won_game : bool 
+	
+func _ready():
+	rnd = RandomNumberGenerator.new()
+	rnd.randomize()
+	val = rnd.randi_range(0, 50)
+	goal.position.y = val
+	
 	
 func _process(delta: float) -> void:
 	if tries > 1:
-		if Input.is_action_just_pressed("ui_down"):
+		if Input.is_action_just_pressed("mouse_left"):
 			timer_start_watering.start()
 			speechbubble.visible = false
 			animation_player.play("watering")
 			tries -= 1
-	if Input.is_action_pressed("ui_down") and tries > 0 and !waiting:
+	if Input.is_action_pressed("mouse_left") and tries > 0 and !waiting:
 		speed = 0.6
 		cooldown = 100
 		texture_progress_bar.value += speed
@@ -29,10 +41,11 @@ func _process(delta: float) -> void:
 		is_watering = true
 		
 	else:
-		if Input.is_action_just_released("ui_down") and is_watering:
+		if Input.is_action_just_released("mouse_left") and is_watering:
 			animation_player.play_backwards("watering")
 			is_watering = false
 			tries -= 1
+			end_game.start()
 		if cooldown > 0:
 			speed = speed*0.95
 			texture_progress_bar.value += speed
@@ -52,3 +65,13 @@ func stop_emitting_drops():
 
 func _on_timer_start_watering_timeout() -> void:
 	waiting = false
+
+
+func _on_end_game_timeout() -> void:
+	var result = ((140-val)/1.4)
+	if result-20 < texture_progress_bar.value and result+20 > texture_progress_bar.value:
+		won_game = true
+	else:
+		won_game = false
+	Global.evaluate_minigame(won_game)
+	close_watering_game()

@@ -49,6 +49,7 @@ texture = ExtResource("2_agl8x")
 expand_mode = 1
 
 [node name="seeds" type="TextureRect" parent="strawberry_seeds"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 10.0
 offset_right = 85.0
@@ -68,6 +69,7 @@ texture = ExtResource("2_agl8x")
 expand_mode = 1
 
 [node name="seeds" type="TextureRect" parent="zucchini_seeds"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 10.0
 offset_right = 85.0
@@ -87,6 +89,7 @@ texture = ExtResource("2_agl8x")
 expand_mode = 1
 
 [node name="seeds" type="TextureRect" parent="cauliflower_seeds"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 10.0
 offset_right = 85.0

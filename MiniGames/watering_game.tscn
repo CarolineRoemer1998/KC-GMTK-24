@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://baxc7rtvf0s8f"]
+[gd_scene load_steps=13 format=3 uid="uid://baxc7rtvf0s8f"]
 
 [ext_resource type="Script" path="res://WateringGame.gd" id="1_q86r8"]
 [ext_resource type="Texture2D" uid="uid://ul8ujutyfaoi" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/07.png" id="2_t4cbe"]
 [ext_resource type="Texture2D" uid="uid://de4a4r0l4y2c8" path="res://Blender Objects/ui/Minigames/carrot_unwatered.png" id="4_jpsao"]
 [ext_resource type="Texture2D" uid="uid://cnt6nvd6n63ln" path="res://Blender Objects/ui/Minigames/watering-can.png" id="4_tb1h7"]
 [ext_resource type="Texture2D" uid="uid://b1w518u63bro7" path="res://Blender Objects/ui/Minigames/carrot_watered.png" id="5_myea5"]
+[ext_resource type="Texture2D" uid="uid://buadwukj08ycr" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/Buttons/PNG/BtnGreen.png" id="6_r1ocj"]
 [ext_resource type="Texture2D" uid="uid://g128onubqh04" path="res://User Interface/PNG/Vector/Style 3/emote__.png" id="7_4c1td"]
 [ext_resource type="PackedScene" uid="uid://yysfvogq4pke" path="res://MiniGames/components/drops.tscn" id="7_tec5r"]
 [ext_resource type="Texture2D" uid="uid://dl2bjkkd8s5nj" path="res://MeshLibrary/svg/left_mouse_button_light.svg" id="8_w361u"]
@@ -95,11 +96,21 @@ texture_under = ExtResource("4_jpsao")
 texture_progress = ExtResource("5_myea5")
 
 [node name="ProgressBar" type="ProgressBar" parent="carrot"]
-offset_left = -93.5484
-offset_top = -83.2258
-offset_right = -70.5484
-offset_bottom = 56.7742
+offset_left = -96.7742
+offset_top = -80.0
+offset_right = -73.7742
+offset_bottom = 60.0
 fill_mode = 3
+
+[node name="goal" type="TextureRect" parent="carrot/ProgressBar"]
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 0
+offset_left = -1.29032
+offset_top = 29.0323
+offset_right = 23.7097
+offset_bottom = 49.0322
+texture = ExtResource("6_r1ocj")
+expand_mode = 1
 
 [node name="drops" parent="." instance=ExtResource("7_tec5r")]
 position = Vector2(304, 241)
@@ -125,4 +136,9 @@ texture = ExtResource("8_w361u")
 [node name="TimerStartWatering" type="Timer" parent="."]
 wait_time = 0.6
 
+[node name="EndGame" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="TimerStartWatering" to="." method="_on_timer_start_watering_timeout"]
+[connection signal="timeout" from="EndGame" to="." method="_on_end_game_timeout"]
