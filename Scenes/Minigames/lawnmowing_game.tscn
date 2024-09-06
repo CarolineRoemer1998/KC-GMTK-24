@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://5tn56u1dctcn" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/24.png" id="2_m0cy1"]
 [ext_resource type="Texture2D" uid="uid://ul8ujutyfaoi" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/07.png" id="2_ye8y0"]
 [ext_resource type="Script" path="res://Scenes/Minigames/Lawnmover.gd" id="3_7vu1c"]
-[ext_resource type="Texture2D" uid="uid://bl34rrdisxfvs" path="res://Scenes/Minigames/stone.png" id="6_n8qai"]
+[ext_resource type="Texture2D" uid="uid://x84krugg36kn" path="res://Scenes/Minigames/stone.png" id="6_n8qai"]
 [ext_resource type="Texture2D" uid="uid://cvgf2fp4v7724" path="res://Blender Objects/ui/Minigames/watering_plant.png" id="7_22a43"]
 [ext_resource type="Texture2D" uid="uid://g128onubqh04" path="res://User Interface/PNG/Vector/Style 3/emote__.png" id="8_2fcwi"]
 [ext_resource type="Texture2D" uid="uid://dl2bjkkd8s5nj" path="res://MeshLibrary/svg/left_mouse_button_light.svg" id="9_8o623"]

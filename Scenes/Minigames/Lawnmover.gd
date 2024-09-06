@@ -1,7 +1,9 @@
 extends Sprite2D
 
 class_name Lawnmower
-@export var rotation_speed: float = 3.0
+@onready var lawnmowing_game = $"../../.."
+
+@export var rotation_speed: float = 2.5
 @onready var lawnmover_short = $"../Lawnmover_short"
 @onready var collision_shape_2d = $Stone_Detector/CollisionShape2D
 @onready var grasses = $"../../Grasses"
@@ -26,24 +28,26 @@ func _ready():
 		gras_remaining.append(gras)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	spinner.rotation += rotation_speed * delta
-	
-	
-	if gras_remaining.size() == 0:
-		if hit_count <= 2:
-			game_won = true
-		else:
-			game_won = false
-		Global.evaluate_minigame(game_won)
 		
+	if gras_remaining.size() == 0:
+		game_won = true
+		Global.evaluate_minigame(game_won)
 		stop_lawnmover()
+	
+	if hit_count == 2:
+		game_won = false
+		Global.evaluate_minigame(game_won)
+		stop_lawnmover()
+	
+	spinner.rotation += rotation_speed * delta
 	
 func start_lawnmower():
 	set_process(true)
 
 func stop_lawnmover():
+	lawnmowing_game.queue_free()
 	actionOverlay.set_process(true)
-	get_parent().get_parent().get_parent().queue_free()
+	
 
 func _input(event):
 	if event.is_action_pressed("T_Lawnmower"):
