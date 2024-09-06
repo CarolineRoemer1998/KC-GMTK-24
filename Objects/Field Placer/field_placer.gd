@@ -22,6 +22,7 @@ var mouse_position
 var parent
 var placer_height: float = 0.0
 var active_colliders: Array = []
+var has_placed: bool = false
 
 var camera: Camera3D
 var camera_original_position
@@ -79,30 +80,35 @@ func _on_field_detector_area_exited(area):
 	print(active_colliders.size())
 	
 func place_field():
-	print("Platziere Feld")
-	
-	if size == placer_size.small:
-		var new_field_small = field_small.instantiate()
-		add_sibling(new_field_small)
-		new_field_small.global_position = calculate_middlepoint()
-		new_field_small.top_level = true
-		
-	if size == placer_size.medium:
-		var new_field_medium = field_medium.instantiate()
-		add_sibling(new_field_medium)
-		calculate_middlepoint()
-		new_field_medium.global_position = calculate_middlepoint()
-		new_field_medium.top_level = true
-		
-	if size == placer_size.large:
-		var new_field_large = field_large.instantiate()
-		add_sibling(new_field_large)
-		new_field_large.global_position = calculate_middlepoint()
-		new_field_large.top_level = true
-		
-	for collider in active_colliders:
-		collider.get_parent().queue_free()
-	timer.start()
+	if has_placed == false:
+
+		if size == placer_size.small:
+			has_placed = true
+			var new_field_small = field_small.instantiate()
+			add_sibling(new_field_small)
+			new_field_small.global_position = calculate_middlepoint()
+			new_field_small.top_level = true
+			
+			
+		if size == placer_size.medium:
+			has_placed = true
+			var new_field_medium = field_medium.instantiate()
+			add_sibling(new_field_medium)
+			calculate_middlepoint()
+			new_field_medium.global_position = calculate_middlepoint()
+			new_field_medium.top_level = true
+			
+			
+		if size == placer_size.large:
+			has_placed = true
+			var new_field_large = field_large.instantiate()
+			add_sibling(new_field_large)
+			new_field_large.global_position = calculate_middlepoint()
+			new_field_large.top_level = true
+			
+		for collider in active_colliders:
+			collider.get_parent().queue_free()
+		timer.start()
 	
 	
 func calculate_middlepoint():
