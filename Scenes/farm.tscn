@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://csstquwad0nt5" path="res://Objects/Sings/sign_market.tscn" id="11_tn0k4"]
 [ext_resource type="PackedScene" uid="uid://ch4q8yskse70p" path="res://Objects/chest.tscn" id="14_rh132"]
 [ext_resource type="PackedScene" uid="uid://baxc7rtvf0s8f" path="res://MiniGames/watering_game.tscn" id="15_u3tqt"]
-[ext_resource type="PackedScene" path="res://Objects/House.tscn" id="16_7m2m2"]
+[ext_resource type="PackedScene" uid="uid://q8laufrl13tj" path="res://Objects/House.tscn" id="16_7m2m2"]
 [ext_resource type="PackedScene" uid="uid://byycvp7iexgtg" path="res://Blender Objects/Vegetable/Environment/sign_home.blend" id="16_c3ky1"]
 [ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="17_thh2a"]
 
