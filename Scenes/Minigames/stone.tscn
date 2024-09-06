@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://byg7hutuat8gv"]
+
+[ext_resource type="Texture2D" uid="uid://x84krugg36kn" path="res://Scenes/Minigames/stone.png" id="1_oped7"]
+[ext_resource type="PackedScene" uid="uid://5iv5pxd3crf7" path="res://Scenes/Minigames/particle_ouch.tscn" id="2_w537e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_esy46"]
+radius = 430.0
+
+[node name="Stone" type="Sprite2D"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_oped7")
+
+[node name="OuchParticles" parent="." instance=ExtResource("2_w537e")]
+
+[node name="Stone" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone"]
+position = Vector2(-3.05176e-05, -3.05176e-05)
+shape = SubResource("CircleShape2D_esy46")

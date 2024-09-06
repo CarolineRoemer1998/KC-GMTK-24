@@ -1,12 +1,11 @@
 extends Sprite2D
 
 class_name Lawnmower
-@onready var lawnmowing_game = $"../../.."
 
+@onready var lawnmowing_game = $"../../.."
 @export var rotation_speed: float = 2.5
 @onready var lawnmover_short = $"../Lawnmover_short"
 @onready var collision_shape_2d = $Stone_Detector/CollisionShape2D
-@onready var grasses = $"../../Grasses"
 
 var player : Player
 var actionOverlay : ActionOverlay
@@ -17,6 +16,7 @@ var spinner
 var outer_circle: Sprite2D
 var hit_count: int
 var game_won: bool
+var ouch_particle: CPUParticles2D
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -24,8 +24,6 @@ func _ready():
 	spinner = get_parent()
 	actionOverlay = get_tree().get_first_node_in_group("ActionOverlay")
 	
-	for gras in grasses.get_children():
-		gras_remaining.append(gras)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 		
@@ -64,10 +62,20 @@ func _input(event):
 		
 func _on_stone_detector_area_entered(area):
 	if area.name == "Stone":
-		print("Ouch! A Stone")
-		hit_count += 1
+		hit_stone(area)
 	if area.name == "Gras":
 		print("yuhu Gras")
-		player.interaction.field.delete_weed()
 		gras_remaining.erase(area.get_parent())
 		area.get_parent().queue_free()
+
+func hit_stone(stone_area: Area2D):
+	for child in stone_area.get_parent().get_children():
+		if child is CPUParticles2D:
+			printerr(child.name)
+			ouch_particle = child
+			ouch_particle.set_emitting(true)
+	print("Ouch! A Stone")
+	hit_count += 1
+	
+
+	

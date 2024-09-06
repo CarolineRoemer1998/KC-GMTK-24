@@ -17,7 +17,7 @@ var days_until_contest: int
 var is_affordable: bool
 
 var plant : Plant
-
+var field : Field
 enum MINIGAME_TYPE {watering, lawnmowing}
 
 # Called when the node enters the scene tree for the first time.
@@ -66,9 +66,15 @@ func start_contest():
 	get_tree().paused = false
 
 func evaluate_minigame(game_won: bool, game_type : MINIGAME_TYPE):
+	player.can_move = true
 	plant = player.interaction.get_plant()
+	if player.interaction.field != null:
+		field = player.interaction.field
 	if game_type == MINIGAME_TYPE.watering:
 		plant.water()
+	elif game_type == MINIGAME_TYPE.lawnmowing:
+		
+		field.delete_weed()
 	if game_won:
 		if plant != null:
 			plant.contest_points += 3
