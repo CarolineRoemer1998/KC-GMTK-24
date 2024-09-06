@@ -42,8 +42,8 @@ func _process(delta: float) -> void:
 				pass
 	if Input.is_action_just_pressed("open_chest"):
 		stored_plants_ui.show()
-	if Input.is_action_just_pressed("StartWateringGame"):
-		start_watering_minigame()
+	#if Input.is_action_just_pressed("StartWateringGame"):
+		#start_watering_minigame()
 
 func show_action_overlay():
 	if player.interaction.field.is_occupied:

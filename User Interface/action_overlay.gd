@@ -24,7 +24,7 @@ func _process(delta):
 		else:
 			pull_weeds.modulate = Color(1,1,1,0.5)
 			water.modulate = Color(1,1,1,0.5)
-	if Input.is_action_just_pressed("PlayWateringGame"):
+	if Input.is_action_just_pressed("PlayWateringGame") and !player.interaction.field.plant_is_watered:
 		game_handler.start_watering_minigame()
 		hide()
 		set_process(false)

@@ -38,6 +38,7 @@ func harvest():
 			plant.rotation_degrees = plant.get_carrying_rotation()
 			player.carrying_weight = get_weight(plant.get_level())
 
+
 func get_plant() -> Plant:
 	for child in field.get_children():
 		if child is Plant:
