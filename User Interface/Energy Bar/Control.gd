@@ -16,8 +16,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("T_Place"):
-		Global.lose_energy(1)
 	money_counter.text = str(Global.current_money)
 		
 func update_slices():
