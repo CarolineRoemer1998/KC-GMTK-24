@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bs6tsauk166uk" path="res://Blender Objects/ui/energy_6.png" id="7_k23m0"]
 [ext_resource type="Texture2D" uid="uid://b1rg21hfeayqa" path="res://Blender Objects/ui/energy_7.png" id="8_h7vc5"]
 [ext_resource type="Texture2D" uid="uid://bu6ffhu8jiolg" path="res://Blender Objects/ui/energy_8.png" id="9_iegdl"]
-[ext_resource type="PackedScene" uid="uid://cw0w0k5ug1ndh" path="res://User Interface/money.tscn" id="10_j3wy4"]
+[ext_resource type="PackedScene" path="res://User Interface/money.tscn" id="10_j3wy4"]
 
-[node name="UI Control" type="Control"]
+[node name="EnergyBar" type="Control" groups=["UI_Control"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_eokre")
 
-[node name="EnergyCircle" type="Control" parent="."]
+[node name="EnergyBar" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -33,35 +33,35 @@ offset_bottom = 57.0
 grow_horizontal = 2
 scale = Vector2(0.0752012, 0.0752012)
 
-[node name="Energy8" type="Sprite2D" parent="EnergyCircle"]
+[node name="Energy8" type="Sprite2D" parent="EnergyBar"]
 position = Vector2(560, 314)
 texture = ExtResource("9_iegdl")
 
-[node name="Energy7" type="Sprite2D" parent="EnergyCircle"]
+[node name="Energy7" type="Sprite2D" parent="EnergyBar"]
 position = Vector2(560, 314)
 texture = ExtResource("8_h7vc5")
 
-[node name="Energy6" type="Sprite2D" parent="EnergyCircle"]
+[node name="Energy6" type="Sprite2D" parent="EnergyBar"]
 position = Vector2(560, 314)
 texture = ExtResource("7_k23m0")
 
-[node name="Energy5" type="Sprite2D" parent="EnergyCircle"]
+[node name="Energy5" type="Sprite2D" parent="EnergyBar"]
 position = Vector2(560, 314)
 texture = ExtResource("6_pdxd5")
 
-[node name="Energy4" type="Sprite2D" parent="EnergyCircle"]
+[node name="Energy4" type="Sprite2D" parent="EnergyBar"]
 position = Vector2(560, 314)
 texture = ExtResource("5_8qgwq")
 
-[node name="Energy3" type="Sprite2D" parent="EnergyCircle"]
+[node name="Energy3" type="Sprite2D" parent="EnergyBar"]
 position = Vector2(560, 314)
 texture = ExtResource("4_0xddy")
 
-[node name="Energy2" type="Sprite2D" parent="EnergyCircle"]
+[node name="Energy2" type="Sprite2D" parent="EnergyBar"]
 position = Vector2(560, 314)
 texture = ExtResource("3_ygfhy")
 
-[node name="Energy1" type="Sprite2D" parent="EnergyCircle"]
+[node name="Energy1" type="Sprite2D" parent="EnergyBar"]
 position = Vector2(560, 314)
 texture = ExtResource("2_kuuqx")
 

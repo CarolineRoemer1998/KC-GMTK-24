@@ -8,15 +8,15 @@ extends Control
 func _ready():
 	for child in get_children(true):
 		print(child.name)
-		if child.name == "EnergyCircle":
+		if child.name == "EnergyBar":
 			for energy in child.get_children():
 				if energy is Sprite2D:
 					slices.append(energy)
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func update_money():
 	money_counter.text = str(Global.current_money)
+	
 		
 func update_slices():
 	for i in range(Global.start_energy):

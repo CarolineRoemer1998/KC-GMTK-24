@@ -1,5 +1,6 @@
 extends Node
 
+
 var start_money: int = 3
 var current_money: int 
 
@@ -28,6 +29,7 @@ func _ready() -> void:
 	game_handler = get_tree().get_first_node_in_group("GameHandler")
 	player = get_tree().get_first_node_in_group("Player")
 	
+	
 	current_energy = start_energy
 	current_money = start_money
 
@@ -47,9 +49,11 @@ func refill_energy():
 	
 func spend_money(amount : int):
 	current_money = clamp(current_money - amount,0,9999)
+	energy_bar.update_money()
 	
 func gain_money(amount : int):
 	current_money = clamp(current_money + amount,0,9999)
+	energy_bar.update_money()
 
 func check_money(price: int):
 	if price <= current_money:
