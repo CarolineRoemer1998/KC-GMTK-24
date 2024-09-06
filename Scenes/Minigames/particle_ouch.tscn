@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://psms45lahkp0"]
+
+[ext_resource type="Texture2D" uid="uid://bh54imd05uujy" path="res://Images/ouch_star.png" id="1_irkb3"]
+
+[sub_resource type="Curve" id="Curve_1r6j2"]
+_data = [Vector2(0.00561798, 0.934066), 0.0, 0.0, 0, 0, Vector2(0.668539, 0.879121), 0.0, 0.0, 0, 0, Vector2(0.921348, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Node2D" type="CPUParticles2D"]
+scale = Vector2(0.2, 0.2)
+emitting = false
+amount = 4
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+local_coords = true
+texture = ExtResource("1_irkb3")
+emission_shape = 2
+emission_sphere_radius = 0.01
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 1000.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_1r6j2")
