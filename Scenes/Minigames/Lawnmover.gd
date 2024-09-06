@@ -2,10 +2,12 @@ extends Sprite2D
 
 class_name Lawnmower
 
-@onready var lawnmowing_game = $"../../.."
 @export var rotation_speed: float = 2.5
+
+@onready var lawnmowing_game = $"../../.."
 @onready var lawnmover_short = $"../Lawnmover_short"
 @onready var collision_shape_2d = $Stone_Detector/CollisionShape2D
+@onready var timer = $"../../../Timer"
 
 var player : Player
 var actionOverlay : ActionOverlay
@@ -17,6 +19,7 @@ var outer_circle: Sprite2D
 var hit_count: int
 var game_won: bool
 var ouch_particle: CPUParticles2D
+var is_stopped: bool
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -31,20 +34,22 @@ func _process(delta):
 		game_won = true
 		Global.evaluate_minigame(game_won, Global.MINIGAME_TYPE.lawnmowing)
 		stop_lawnmover()
-	
-	if hit_count == 2:
+	elif hit_count == 2:
 		game_won = false
 		Global.evaluate_minigame(game_won, Global.MINIGAME_TYPE.lawnmowing)
 		stop_lawnmover()
 	
-	spinner.rotation += rotation_speed * delta
+	if !is_stopped:
+		spinner.rotation += rotation_speed * delta
 	
 func start_lawnmower():
 	set_process(true)
 
 func stop_lawnmover():
-	lawnmowing_game.queue_free()
-	actionOverlay.set_process(true)
+	is_stopped = true
+	if timer.is_stopped():
+		timer.start(0.75)
+
 	
 
 func _input(event):
@@ -71,11 +76,12 @@ func _on_stone_detector_area_entered(area):
 func hit_stone(stone_area: Area2D):
 	for child in stone_area.get_parent().get_children():
 		if child is CPUParticles2D:
-			printerr(child.name)
 			ouch_particle = child
 			ouch_particle.set_emitting(true)
 	print("Ouch! A Stone")
 	hit_count += 1
 	
 
-	
+func _on_timer_timeout():
+	lawnmowing_game.queue_free()
+	actionOverlay.set_process(true)

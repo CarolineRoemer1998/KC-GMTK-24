@@ -8,10 +8,11 @@ class_name Lawnmowing_Game
 @export var stone : PackedScene
 @export var gras : PackedScene
 @export var radius: int = 150
-@export var stone_count: int = 5
+@export var stone_count: int = 3
+@export var object_number: int = 10
 
 var random_factor
-
+var offset: int = 15
 
 func _ready():
 	random_factor = RandomNumberGenerator.new()
@@ -19,10 +20,10 @@ func _ready():
 
 func place_objects():
 	
-	for i in range(10):
+	for i in range(object_number + 1):
 		random_factor.randomize()
-		var point_y = sin(36 * i) * radius
-		var point_x = cos(36 * i) * radius
+		var point_y = sin((360/object_number) * i + offset) * radius
+		var point_x = cos((360/object_number) * i + offset) * radius
 		printerr(point_x + point_y)
 		var random_range = random_factor.randi_range(0,2)
 		if random_range == 1 && stone_count != 0:

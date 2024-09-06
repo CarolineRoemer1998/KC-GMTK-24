@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvypfmkur1wyc"]
+[gd_scene load_steps=10 format=3 uid="uid://cvypfmkur1wyc"]
 
-[ext_resource type="Texture2D" uid="uid://c0410aiehxggi" path="res://Scenes/Minigames/pngtree-black-ring-png-image_2319165.png" id="1_1neft"]
 [ext_resource type="Script" path="res://Scenes/Minigames/lawnmowing_game.gd" id="1_x22d6"]
 [ext_resource type="Texture2D" uid="uid://5tn56u1dctcn" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/24.png" id="2_m0cy1"]
 [ext_resource type="Texture2D" uid="uid://ul8ujutyfaoi" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/07.png" id="2_ye8y0"]
@@ -42,13 +41,13 @@ position = Vector2(1, 0)
 rotation = -6.28319
 
 [node name="Lawnmover" type="Sprite2D" parent="Outer_Circle/Lawnmower_Spinner"]
-position = Vector2(-79, 0.999653)
-scale = Vector2(0.779698, 0.161686)
+position = Vector2(-1.58852, -83.8532)
+scale = Vector2(-0.12, 1.224)
 texture = ExtResource("2_m0cy1")
 script = ExtResource("3_7vu1c")
 
 [node name="Stone_Detector" type="Area2D" parent="Outer_Circle/Lawnmower_Spinner/Lawnmover"]
-position = Vector2(-72.1172, 6.72552)
+scale = Vector2(3.6186, 1.06536)
 collision_layer = 0
 collision_mask = 128
 
@@ -58,13 +57,9 @@ shape = SubResource("RectangleShape2D_btyp4")
 
 [node name="Lawnmover_short" type="Sprite2D" parent="Outer_Circle/Lawnmower_Spinner"]
 visible = false
-position = Vector2(-63.9846, -5)
-scale = Vector2(0.556052, 0.161686)
+position = Vector2(-1.2526, -53.7365)
+scale = Vector2(-0.12, 0.794)
 texture = ExtResource("2_m0cy1")
-
-[node name="Inner_Circle" type="Sprite2D" parent="Outer_Circle"]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_1neft")
 
 [node name="Speechbubble" type="Sprite2D" parent="."]
 position = Vector2(792, 474)
@@ -84,4 +79,8 @@ position = Vector2(600, 300)
 
 [node name="MiddlePoint" type="Node2D" parent="MiddlePointOffset"]
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="Outer_Circle/Lawnmower_Spinner/Lawnmover/Stone_Detector" to="Outer_Circle/Lawnmower_Spinner/Lawnmover" method="_on_stone_detector_area_entered"]
+[connection signal="timeout" from="Timer" to="Outer_Circle/Lawnmower_Spinner/Lawnmover" method="_on_timer_timeout"]
