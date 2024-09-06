@@ -83,6 +83,9 @@ func update_to_new_day():
 	if watering_frequency <= days_since_last_watering:
 		needs_water = true
 		field.set_watered(false)
+		if watering_frequency < days_since_last_watering and contest_points > 0:
+			contest_points -= 1
+			print(name, " lost 1 point due to not watering -> ", contest_points)
 	if watering_frequency >= days_since_last_watering:
 		grow()
 

@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 				pass
 	if Input.is_action_just_pressed("open_chest"):
 		stored_plants_ui.show()
-	if Input.is_action_just_pressed("StartMinigame"):
+	if Input.is_action_just_pressed("StartWateringGame"):
 		start_watering_minigame()
 
 func show_action_overlay():
@@ -69,7 +69,7 @@ func start_lawnmowing_minigame():
 		disable_player()
 
 func start_watering_minigame():
-	if player.interaction.field.is_occupied:
+	if player.interaction.field != null and player.interaction.field.is_occupied and !player.interaction.field.plant_is_watered:
 		var new_watering_minigame = watering_minigame.instantiate()
 		add_child(new_watering_minigame)
 	

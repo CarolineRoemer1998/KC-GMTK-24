@@ -31,12 +31,12 @@ func _process(delta):
 		
 	if gras_remaining.size() == 0:
 		game_won = true
-		Global.evaluate_minigame(game_won)
+		Global.evaluate_minigame(game_won, Global.MINIGAME_TYPE.lawnmowing)
 		stop_lawnmover()
 	
 	if hit_count == 2:
 		game_won = false
-		Global.evaluate_minigame(game_won)
+		Global.evaluate_minigame(game_won, Global.MINIGAME_TYPE.lawnmowing)
 		stop_lawnmover()
 	
 	spinner.rotation += rotation_speed * delta

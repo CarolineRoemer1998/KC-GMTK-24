@@ -18,6 +18,8 @@ var is_affordable: bool
 
 var plant : Plant
 
+enum MINIGAME_TYPE {watering, lawnmowing}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -63,8 +65,10 @@ func start_contest():
 	print("test")
 	get_tree().paused = false
 
-func evaluate_minigame(game_won: bool):
+func evaluate_minigame(game_won: bool, game_type : MINIGAME_TYPE):
 	plant = player.interaction.get_plant()
+	if game_type == MINIGAME_TYPE.watering:
+		plant.water()
 	if game_won:
 		if plant != null:
 			plant.contest_points += 3

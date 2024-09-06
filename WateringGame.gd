@@ -76,6 +76,7 @@ func _on_end_game_timeout() -> void:
 		won_game = true
 	else:
 		won_game = false
-	Global.evaluate_minigame(won_game)
+
+	Global.evaluate_minigame(won_game, Global.MINIGAME_TYPE.watering)
 	actionOverlay.set_process(true)
 	close_watering_game()

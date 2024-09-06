@@ -82,7 +82,7 @@ func delete_weed():
 func check_for_weed():
 	if has_weed and is_occupied:
 		for plant in get_children():
-			if plant is Plant:
+			if plant is Plant and plant.contest_points > 0:
 				plant.contest_points -= 1
 				print(plant.name, " lost 1 point -> ", plant.contest_points)
 		
