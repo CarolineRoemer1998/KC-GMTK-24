@@ -18,8 +18,8 @@ var carrying_weight : Weight = Weight.none
 
 
 func _physics_process(delta: float) -> void:
+	handle_animations()
 	if can_move:
-		handle_animations()
 		
 		if Input.is_action_pressed("run"):
 			SPEED = 10
@@ -54,17 +54,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func handle_animations():
-	if Input.get_vector("left", "right", "up", "down") != Vector2(0.0,0.0):
-		match carrying_weight:
-			Weight.none:
-				animation_player.play("walk")
-			Weight.light:
-				animation_player.play("walk_holding_s")
-			Weight.medium:
-				animation_player.play("walk_holding_m")
-			Weight.heavy:
-				animation_player.play("walk_holding_l")
-	if Input.get_vector("left", "right", "up", "down") == Vector2(0.0,0.0):
+	print(Input.get_vector("left", "right", "up", "down"))
+	if !can_move or Input.get_vector("left", "right", "up", "down") == Vector2(0.0,0.0):
 		match carrying_weight:
 			Weight.none:
 				animation_player.play("idle")
@@ -74,5 +65,15 @@ func handle_animations():
 				animation_player.play("idle_holding_m")
 			Weight.heavy:
 				animation_player.play("idle_holding_l")
+	elif Input.get_vector("left", "right", "up", "down") != Vector2(0.0,0.0):
+		match carrying_weight:
+			Weight.none:
+				animation_player.play("walk")
+			Weight.light:
+				animation_player.play("walk_holding_s")
+			Weight.medium:
+				animation_player.play("walk_holding_m")
+			Weight.heavy:
+				animation_player.play("walk_holding_l")
 
 

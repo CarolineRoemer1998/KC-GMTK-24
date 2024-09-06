@@ -64,12 +64,16 @@ func hide_seed_overlay():
 	
 func start_lawnmowing_minigame():
 	if player.interaction.field.is_occupied and player.interaction.field.has_weed:
+		player.can_move = false
+		print_rich("[color=yellow]GameHandler: can_move set to false")
 		var new_lawnmowing_minigame = lawnmowing_minigame.instantiate()
 		add_child(new_lawnmowing_minigame)
 		disable_player()
 
 func start_watering_minigame():
 	if player.interaction.field != null and player.interaction.field.is_occupied and !player.interaction.field.plant_is_watered:
+		player.can_move = false
+		print_rich("[color=yellow]GameHandler: can_move set to false")
 		var new_watering_minigame = watering_minigame.instantiate()
 		add_child(new_watering_minigame)
 	
