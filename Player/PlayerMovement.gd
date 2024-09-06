@@ -54,7 +54,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func handle_animations():
-	print(Input.get_vector("left", "right", "up", "down"))
 	if !can_move or Input.get_vector("left", "right", "up", "down") == Vector2(0.0,0.0):
 		match carrying_weight:
 			Weight.none:
