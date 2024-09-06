@@ -12,6 +12,8 @@ var plant_offset : Vector3
 @export var weed_medium : PackedScene
 @export var weed_large : PackedScene
 
+var game_handler : GameHandler
+
 var is_chosen: bool 
 var is_occupied: bool
 
@@ -41,6 +43,7 @@ func set_watered(is_watered : bool):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
+	game_handler = get_tree().get_first_node_in_group("GameHandler")
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	rand_weed = RandomNumberGenerator.new()
 	#set_plant_offset()
@@ -76,6 +79,7 @@ func grow_weed():
 func delete_weed():
 	for child in get_children(true):
 		if child.is_in_group("weed"):
+			has_weed = false
 			child.queue_free()
 		
 
@@ -100,6 +104,7 @@ func plant_seed(plant_type : Plant.plant_type):
 	new_plant.type = plant_type
 	add_child(new_plant)
 	new_plant.global_position += Vector3(0,0.25,0)
+	game_handler.show_action_overlay()
 	
 
 #func set_plant_offset():

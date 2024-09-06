@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area3D) -> void:
 	if area.get_collision_layer() == 4:
-		print(area.get_collision_layer())
+		print(area.name)
 		for child in get_parent().get_parent().get_children():
 			if child.name == "Interaction":
 				child.field = area.get_parent()
