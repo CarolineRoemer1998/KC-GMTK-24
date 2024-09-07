@@ -41,7 +41,7 @@ class_name Shop_ui
 var player: Player
 
 const SEED_BUTTON_RECT_UNPRESSED := Rect2(11,38,26,19)
-var SEED_BUTTON_RECT_PRESSED := Rect2(59,38,26,19)
+const SEED_BUTTON_RECT_PRESSED := Rect2(59,38,26,19)
 
 var price_dic = {
 	

@@ -1,59 +1,197 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2yr88sv0uiov"]
+[gd_scene load_steps=9 format=3 uid="uid://d2yr88sv0uiov"]
 
 [ext_resource type="Script" path="res://User Interface/Market/market_ui.gd" id="1_g0ykg"]
-[ext_resource type="Theme" uid="uid://1ih2p82wt28l" path="res://User Interface/Shop/ShopTheme.tres" id="2_ddbwj"]
 [ext_resource type="PackedScene" uid="uid://dw58tpnwtkwp0" path="res://Objects/storage_slot.tscn" id="2_gkx26"]
-[ext_resource type="Texture2D" uid="uid://bclwgx3o5ead5" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/Buttons/PNG/BtnGray.png" id="3_kqfgh"]
-[ext_resource type="Texture2D" uid="uid://dlgeuh1om1x7x" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/Buttons/PNG/BtnDarkGray.png" id="4_oiyr5"]
+[ext_resource type="Texture2D" uid="uid://deddc784e6od" path="res://User Interface/Sprout Lands - UI Pack/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Setting menu.png" id="2_mos0a"]
+[ext_resource type="Texture2D" uid="uid://cmctt3jdrfme5" path="res://User Interface/Sprout Lands - UI Pack/Sprout Lands - UI Pack - Basic pack/Sprite sheets/buttons/Square Buttons 26x19.png" id="6_npspv"]
+[ext_resource type="Texture2D" uid="uid://bs658gfylwvi6" path="res://User Interface/Imported Asstes Ui/casualui_gamedevmarket/PNG/06.png" id="6_p8tam"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0lr2a"]
-texture = ExtResource("3_kqfgh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iest"]
+atlas = ExtResource("2_mos0a")
+region = Rect2(138.809, 11.8355, 106.348, 122.157)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5rrqc"]
-texture = ExtResource("4_oiyr5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_igc5m"]
+atlas = ExtResource("6_npspv")
+region = Rect2(11, 38, 26, 19)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ifjs"]
+font_size = 24
+font_color = Color(0.380392, 0.223529, 0.0470588, 1)
 
 [node name="Market_ui" type="CanvasLayer"]
 script = ExtResource("1_g0ykg")
 
-[node name="Panel" type="Panel" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 134.0
-offset_top = 71.0
-offset_right = -155.0
-offset_bottom = -50.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -244.0
+offset_right = 302.0
+offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_ddbwj")
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Background" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4iest")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Selling_Plant" parent="MarginContainer/Background" instance=ExtResource("2_gkx26")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.629
-anchor_top = 0.432
-anchor_right = 0.629
-anchor_bottom = 0.432
-offset_left = -75.827
-offset_top = -67.664
-offset_right = 75.173
-offset_bottom = 67.336
+anchor_left = 0.495
+anchor_top = 0.5
+anchor_right = 0.495
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -111.0
+offset_right = 99.0
+offset_bottom = 94.0
+
+[node name="button_sell" type="TextureRect" parent="MarginContainer/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.494
+anchor_top = 0.5
+anchor_right = 0.494
+anchor_bottom = 0.5
+offset_left = -114.4
+offset_top = 106.0
+offset_right = 107.6
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_igc5m")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/button_sell"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 183.0
+offset_top = 118.5
+offset_right = 303.0
+offset_bottom = 267.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 45
+
+[node name="TextureCarrot" type="TextureRect" parent="MarginContainer/Background/button_sell/MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/button_sell"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -22.0
+offset_right = 71.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Price" type="Label" parent="MarginContainer/Background/button_sell/HBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxTexture_0lr2a")
-theme_override_styles/hover = SubResource("StyleBoxTexture_5rrqc")
-text = "Sell Plant"
+theme_override_font_sizes/font_size = 30
+label_settings = SubResource("LabelSettings_7ifjs")
 
-[node name="Selling_Plant" parent="Panel" instance=ExtResource("2_gkx26")]
-layout_mode = 1
+[node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = -1
-anchor_left = 0.288
-anchor_top = 0.418
-anchor_right = 0.288
-anchor_bottom = 0.418
-offset_left = -102.992
-offset_top = -102.784
-offset_right = 102.008
-offset_bottom = 102.216
+anchor_left = 0.502
+anchor_top = 0.509
+anchor_right = 0.502
+anchor_bottom = 0.509
+offset_left = -300.304
+offset_top = -249.832
+offset_right = -200.304
+offset_bottom = -149.832
+texture = ExtResource("6_p8tam")
+expand_mode = 1
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.509
+anchor_right = 0.502
+anchor_bottom = 0.509
+offset_left = -200.304
+offset_top = -249.832
+offset_right = -100.304
+offset_bottom = -149.832
+texture = ExtResource("6_p8tam")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.509
+anchor_right = 0.502
+anchor_bottom = 0.509
+offset_left = -100.304
+offset_top = -249.832
+offset_right = -0.304016
+offset_bottom = -149.832
+texture = ExtResource("6_p8tam")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.509
+anchor_right = 0.502
+anchor_bottom = 0.509
+offset_left = -0.304016
+offset_top = -249.832
+offset_right = 99.696
+offset_bottom = -149.832
+texture = ExtResource("6_p8tam")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.509
+anchor_right = 0.502
+anchor_bottom = 0.509
+offset_left = 99.696
+offset_top = -249.832
+offset_right = 199.696
+offset_bottom = -149.832
+texture = ExtResource("6_p8tam")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.509
+anchor_right = 0.502
+anchor_bottom = 0.509
+offset_left = 199.696
+offset_top = -249.832
+offset_right = 299.696
+offset_bottom = -149.832
+texture = ExtResource("6_p8tam")
+expand_mode = 1
+
+[connection signal="gui_input" from="MarginContainer/Background/button_sell" to="." method="_on_button_sell_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/Background/button_sell" to="." method="_on_button_sell_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Background/button_sell" to="." method="_on_button_sell_mouse_exited"]
