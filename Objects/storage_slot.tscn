@@ -14,11 +14,16 @@ expand_mode = 1
 script = ExtResource("2_typoa")
 
 [node name="plant_image" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 20.0
-offset_right = 125.0
-offset_bottom = 120.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.467
+anchor_right = 0.5
+anchor_bottom = 0.467
+offset_left = -50.0
+offset_top = -50.05
+offset_right = 50.0
+offset_bottom = 49.95
 expand_mode = 1
 
 [node name="PlantStatistics" parent="." instance=ExtResource("3_fi7c5")]

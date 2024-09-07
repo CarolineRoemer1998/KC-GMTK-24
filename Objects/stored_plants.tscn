@@ -1,13 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0f7ab64nqyut"]
+[gd_scene load_steps=11 format=3 uid="uid://d0f7ab64nqyut"]
 
-[ext_resource type="Theme" uid="uid://1ih2p82wt28l" path="res://User Interface/Shop/ShopTheme.tres" id="1_j4m8l"]
 [ext_resource type="Script" path="res://Objects/stored_plants_ui.gd" id="1_oo8i7"]
 [ext_resource type="PackedScene" uid="uid://037n6oxs5f7r" path="res://Objects/PlantImages/image_carrot.tscn" id="2_dup7i"]
 [ext_resource type="PackedScene" uid="uid://p0o176fi5pem" path="res://Objects/PlantImages/image_strawberry.tscn" id="3_bvbid"]
 [ext_resource type="PackedScene" uid="uid://b568wn6e1ho53" path="res://Objects/PlantImages/image_zucchini.tscn" id="4_ob87h"]
 [ext_resource type="PackedScene" uid="uid://02bdxjuu6032" path="res://Objects/PlantImages/image_cauliflower.tscn" id="5_0cxen"]
+[ext_resource type="Texture2D" uid="uid://deddc784e6od" path="res://User Interface/Sprout Lands - UI Pack/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Setting menu.png" id="7_bpgtc"]
 [ext_resource type="PackedScene" uid="uid://dw58tpnwtkwp0" path="res://Objects/storage_slot.tscn" id="7_cd3kh"]
 [ext_resource type="Texture2D" uid="uid://c7mqebt0i5rtw" path="res://MeshLibrary/png/space_light.png" id="8_hccw7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnyn1"]
+atlas = ExtResource("7_bpgtc")
+region = Rect2(138.809, 11.8355, 106.348, 122.157)
 
 [sub_resource type="LabelSettings" id="LabelSettings_j52bc"]
 font_size = 12
@@ -15,9 +19,15 @@ font_color = Color(0.254902, 0.105882, 0.0705882, 1)
 
 [node name="StoredPlants" type="Control" groups=["StoredPlants"]]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oo8i7")
@@ -26,82 +36,152 @@ strawberry_image = ExtResource("3_bvbid")
 zucchini_image = ExtResource("4_ob87h")
 cauliflower_image = ExtResource("5_0cxen")
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -453.0
+offset_top = -245.0
+offset_right = 447.0
+offset_bottom = 255.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_j4m8l")
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Background" type="TextureRect" parent="MarginContainer"]
+self_modulate = Color(0.854902, 0.815686, 0.772549, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_dnyn1")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Slot1" parent="." instance=ExtResource("7_cd3kh")]
-layout_mode = 0
-offset_left = 151.0
-offset_top = 151.0
-offset_right = 301.0
-offset_bottom = 301.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.0
+offset_top = -173.0
+offset_right = -232.0
+offset_bottom = -23.0
 
 [node name="Slot2" parent="." instance=ExtResource("7_cd3kh")]
-layout_mode = 0
-offset_left = 351.0
-offset_top = 151.0
-offset_right = 501.0
-offset_bottom = 301.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -173.0
+offset_right = -32.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Slot3" parent="." instance=ExtResource("7_cd3kh")]
-layout_mode = 0
-offset_left = 550.0
-offset_top = 151.0
-offset_right = 700.0
-offset_bottom = 301.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 17.0
+offset_top = -173.0
+offset_right = 167.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Slot4" parent="." instance=ExtResource("7_cd3kh")]
-layout_mode = 0
-offset_left = 750.0
-offset_top = 151.0
-offset_right = 900.0
-offset_bottom = 301.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 217.0
+offset_top = -173.0
+offset_right = 367.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Slot5" parent="." instance=ExtResource("7_cd3kh")]
-layout_mode = 0
-offset_left = 151.0
-offset_top = 351.0
-offset_right = 301.0
-offset_bottom = 501.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.0
+offset_top = 27.0
+offset_right = -232.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Slot6" parent="." instance=ExtResource("7_cd3kh")]
-layout_mode = 0
-offset_left = 351.0
-offset_top = 351.0
-offset_right = 501.0
-offset_bottom = 501.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = 27.0
+offset_right = -32.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Slot7" parent="." instance=ExtResource("7_cd3kh")]
-layout_mode = 0
-offset_left = 550.0
-offset_top = 351.0
-offset_right = 700.0
-offset_bottom = 501.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 17.0
+offset_top = 27.0
+offset_right = 167.0
+offset_bottom = 177.0
 
 [node name="Slot8" parent="." instance=ExtResource("7_cd3kh")]
-layout_mode = 0
-offset_left = 750.0
-offset_top = 351.0
-offset_right = 900.0
-offset_bottom = 501.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 217.0
+offset_top = 27.0
+offset_right = 367.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SpaceLight" type="Sprite2D" parent="."]
-position = Vector2(990, 592)
+position = Vector2(812, 576)
 scale = Vector2(1.94444, 1.79268)
 texture = ExtResource("8_hccw7")
 
 [node name="Label" type="Label" parent="SpaceLight"]
-offset_left = -57.6
-offset_top = -9.48299
-offset_right = 118.4
-offset_bottom = 13.517
+anchors_preset = -1
+anchor_left = -1.037
+anchor_top = -3.346
+anchor_right = -1.037
+anchor_bottom = -3.346
+offset_left = 91.728
+offset_top = 127.703
+offset_right = 267.728
+offset_bottom = 150.703
 text = "Press Space to store"
 label_settings = SubResource("LabelSettings_j52bc")
 
