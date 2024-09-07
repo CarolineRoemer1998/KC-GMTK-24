@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj4l4cbhec4ks"]
+
+[ext_resource type="Script" path="res://Scenes/Contest/contest_fruit_deleter.gd" id="1_524lw"]
+[ext_resource type="PackedScene" uid="uid://dalgpffw3ukn8" path="res://Blender Objects/Vegetable/carrot/carrot_large.blend" id="1_extfy"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_524lw")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 80.0
+
+[node name="carrot_large" parent="RigidBody3D" instance=ExtResource("1_extfy")]

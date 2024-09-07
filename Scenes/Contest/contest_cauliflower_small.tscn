@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://6pb0gb2s7kk5"]
+
+[ext_resource type="PackedScene" uid="uid://m2v7ipk2ve86" path="res://Blender Objects/Vegetable/cauliflower/cauliflower_small.blend" id="1_clhsn"]
+[ext_resource type="Script" path="res://Scenes/Contest/contest_fruit_deleter.gd" id="1_i5tfw"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_i5tfw")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 40.0
+
+[node name="cauliflower_small" parent="RigidBody3D" instance=ExtResource("1_clhsn")]

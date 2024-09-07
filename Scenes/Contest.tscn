@@ -1,3 +1,130 @@
-[gd_scene format=3 uid="uid://bfhibng7qkox5"]
+[gd_scene load_steps=27 format=3 uid="uid://b6ej7qiggct4v"]
+
+[ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="1_0m3pi"]
+[ext_resource type="Script" path="res://Scenes/Contest.gd" id="1_wmy4l"]
+[ext_resource type="PackedScene" uid="uid://biqov2ye846rc" path="res://Scenes/Contest/contest_strawberry_small.tscn" id="2_hc0ne"]
+[ext_resource type="PackedScene" uid="uid://bn8xa84k8l4wm" path="res://Scenes/Contest/contest_strawberry_medium.tscn" id="3_cr8rj"]
+[ext_resource type="PackedScene" uid="uid://dfqa3dshb12tv" path="res://Scenes/Contest/contest_strawberry_large.tscn" id="4_pyx24"]
+[ext_resource type="PackedScene" uid="uid://ci3hfg86glu3q" path="res://Scenes/Contest/contest_carrot_small.tscn" id="5_mp60a"]
+[ext_resource type="Script" path="res://Scenes/FruitDeleter.gd" id="6_dtvks"]
+[ext_resource type="PackedScene" uid="uid://g5hxw1r8vy8v" path="res://Scenes/Contest/contest_carrot_medium.tscn" id="6_qfe6w"]
+[ext_resource type="PackedScene" uid="uid://bj4l4cbhec4ks" path="res://Scenes/Contest/contest_carrot_large.tscn" id="7_0jsp8"]
+[ext_resource type="PackedScene" uid="uid://d1a26tyc6p6lk" path="res://Scenes/Contest/contest_zucchini_small.tscn" id="8_56uyr"]
+[ext_resource type="PackedScene" uid="uid://k4h3jjc8hpyh" path="res://Scenes/Contest/contest_zucchini_medium.tscn" id="9_akshj"]
+[ext_resource type="PackedScene" uid="uid://cf76h4joo3q4h" path="res://Scenes/Contest/contest_zucchini_large.tscn" id="10_vvm6r"]
+[ext_resource type="PackedScene" uid="uid://6pb0gb2s7kk5" path="res://Scenes/Contest/contest_cauliflower_small.tscn" id="11_dve5p"]
+[ext_resource type="PackedScene" uid="uid://k75du7petxig" path="res://Scenes/Contest/contest_cauliflower_medium.tscn" id="12_xo36p"]
+[ext_resource type="PackedScene" uid="uid://0roq288co5wr" path="res://Scenes/Contest/contest_cauliflower_large.tscn" id="13_rfyuo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v6tyk"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_548td"]
+sky_material = SubResource("ProceduralSkyMaterial_v6tyk")
+
+[sub_resource type="Environment" id="Environment_pxbrn"]
+background_mode = 2
+sky = SubResource("Sky_548td")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_xpw63"]
+size = Vector3(1.5, 2, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2o6bq"]
+albedo_color = Color(0.462745, 0.462745, 0.462745, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cefck"]
+size = Vector3(1.5, 1, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4j833"]
+albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ntrk"]
+size = Vector3(1.5, 0.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3st1q"]
+size = Vector3(18, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1tok2"]
+size = Vector3(20, 2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qmyeg"]
 
 [node name="Contest" type="Node3D"]
+script = ExtResource("1_wmy4l")
+strawberry_small = ExtResource("2_hc0ne")
+strawberry_medium = ExtResource("3_cr8rj")
+strawberry_large = ExtResource("4_pyx24")
+carrot_small = ExtResource("5_mp60a")
+carrot_medium = ExtResource("6_qfe6w")
+carrot_large = ExtResource("7_0jsp8")
+zucchini_small = ExtResource("8_56uyr")
+zucchini_medium = ExtResource("9_akshj")
+zucchini_large = ExtResource("10_vvm6r")
+cauliflower_small = ExtResource("11_dve5p")
+cauliflower_medium = ExtResource("12_xo36p")
+cauliflower_large = ExtResource("13_rfyuo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pxbrn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.997421, -0.0717761, 0, 0.0717761, 0.997421, 0, 3.27669, 5.57906)
+
+[node name="Player" parent="." instance=ExtResource("1_0m3pi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="VictoryPodium" type="Node3D" parent="."]
+
+[node name="FirstPlace" type="MeshInstance3D" parent="VictoryPodium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_xpw63")
+skeleton = NodePath("../..")
+
+[node name="SecondPlace" type="MeshInstance3D" parent="VictoryPodium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_2o6bq")
+mesh = SubResource("BoxMesh_cefck")
+skeleton = NodePath("../..")
+
+[node name="ThirdPlace" type="MeshInstance3D" parent="VictoryPodium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.25, 0)
+material_override = SubResource("StandardMaterial3D_4j833")
+mesh = SubResource("BoxMesh_1ntrk")
+skeleton = NodePath("../..")
+
+[node name="FruitSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, -5.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FruitSpawner"]
+mesh = SubResource("BoxMesh_3st1q")
+
+[node name="FruitDeleter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18, -5.5)
+script = ExtResource("6_dtvks")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FruitDeleter"]
+mesh = SubResource("BoxMesh_1tok2")
+
+[node name="Area3D" type="Area3D" parent="FruitDeleter/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FruitDeleter/MeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_qmyeg")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="FruitDeleter/MeshInstance3D/Area3D" to="FruitDeleter" method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

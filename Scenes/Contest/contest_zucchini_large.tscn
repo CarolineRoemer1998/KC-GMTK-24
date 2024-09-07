@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf76h4joo3q4h"]
+
+[ext_resource type="PackedScene" uid="uid://c4cpir84uq6gt" path="res://Blender Objects/Vegetable/Zucchini/zucchini_large.blend" id="1_2c1au"]
+[ext_resource type="Script" path="res://Scenes/Contest/contest_fruit_deleter.gd" id="1_08mee"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_08mee")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 80.0
+
+[node name="zucchini_large" parent="RigidBody3D" instance=ExtResource("1_2c1au")]
