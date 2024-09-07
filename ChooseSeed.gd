@@ -51,21 +51,23 @@ func _on_carrot_seeds_gui_input(event: InputEvent) -> void:
 	if Inventory.amount_carrots > 0:
 		if Input.is_action_just_pressed("mouse_left"):
 			plant_seed(Plant.plant_type.carrot)
+			Inventory.amount_carrots -= 1
 
 
 func _on_strawberry_seeds_gui_input(event: InputEvent) -> void:
 	if Inventory.amount_strawberries > 0:
 		if Input.is_action_just_pressed("mouse_left"):
 			plant_seed(Plant.plant_type.strawberry)
-
+			Inventory.amount_strawberries -= 1
 
 func _on_zucchini_seeds_gui_input(event: InputEvent) -> void:
 	if Inventory.amount_zucchinis > 0:
 		if Input.is_action_just_pressed("mouse_left"):
 			plant_seed(Plant.plant_type.zucchini)
-
+			Inventory.amount_zucchinis -= 1
 
 func _on_cauliflower_seeds_gui_input(event: InputEvent) -> void:
 	if Inventory.amount_cauliflowers > 0:
 		if Input.is_action_just_pressed("mouse_left"):
 			plant_seed(Plant.plant_type.cauliflower)
+			Inventory.amount_cauliflowers -= 1
