@@ -12,6 +12,8 @@ class_name Lawnmower
 var player : Player
 var game_handler : GameHandler
 
+
+
 var gras_remaining : Array = []
 
 var spinner

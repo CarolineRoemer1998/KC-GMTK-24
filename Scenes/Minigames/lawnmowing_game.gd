@@ -11,31 +11,31 @@ class_name Lawnmowing_Game
 @export var stone_count: int = 3
 @export var object_number: int = 10
 
-var random_factor
-var offset: int = 15
+var random_placer: Array = []
+var offset: int = 20
+var index = 0
 
 func _ready():
-	random_factor = RandomNumberGenerator.new()
 	place_objects()
-
+	
 func place_objects():
 	
-	for i in range(object_number + 1):
-		random_factor.randomize()
-		var point_y = sin((360/object_number) * i + offset) * radius
-		var point_x = cos((360/object_number) * i + offset) * radius
-		printerr(point_x + point_y)
-		var random_range = random_factor.randi_range(0,2)
-		if random_range == 1 && stone_count != 0:
+	generate_objects()
+	random_placer.shuffle()
+	for object in random_placer:
+		var point_y = sin((360/object_number) * index + offset) * radius
+		var point_x = cos((360/object_number) * index + offset) * radius
+		middle_point.add_child(object)
+		object.position = Vector2(point_x, point_y)
+		index += 1
+	
+func generate_objects():
+	for i in range(0, object_number + 1):
+		if stone_count != 0:
 			var new_stone = stone.instantiate()
-			middle_point.add_child(new_stone)
-			new_stone.position = Vector2(point_x, point_y)
-			printerr(new_stone.position)
 			stone_count -= 1
+			random_placer.append(new_stone)
 		else:
 			var new_gras = gras.instantiate()
-			middle_point.add_child(new_gras)
-			new_gras.position = Vector2(point_x, point_y)
 			lawnmower.gras_remaining.append(new_gras)
-			printerr(new_gras.position)
-	
+			random_placer.append(new_gras)
