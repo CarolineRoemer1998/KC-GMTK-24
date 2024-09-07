@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://byg7hutuat8gv"]
 
 [ext_resource type="Texture2D" uid="uid://x84krugg36kn" path="res://Scenes/Minigames/stone.png" id="1_oped7"]
-[ext_resource type="PackedScene" uid="uid://5iv5pxd3crf7" path="res://Scenes/Minigames/particle_ouch.tscn" id="2_w537e"]
+[ext_resource type="PackedScene" uid="uid://psms45lahkp0" path="res://Scenes/Minigames/particle_ouch.tscn" id="2_w537e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_esy46"]
 radius = 430.0

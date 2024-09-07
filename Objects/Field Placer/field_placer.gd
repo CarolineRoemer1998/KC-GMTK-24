@@ -28,14 +28,17 @@ var camera: Camera3D
 var camera_original_position
 var camera_original_rotation_degrees 
 
+var energy_bar
+
 @onready var timer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	energy_bar = get_tree().get_first_node_in_group("EnergyBar")
 	player = get_tree().get_first_node_in_group("Player")
 	timer = get_tree().get_first_node_in_group("Timer") 
 	camera = get_tree().get_first_node_in_group("Camera") 
+	energy_bar.hide()
 	shop_camera_activate()
 	print(timer)
 	if size == placer_size.small:
@@ -156,4 +159,5 @@ func shop_camera_deactivate():
 	print("hello")
 	camera.toggle_camera_offset()
 	player.can_move = true
+	energy_bar.show()
 	queue_free()
