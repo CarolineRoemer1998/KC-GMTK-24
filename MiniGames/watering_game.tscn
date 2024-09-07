@@ -66,15 +66,19 @@ _data = {
 
 [node name="WateringGame" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchor_left = 0.24
+anchor_top = 0.552
+anchor_right = 0.24
+anchor_bottom = 0.552
+offset_left = -276.48
+offset_top = -357.696
+offset_right = 875.52
+offset_bottom = 290.304
+grow_horizontal = 0
 script = ExtResource("1_q86r8")
 
 [node name="carrot" type="Sprite2D" parent="."]
-position = Vector2(269, 365)
+position = Vector2(273, 359)
 scale = Vector2(1.55, 1.55)
 texture = ExtResource("2_t4cbe")
 
@@ -94,6 +98,7 @@ step = 0.0
 fill_mode = 3
 texture_under = ExtResource("4_jpsao")
 texture_progress = ExtResource("5_myea5")
+metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="carrot"]
 offset_left = -96.7742
@@ -101,6 +106,7 @@ offset_top = -80.0
 offset_right = -73.7742
 offset_bottom = 60.0
 fill_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="goal" type="TextureRect" parent="carrot/ProgressBar"]
 self_modulate = Color(1, 1, 1, 0.588235)
@@ -111,9 +117,10 @@ offset_right = 23.7097
 offset_bottom = 49.0322
 texture = ExtResource("6_r1ocj")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="drops" parent="." instance=ExtResource("7_tec5r")]
-position = Vector2(304, 241)
+position = Vector2(308, 235)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -121,7 +128,7 @@ libraries = {
 }
 
 [node name="Speechbubble" type="Sprite2D" parent="."]
-position = Vector2(452, 273)
+position = Vector2(456, 267)
 rotation = 2.61799
 scale = Vector2(3, 2.72368)
 texture = ExtResource("7_4c1td")
