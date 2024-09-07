@@ -29,16 +29,15 @@ func _ready():
 func harvest():
 	var plant = get_plant()
 	if plant != null:
-		if plant_is_harvestable:
-			var mesh = plant.growth_stages[plant.get_level()]
-			if field.has_harvestable_plant:
-				plant.reparent(bone_attachment)
-				#print(mesh.name, mesh. )
-				carrying_plant = plant
-				plant.position = plant.get_carrying_position()
-				plant.rotation_degrees = plant.get_carrying_rotation()
-				player.carrying_weight = get_weight(plant.get_level())
-				field.reset()
+		var mesh = plant.growth_stages[plant.get_level()]
+		if field.has_harvestable_plant:
+			plant.reparent(bone_attachment)
+			#print(mesh.name, mesh. )
+			carrying_plant = plant
+			plant.position = plant.get_carrying_position()
+			plant.rotation_degrees = plant.get_carrying_rotation()
+			player.carrying_weight = get_weight(plant.get_level())
+			field.reset()
 
 func get_plant() -> Plant:
 	for child in field.get_children():

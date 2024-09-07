@@ -28,9 +28,9 @@ func _process(delta):
 		game_handler.start_watering_minigame()
 		hide()
 		set_process(false)
-	elif Input.is_action_just_pressed("PlayWeedingGame"):
+	elif Input.is_action_just_pressed("PlayWeedingGame") and player.interaction.field.has_weed:
 		game_handler.start_lawnmowing_minigame()
 		hide()
 		set_process(false)
-	elif Input.is_action_just_pressed("Harvest"):
+	elif Input.is_action_just_pressed("Harvest") and player.interaction.field.has_harvestable_plant:
 		player.interaction.harvest()
