@@ -29,7 +29,6 @@ func _process(delta: float) -> void:
 		end_day()
 	if Input.is_action_just_pressed("harvest"):
 		get_tree().call_group("Interaction","harvest")
-		player.interaction.field.reset()
 	if Input.is_action_just_pressed("store_plant"):
 		if !player.carrying_weight == Player.Weight.none:
 			if chest.stored_plants.store_plant(player.interaction.carrying_plant):

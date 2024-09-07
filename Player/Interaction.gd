@@ -18,6 +18,7 @@ var new_position : Vector3
 var is_throwing : bool = false
 var in_front_of_chest : bool = false
 var chest_position : Vector3
+var plant_is_harvestable : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,17 +28,17 @@ func _ready():
 # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 func harvest():
 	var plant = get_plant()
-	print(plant)
 	if plant != null:
-		var mesh = plant.growth_stages[plant.get_level()]
-		if field.has_harvestable_plant:
-			plant.reparent(bone_attachment)
-			#print(mesh.name, mesh. )
-			carrying_plant = plant
-			plant.position = plant.get_carrying_position()
-			plant.rotation_degrees = plant.get_carrying_rotation()
-			player.carrying_weight = get_weight(plant.get_level())
-
+		if plant_is_harvestable:
+			var mesh = plant.growth_stages[plant.get_level()]
+			if field.has_harvestable_plant:
+				plant.reparent(bone_attachment)
+				#print(mesh.name, mesh. )
+				carrying_plant = plant
+				plant.position = plant.get_carrying_position()
+				plant.rotation_degrees = plant.get_carrying_rotation()
+				player.carrying_weight = get_weight(plant.get_level())
+				field.reset()
 
 func get_plant() -> Plant:
 	for child in field.get_children():
