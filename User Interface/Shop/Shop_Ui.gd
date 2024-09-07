@@ -107,18 +107,18 @@ func _on_timer_timeout() -> void:
 
 
 func _on_button_carrot_gui_input(event: InputEvent) -> void:
-	buy_seed("carrot", button_carrot, Inventory.amount_carrots, texture_carrot, in_stock_carrots)
+	buy_seed(Plant.plant_type.carrot, "carrot", button_carrot, texture_carrot, in_stock_carrots)
 
 func _on_button_cauliflower_gui_input(event: InputEvent) -> void:
-	buy_seed("cauliflower", button_cauliflower, Inventory.amount_cauliflowers, texture_cauliflower, in_stock_cauliflowers)
+	buy_seed(Plant.plant_type.cauliflower, "cauliflower", button_cauliflower, texture_cauliflower, in_stock_cauliflowers)
 
 func _on_button_zucchini_gui_input(event: InputEvent) -> void:
-	buy_seed("zucchini", button_zucchini, Inventory.amount_zucchinis, texture_zucchini, in_stock_zucchinis)
+	buy_seed(Plant.plant_type.zucchini, "zucchini", button_zucchini, texture_zucchini, in_stock_zucchinis)
 
 func _on_button_strawberry_gui_input(event: InputEvent) -> void:
-	buy_seed("strawberry", button_strawberry, Inventory.amount_strawberries, texture_strawberry, in_stock_strawberries)
+	buy_seed(Plant.plant_type.strawberry, "strawberry", button_strawberry, texture_strawberry, in_stock_strawberries)
 
-func buy_seed(seed_name : String, button : Node, inventory_spot : int, texture : Node, stock : SeedStorage):
+func buy_seed(plant_type : Plant.plant_type, seed_name : String, button : Node, texture : Node, stock : SeedStorage):
 	if Input.is_action_just_pressed("mouse_left"):
 		button.texture.region = SEED_BUTTON_RECT_PRESSED
 		texture.position.y = 37
@@ -129,8 +129,7 @@ func buy_seed(seed_name : String, button : Node, inventory_spot : int, texture :
 		if Global.is_affordable:
 			print_rich("[color=green]buying ", seed_name, " seeds...")
 			Global.spend_money(price_dic[seed_name])
-			inventory_spot += 1
-			stock.change_amount(inventory_spot)
+			stock.change_amount(plant_type, 1)
 
 func _on_button_close_shop_gui_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_left"):

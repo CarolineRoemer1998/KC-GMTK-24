@@ -1,0 +1,761 @@
+[gd_scene load_steps=32 format=3 uid="uid://b3nlt4ukxr2aq"]
+
+[ext_resource type="Script" path="res://User Interface/Shop/Shop_Ui.gd" id="1_r2r25"]
+[ext_resource type="PackedScene" uid="uid://c8hlfhlcflaao" path="res://Objects/Field Placer/field_placer_small.tscn" id="2_jfn8x"]
+[ext_resource type="PackedScene" uid="uid://56yqyfpprrfd" path="res://Objects/Field Placer/field_placer_medium.tscn" id="3_2s2f0"]
+[ext_resource type="PackedScene" uid="uid://cppiokpqqwp5h" path="res://Objects/Field Placer/field_placer_large.tscn" id="4_nwqan"]
+[ext_resource type="Texture2D" uid="uid://cmctt3jdrfme5" path="res://User Interface/Sprout Lands - UI Pack/Sprout Lands - UI Pack - Basic pack/Sprite sheets/buttons/Square Buttons 26x19.png" id="6_6lb5y"]
+[ext_resource type="Texture2D" uid="uid://d2juhi3fywjiw" path="res://Blender Objects/ui/plant_images/carrot.png" id="7_mywqt"]
+[ext_resource type="Texture2D" uid="uid://caep1r8do80lc" path="res://Blender Objects/ui/plant_images/cauliflower.png" id="8_3qt2k"]
+[ext_resource type="Texture2D" uid="uid://b5bx16aph3djw" path="res://Blender Objects/ui/star.png" id="8_et1j5"]
+[ext_resource type="Texture2D" uid="uid://4cd4vt50nu4e" path="res://Blender Objects/ui/plant_images/seed_bag_carrots.png" id="9_lfjgn"]
+[ext_resource type="Texture2D" uid="uid://c6bc44i0i3ff2" path="res://Blender Objects/ui/plant_images/zucchini.png" id="9_n4ejn"]
+[ext_resource type="Texture2D" uid="uid://deddc784e6od" path="res://User Interface/Sprout Lands - UI Pack/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Setting menu.png" id="10_ieens"]
+[ext_resource type="Texture2D" uid="uid://ci8n4er7vqve1" path="res://Blender Objects/ui/plant_images/strawberry.png" id="10_j0hqf"]
+[ext_resource type="PackedScene" uid="uid://dvpxlm3kkm57q" path="res://User Interface/Shop/in_stock_overlay.tscn" id="10_qsj2x"]
+[ext_resource type="Texture2D" uid="uid://07pt6yo5rfs3" path="res://Blender Objects/ui/plant_images/seed_bag_strawberry.png" id="10_rfrii"]
+[ext_resource type="Texture2D" uid="uid://4gx26cyf7k5b" path="res://Blender Objects/ui/plant_images/seed_bag_zucchini.png" id="11_xdo4e"]
+[ext_resource type="Texture2D" uid="uid://c5lk88lnjyfhg" path="res://MeshLibrary/png/x_light.png" id="12_2psur"]
+[ext_resource type="Texture2D" uid="uid://cvn6031bgx45c" path="res://Blender Objects/ui/plant_images/seed_bag_cauliflower.png" id="12_etnld"]
+[ext_resource type="Texture2D" uid="uid://dl2bjkkd8s5nj" path="res://MeshLibrary/svg/left_mouse_button_light.svg" id="13_jngup"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3sef"]
+atlas = ExtResource("10_ieens")
+region = Rect2(138.809, 11.8355, 106.348, 122.157)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1by7k"]
+font_size = 32
+font_color = Color(0.380392, 0.223529, 0.0470588, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs281"]
+atlas = ExtResource("6_6lb5y")
+region = Rect2(11, 38, 26, 19)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ybt1"]
+font_size = 24
+font_color = Color(0.380392, 0.223529, 0.0470588, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rav1o"]
+atlas = ExtResource("6_6lb5y")
+region = Rect2(11, 38, 26, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwtgy"]
+atlas = ExtResource("6_6lb5y")
+region = Rect2(11, 38, 26, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vv4l"]
+atlas = ExtResource("6_6lb5y")
+region = Rect2(11, 38, 26, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juysc"]
+atlas = ExtResource("6_6lb5y")
+region = Rect2(10.9176, 37.6751, 26.3505, 19.6749)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b3jn3"]
+font_size = 28
+font_color = Color(0.380392, 0.223529, 0.0470588, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkkh7"]
+atlas = ExtResource("6_6lb5y")
+region = Rect2(10.9176, 37.6751, 26.3505, 19.6749)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j8mpe"]
+font_size = 28
+font_color = Color(0.380392, 0.223529, 0.0470588, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hw41"]
+atlas = ExtResource("6_6lb5y")
+region = Rect2(10.9176, 37.6751, 26.3505, 19.6749)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c8xsi"]
+font_size = 28
+font_color = Color(0.380392, 0.223529, 0.0470588, 1)
+
+[node name="Shop_Ui" type="CanvasLayer"]
+script = ExtResource("1_r2r25")
+field_placer_small = ExtResource("2_jfn8x")
+field_placer_medium = ExtResource("3_2s2f0")
+field_placer_large = ExtResource("4_nwqan")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -453.0
+offset_top = -245.0
+offset_right = 447.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Background" type="TextureRect" parent="MarginContainer"]
+self_modulate = Color(0.854902, 0.815686, 0.772549, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_x3sef")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background"]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -235.0
+offset_right = -372.0
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="ButtonCloseShop" type="TextureRect" parent="MarginContainer/Background/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("12_2psur")
+stretch_mode = 2
+
+[node name="LabelSeeds" type="Label" parent="MarginContainer/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -403.0
+offset_top = -227.0
+offset_right = -313.0
+offset_bottom = -182.0
+text = "Buy Seeds:"
+label_settings = SubResource("LabelSettings_1by7k")
+
+[node name="HBoxSeeds" type="HBoxContainer" parent="MarginContainer/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.15
+anchor_right = 0.91
+anchor_bottom = 0.4
+offset_bottom = 19.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+
+[node name="button_carrot" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_gs281")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/HBoxSeeds/button_carrot"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -76.0
+offset_right = 60.5
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 45
+
+[node name="TextureCarrot" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds/button_carrot/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("7_mywqt")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/HBoxSeeds/button_carrot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.5
+offset_top = 2.0
+offset_right = 41.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Price" type="Label" parent="MarginContainer/Background/HBoxSeeds/button_carrot/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+label_settings = SubResource("LabelSettings_3ybt1")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds/button_carrot/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_et1j5")
+expand_mode = 2
+
+[node name="InStockCarrots" parent="MarginContainer/Background/HBoxSeeds/button_carrot" instance=ExtResource("10_qsj2x")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.5
+offset_top = 28.0
+offset_right = 70.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="button_cauliflower" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_rav1o")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/HBoxSeeds/button_cauliflower"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.483
+anchor_top = 0.5
+anchor_right = 0.483
+anchor_bottom = 0.5
+offset_left = -62.13
+offset_top = -79.0
+offset_right = 63.87
+offset_bottom = 76.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 45
+
+[node name="TextureCauliflower" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds/button_cauliflower/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("8_3qt2k")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/HBoxSeeds/button_cauliflower"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = 2.0
+offset_right = 41.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Price" type="Label" parent="MarginContainer/Background/HBoxSeeds/button_cauliflower/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "2"
+label_settings = SubResource("LabelSettings_3ybt1")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds/button_cauliflower/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_et1j5")
+expand_mode = 2
+
+[node name="InStockCauliflowers" parent="MarginContainer/Background/HBoxSeeds/button_cauliflower" instance=ExtResource("10_qsj2x")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = 28.0
+offset_right = 70.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+seed_type = 3
+
+[node name="button_zucchini" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_dwtgy")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/HBoxSeeds/button_zucchini"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -75.0
+offset_right = 64.5
+offset_bottom = 80.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 45
+
+[node name="TextureZucchini" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds/button_zucchini/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("9_n4ejn")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/HBoxSeeds/button_zucchini"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.5
+offset_top = 2.0
+offset_right = 41.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Price" type="Label" parent="MarginContainer/Background/HBoxSeeds/button_zucchini/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "2"
+label_settings = SubResource("LabelSettings_3ybt1")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds/button_zucchini/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_et1j5")
+expand_mode = 2
+
+[node name="InStockZucchinis" parent="MarginContainer/Background/HBoxSeeds/button_zucchini" instance=ExtResource("10_qsj2x")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.5
+offset_top = 28.0
+offset_right = 70.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+seed_type = 2
+
+[node name="button_strawberry" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_8vv4l")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/HBoxSeeds/button_strawberry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -78.0
+offset_right = 64.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 45
+
+[node name="TextureStrawberry" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds/button_strawberry/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("10_j0hqf")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/HBoxSeeds/button_strawberry"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = 2.0
+offset_right = 41.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Price" type="Label" parent="MarginContainer/Background/HBoxSeeds/button_strawberry/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "3"
+label_settings = SubResource("LabelSettings_3ybt1")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/Background/HBoxSeeds/button_strawberry/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_et1j5")
+expand_mode = 2
+
+[node name="InStockStrawberries" parent="MarginContainer/Background/HBoxSeeds/button_strawberry" instance=ExtResource("10_qsj2x")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = 28.0
+offset_right = 70.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+seed_type = 1
+
+[node name="LabelFields" type="Label" parent="MarginContainer/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -403.0
+offset_top = 23.0
+offset_right = -248.0
+offset_bottom = 68.0
+text = "Buy Fields:"
+label_settings = SubResource("LabelSettings_1by7k")
+
+[node name="HBoxFields" type="HBoxContainer" parent="MarginContainer/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.65
+anchor_right = 0.6
+anchor_bottom = 0.75
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 68.785
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Buy_small_field" type="TextureRect" parent="MarginContainer/Background/HBoxFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_juysc")
+
+[node name="ButtonContentsSmall" type="MarginContainer" parent="MarginContainer/Background/HBoxFields/Buy_small_field"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 45
+
+[node name="ItemName" type="Label" parent="MarginContainer/Background/HBoxFields/Buy_small_field/ButtonContentsSmall"]
+layout_mode = 2
+text = "Small"
+label_settings = SubResource("LabelSettings_b3jn3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxPrice" type="HBoxContainer" parent="MarginContainer/Background/HBoxFields/Buy_small_field"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = 2.0
+offset_right = 33.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Price" type="Label" parent="MarginContainer/Background/HBoxFields/Buy_small_field/HBoxPrice"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1
+"
+label_settings = SubResource("LabelSettings_3ybt1")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/Background/HBoxFields/Buy_small_field/HBoxPrice"]
+layout_mode = 2
+texture = ExtResource("8_et1j5")
+expand_mode = 2
+
+[node name="Buy_med_field" type="TextureRect" parent="MarginContainer/Background/HBoxFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_hkkh7")
+
+[node name="ButtonContentsMedium" type="MarginContainer" parent="MarginContainer/Background/HBoxFields/Buy_med_field"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 45
+
+[node name="ItemName" type="Label" parent="MarginContainer/Background/HBoxFields/Buy_med_field/ButtonContentsMedium"]
+layout_mode = 2
+text = "Medium"
+label_settings = SubResource("LabelSettings_j8mpe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxPrice" type="HBoxContainer" parent="MarginContainer/Background/HBoxFields/Buy_med_field"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = 2.0
+offset_right = 33.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Price" type="Label" parent="MarginContainer/Background/HBoxFields/Buy_med_field/HBoxPrice"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "3"
+label_settings = SubResource("LabelSettings_3ybt1")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/Background/HBoxFields/Buy_med_field/HBoxPrice"]
+layout_mode = 2
+texture = ExtResource("8_et1j5")
+expand_mode = 2
+
+[node name="Buy_large_field" type="TextureRect" parent="MarginContainer/Background/HBoxFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_5hw41")
+
+[node name="ButtonContentsLarge" type="MarginContainer" parent="MarginContainer/Background/HBoxFields/Buy_large_field"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 45
+
+[node name="ItemName" type="Label" parent="MarginContainer/Background/HBoxFields/Buy_large_field/ButtonContentsLarge"]
+layout_mode = 2
+text = "Large"
+label_settings = SubResource("LabelSettings_c8xsi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxPrice" type="HBoxContainer" parent="MarginContainer/Background/HBoxFields/Buy_large_field"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = 2.0
+offset_right = 33.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Price" type="Label" parent="MarginContainer/Background/HBoxFields/Buy_large_field/HBoxPrice"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "5"
+label_settings = SubResource("LabelSettings_3ybt1")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/Background/HBoxFields/Buy_large_field/HBoxPrice"]
+layout_mode = 2
+texture = ExtResource("8_et1j5")
+expand_mode = 2
+
+[node name="CarrotSeeds" type="TextureButton" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.253
+anchor_top = 0.454
+anchor_right = 0.253
+anchor_bottom = 0.454
+offset_left = -68.456
+offset_top = -68.192
+offset_right = 68.544
+offset_bottom = 68.808
+texture_normal = ExtResource("9_lfjgn")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label5" type="Label" parent="CarrotSeeds"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.754
+anchor_top = -0.124
+anchor_right = -0.754
+anchor_bottom = -0.124
+offset_left = 158.298
+offset_top = -22.012
+offset_right = 198.298
+offset_bottom = 19.988
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="StrawberrySeeds" type="TextureButton" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.461
+anchor_right = 0.7
+anchor_bottom = 0.461
+offset_left = -68.4
+offset_top = -68.728
+offset_right = 68.6
+offset_bottom = 68.272
+texture_normal = ExtResource("10_rfrii")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label5" type="Label" parent="StrawberrySeeds"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.672
+anchor_top = -0.088
+anchor_right = 1.672
+anchor_bottom = -0.088
+offset_left = -163.064
+offset_top = -26.944
+offset_right = -123.064
+offset_bottom = 17.028
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "3"
+
+[node name="ZucchiniSeeds" type="TextureButton" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.559
+anchor_top = 0.458
+anchor_right = 0.559
+anchor_bottom = 0.458
+offset_left = -68.968
+offset_top = -68.784
+offset_right = 68.032
+offset_bottom = 68.216
+texture_normal = ExtResource("11_xdo4e")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label6" type="Label" parent="ZucchiniSeeds"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.088
+anchor_right = 0.5
+anchor_bottom = -0.088
+offset_left = -12.5
+offset_top = -27.944
+offset_right = 27.5
+offset_bottom = 16.028
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "2"
+
+[node name="CauliflowerSeeds" type="TextureButton" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.461
+anchor_right = 0.404
+anchor_bottom = 0.461
+offset_left = -68.408
+offset_top = -68.728
+offset_right = 68.592
+offset_bottom = 68.272
+texture_normal = ExtResource("12_etnld")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label4" type="Label" parent="CauliflowerSeeds"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.124
+anchor_right = 0.5
+anchor_bottom = -0.124
+offset_left = -12.5
+offset_top = -21.012
+offset_right = 27.5
+offset_bottom = 20.988
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "2"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="mouseclick" type="TextureRect" parent="."]
+visible = false
+offset_left = 1071.0
+offset_top = 556.0
+offset_right = 1111.0
+offset_bottom = 604.0
+texture = ExtResource("13_jngup")
+
+[connection signal="mouse_entered" from="MarginContainer/Background/MarginContainer" to="." method="_on_margin_container_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Background/MarginContainer" to="." method="_on_margin_container_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/Background/MarginContainer/ButtonCloseShop" to="." method="_on_button_close_shop_gui_input"]
+[connection signal="gui_input" from="MarginContainer/Background/HBoxSeeds/button_carrot" to="." method="_on_button_carrot_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/Background/HBoxSeeds/button_carrot" to="." method="_on_button_carrot_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Background/HBoxSeeds/button_carrot" to="." method="_on_button_carrot_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/Background/HBoxSeeds/button_cauliflower" to="." method="_on_button_cauliflower_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/Background/HBoxSeeds/button_cauliflower" to="." method="_on_button_cauliflower_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Background/HBoxSeeds/button_cauliflower" to="." method="_on_button_cauliflower_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/Background/HBoxSeeds/button_zucchini" to="." method="_on_button_zucchini_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/Background/HBoxSeeds/button_zucchini" to="." method="_on_button_zucchini_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Background/HBoxSeeds/button_zucchini" to="." method="_on_button_zucchini_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/Background/HBoxSeeds/button_strawberry" to="." method="_on_button_strawberry_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/Background/HBoxSeeds/button_strawberry" to="." method="_on_button_strawberry_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Background/HBoxSeeds/button_strawberry" to="." method="_on_button_strawberry_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/Background/HBoxFields/Buy_small_field" to="." method="_on_buy_small_field_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/Background/HBoxFields/Buy_small_field" to="." method="_on_buy_small_field_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Background/HBoxFields/Buy_small_field" to="." method="_on_buy_small_field_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/Background/HBoxFields/Buy_med_field" to="." method="_on_buy_med_field_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/Background/HBoxFields/Buy_med_field" to="." method="_on_buy_med_field_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Background/HBoxFields/Buy_med_field" to="." method="_on_buy_med_field_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/Background/HBoxFields/Buy_large_field" to="." method="_on_buy_large_field_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/Background/HBoxFields/Buy_large_field" to="." method="_on_buy_large_field_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Background/HBoxFields/Buy_large_field" to="." method="_on_buy_large_field_mouse_exited"]
+[connection signal="pressed" from="CarrotSeeds" to="." method="_on_buy_carrot_pressed"]
+[connection signal="pressed" from="StrawberrySeeds" to="." method="_on_buy_strawberry_pressed"]
+[connection signal="pressed" from="ZucchiniSeeds" to="." method="_on_buy_zucchini_pressed"]
+[connection signal="pressed" from="CauliflowerSeeds" to="." method="_on_buy_cauliflower_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
