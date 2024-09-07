@@ -8,6 +8,8 @@ var stored_plants_ui : StoredPlantsUI
 #@onready var lawnmowing_game = $Lawnmowing_Game
 @export var lawnmowing_minigame: PackedScene
 @export var watering_minigame: PackedScene
+
+
 @onready var action_overlay = $ActionOverlay
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,7 +45,8 @@ func _process(delta: float) -> void:
 		stored_plants_ui.show()
 	#if Input.is_action_just_pressed("StartWateringGame"):
 		#start_watering_minigame()
-
+	if Input.is_action_just_pressed("enter_contest"):
+		Global.start_contest()
 func show_action_overlay():
 	if player.interaction.field.is_occupied:
 		action_overlay.show()

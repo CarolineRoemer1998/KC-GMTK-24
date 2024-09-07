@@ -32,8 +32,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("mouse_left"):
-		spawn_fruits()
 	
 	if spawn_timer.is_stopped():
 		spawn_timer.start()
