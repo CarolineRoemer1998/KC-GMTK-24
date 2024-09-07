@@ -15,7 +15,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player != null and player.interaction.field != null:
-		if player.interaction.field.is_occupied:
+		if !player.interaction.field.plant_is_watered:
 			water.modulate = Color(1,1,1,1)
 			if player.interaction.field.has_weed:
 				pull_weeds.modulate = Color(1,1,1,1)

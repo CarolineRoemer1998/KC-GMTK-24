@@ -10,7 +10,7 @@ class_name Lawnmower
 @onready var timer = $"../../../Timer"
 
 var player : Player
-var actionOverlay : ActionOverlay
+var game_handler : GameHandler
 
 var gras_remaining : Array = []
 
@@ -25,11 +25,13 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	player = get_tree().get_first_node_in_group("Player")
 	spinner = get_parent()
-	actionOverlay = get_tree().get_first_node_in_group("ActionOverlay")
+	game_handler = get_tree().get_first_node_in_group("GameHandler")
+	
+	game_handler.hide_action_overlay()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-		
+	
 	if gras_remaining.size() == 0:
 		game_won = true
 		Global.evaluate_minigame(game_won, Global.MINIGAME_TYPE.lawnmowing)
@@ -49,7 +51,7 @@ func stop_lawnmover():
 	is_stopped = true
 	if timer.is_stopped():
 		timer.start(0.75)
-
+	
 	
 
 func _input(event):
@@ -84,4 +86,4 @@ func hit_stone(stone_area: Area2D):
 
 func _on_timer_timeout():
 	lawnmowing_game.queue_free()
-	actionOverlay.set_process(true)
+	game_handler.show_action_overlay()

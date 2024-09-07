@@ -46,20 +46,21 @@ func _process(delta: float) -> void:
 
 func show_action_overlay():
 	if player.interaction.field.is_occupied:
-		action_overlay.visible = true
+		action_overlay.show()
+		action_overlay.set_process(true)
 	
 func hide_action_overlay():
 	action_overlay.visible = false
-	
+	action_overlay.set_process(false)
 	
 func show_seed_overlay():
 	if player.interaction.field.is_occupied == false:
 		player.ui_choose_seed.show()
-		player.ui_choose_seed.visible = true
+		player.ui_choose_seed.set_process(true)
 	
 func hide_seed_overlay():
 	player.ui_choose_seed.hide()
-	player.ui_choose_seed.visible = false
+	player.ui_choose_seed.set_process(false)
 	
 func start_lawnmowing_minigame():
 	if player.interaction.field.is_occupied and player.interaction.field.has_weed:
@@ -67,7 +68,7 @@ func start_lawnmowing_minigame():
 		print_rich("[color=yellow]GameHandler: can_move set to false")
 		var new_lawnmowing_minigame = lawnmowing_minigame.instantiate()
 		add_child(new_lawnmowing_minigame)
-		disable_player()
+		
 
 func start_watering_minigame():
 	if player.interaction.field != null and player.interaction.field.is_occupied and !player.interaction.field.plant_is_watered:
@@ -88,11 +89,5 @@ func start_new_day():
 	#if Global.current_day == Global.contest_day:
 		#Global.start_contest()
 		
-func enable_player():
-		#get_parent().add_child(player)
-	pass
-func disable_player():
-		#get_parent().remove_child(player)
-	pass
 	
 	

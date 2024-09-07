@@ -10,7 +10,7 @@ extends Control
 @onready var end_game: Timer = $EndGame
 @onready var goal: TextureRect = $carrot/ProgressBar/goal
 
-var actionOverlay : ActionOverlay
+var game_handler : GameHandler
 
 var speed : float = 0.6
 var cooldown : float = 0
@@ -22,7 +22,8 @@ var val
 var won_game : bool 
 	
 func _ready():
-	actionOverlay = get_tree().get_first_node_in_group("ActionOverlay")
+	game_handler = get_tree().get_first_node_in_group("GameHandler")
+	game_handler.hide_action_overlay()
 	rnd = RandomNumberGenerator.new()
 	rnd.randomize()
 	val = rnd.randi_range(0, 50)
@@ -78,5 +79,5 @@ func _on_end_game_timeout() -> void:
 		won_game = false
 
 	Global.evaluate_minigame(won_game, Global.MINIGAME_TYPE.watering)
-	actionOverlay.set_process(true)
+	game_handler.show_action_overlay()
 	close_watering_game()
