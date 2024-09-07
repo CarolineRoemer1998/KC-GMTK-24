@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvpxlm3kkm57q"]
+
+[ext_resource type="Texture2D" uid="uid://dalo22ao5jnj0" path="res://Blender Objects/ui/backpack.png" id="2_aqih4"]
+[ext_resource type="Texture2D" uid="uid://djwsu7fbek488" path="res://MeshLibrary/png/button_light.png" id="2_il34y"]
+[ext_resource type="Script" path="res://User Interface/Shop/SeedStorage.gd" id="2_jb8nn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6symh"]
+font_size = 12
+font_color = Color(0.243137, 0.101961, 0.0196078, 1)
+
+[node name="InStockOverlay" type="TextureRect"]
+self_modulate = Color(0.733333, 0.588235, 0.34902, 1)
+anchors_preset = -1
+offset_left = 75.0
+offset_top = 100.0
+offset_right = 125.0
+offset_bottom = 150.0
+texture = ExtResource("2_aqih4")
+expand_mode = 1
+script = ExtResource("2_jb8nn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 30.0
+offset_bottom = 28.0
+texture = ExtResource("2_il34y")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 9.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_6symh")
+horizontal_alignment = 1
