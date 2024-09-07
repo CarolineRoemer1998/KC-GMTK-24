@@ -27,6 +27,7 @@ sky_material = SubResource("ProceduralSkyMaterial_5o8pg")
 
 [sub_resource type="Environment" id="Environment_tyf3q"]
 background_mode = 2
+background_energy_multiplier = 0.8
 sky = SubResource("Sky_4yr7y")
 tonemap_mode = 2
 glow_enabled = true
@@ -47,11 +48,12 @@ size = Vector3(10, 20, 10)
 
 [node name="Farm" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.785665, -0.618647, -0.00238949, 0.487787, -0.621842, 0.61268, -0.380519, 0.480196, 0.790327, 0, 0, 0)
-light_color = Color(1, 1, 0.839216, 1)
-light_energy = 0.2
+[node name="Sun" type="DirectionalLight3D" parent="." groups=["Sun"]]
+transform = Transform3D(0.743145, -0.430109, 0.512584, 0, 0.766044, 0.642788, -0.669131, -0.477684, 0.569282, 0, 0, 0)
+light_color = Color(1, 0.8, 0.7, 1)
+light_energy = 0.6
 shadow_enabled = true
+shadow_opacity = 0.6
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tyf3q")
