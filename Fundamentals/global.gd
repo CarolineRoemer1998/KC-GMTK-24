@@ -24,6 +24,7 @@ enum MINIGAME_TYPE {watering, lawnmowing}
 enum DAYTIME {Day, Sunset, Night}
 var day_time : DAYTIME = DAYTIME.Day
 var environment
+var contest_plant : Plant
 
 func set_values():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -104,4 +105,11 @@ func evaluate_minigame(game_won: bool, game_type : MINIGAME_TYPE):
 		if plant != null:
 			plant.contest_points += 1
 		print("buh!")
+
+func get_contest_plant() -> Plant:
+	return contest_plant
+	
+func set_contest_plant(plant : Plant):
+	contest_plant = plant
+	printerr("Wow, deine Pflanze ist: ",get_contest_plant().contest_points, " Punkte wert!")
 
