@@ -1,8 +1,8 @@
 [gd_scene load_steps=26 format=3 uid="uid://8bb3sh6ua0ar"]
 
 [ext_resource type="Script" path="res://Scenes/Environment.gd" id="1_hq1u7"]
+[ext_resource type="Environment" uid="uid://cp5ft73fmfq7g" path="res://Colors/Daytimes/day.tres" id="2_ju6vm"]
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
-[ext_resource type="Environment" uid="uid://cosu7581mxcwu" path="res://Colors/Daytimes/night.tres" id="2_o8uv1"]
 [ext_resource type="PackedScene" uid="uid://jhph2qilg4x3" path="res://Blender Objects/Vegetable/Environment/path.blend" id="2_ov0ka"]
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="3_eubuw"]
 [ext_resource type="Script" path="res://Fundamentals/GameHandler.gd" id="4_66nis"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://q8laufrl13tj" path="res://Objects/House.tscn" id="16_7m2m2"]
 [ext_resource type="PackedScene" uid="uid://byycvp7iexgtg" path="res://Blender Objects/Vegetable/Environment/sign_home.blend" id="16_c3ky1"]
 [ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="17_thh2a"]
-[ext_resource type="PackedScene" uid="uid://c06825t100eme" path="res://Objects/lantern.tscn" id="20_3fs0h"]
+[ext_resource type="PackedScene" path="res://Objects/lantern.tscn" id="20_3fs0h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcwpw"]
 
@@ -42,7 +42,6 @@ script = ExtResource("1_hq1u7")
 
 [node name="LightDay" type="DirectionalLight3D" parent="Environment" groups=["Sun"]]
 transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 0, 0)
-visible = false
 light_color = Color(0.878431, 0.827451, 0.564706, 1)
 light_energy = 0.5
 shadow_enabled = true
@@ -58,12 +57,13 @@ shadow_opacity = 0.35
 
 [node name="LightNight" type="DirectionalLight3D" parent="Environment" groups=["Sun"]]
 transform = Transform3D(-4.37114e-08, -0.642788, 0.766044, 0, 0.766044, 0.642788, -1, 2.80971e-08, -3.34849e-08, 0, 0, 0)
+visible = false
 light_color = Color(0.643137, 0.709804, 1, 1)
 light_energy = 0.5
 shadow_opacity = 0.2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
-environment = ExtResource("2_o8uv1")
+environment = ExtResource("2_ju6vm")
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

@@ -16,17 +16,18 @@ extends Node3D
 @export var cauliflower_medium : PackedScene
 @export var cauliflower_large : PackedScene
 
-@onready var player : Player = $Player
+@export var player : PackedScene
+
 @onready var fruit_spawner = $FruitSpawner
 @onready var spawn_timer = $SpawnTimer
 
 var random_spawn_range 
 var allow_spawning : bool = true
 var fruit_array : Array = []
-
+var plant
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player.can_move = false
+	spawn_player()
 	fruit_array.append_array([strawberry_small,strawberry_medium,strawberry_large, carrot_small, carrot_medium, carrot_large, cauliflower_small, cauliflower_medium, cauliflower_large, zucchini_small, zucchini_medium, zucchini_large])
 		
 
@@ -51,8 +52,15 @@ func spawn_fruits():
 		var random_factor_y = random.randi_range(0, 359)
 		new_fruit.rotation_degrees = Vector3(random_factor_x,random_factor_y,0)
 		
-		
-
-
 func _on_spawn_timer_timeout():
 	spawn_fruits()
+
+func spawn_player():
+	
+	evaluate_contest(plant)
+	var new_player = player.instantiate()
+	add_child(new_player)
+	new_player.can_move = false
+	
+func evaluate_contest(contest_plant : Plant):
+	pass
