@@ -43,7 +43,6 @@ func spawn_fruits():
 		var spawn_point = random_spawn_range.randf_range(-10.0, 10.0)
 		fruit_array.shuffle()
 		var new_fruit = fruit_array[0].instantiate()
-		printerr(new_fruit.name)
 		fruit_spawner.add_child(new_fruit)
 		new_fruit.position = Vector3(spawn_point,0,0)
 		var random = RandomNumberGenerator.new()
@@ -51,7 +50,7 @@ func spawn_fruits():
 		var random_factor_x = random.randi_range(0, 359)
 		var random_factor_y = random.randi_range(0, 359)
 		new_fruit.rotation_degrees = Vector3(random_factor_x,random_factor_y,0)
-		printerr(new_fruit.position)
+		
 		
 
 

@@ -18,5 +18,4 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	printerr("deleting: " , name)
 	queue_free()
