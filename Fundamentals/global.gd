@@ -34,19 +34,20 @@ var plant : Plant
 var field : Field
 enum MINIGAME_TYPE {watering, lawnmowing}
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func set_values():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	energy_bar = get_tree().get_first_node_in_group("EnergyBar")
 	game_handler = get_tree().get_first_node_in_group("GameHandler")
 	player = get_tree().get_first_node_in_group("Player")
 	sun = get_tree().get_first_node_in_group("Sun")
-	rotate_sun()
 	
-	
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	set_values()
 	current_energy = start_energy
 	current_money = start_money
-
+	rotate_sun()
+	
 func lose_energy(energy_cost: int):
 	printerr(current_energy)
 	current_energy -= energy_cost
@@ -87,7 +88,6 @@ func check_money(price: int):
 func start_contest():
 	get_tree().paused = true
 	get_tree().change_scene_to_file("res://Scenes/Contest.tscn")
-	print("test")
 	get_tree().paused = false
 
 func evaluate_minigame(game_won: bool, game_type : MINIGAME_TYPE):
@@ -108,3 +108,4 @@ func evaluate_minigame(game_won: bool, game_type : MINIGAME_TYPE):
 		if plant != null:
 			plant.contest_points += 1
 		print("buh!")
+

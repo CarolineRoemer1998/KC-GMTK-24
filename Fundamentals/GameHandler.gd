@@ -89,8 +89,9 @@ func end_day():
 func start_new_day():
 	Global.current_day += 1
 	Global.refill_energy()
-	#if Global.current_day == Global.contest_day:
-		#Global.start_contest()
-		
+	if Global.current_day == Global.contest_day:
+		Global.start_contest()
+
+
 	
 	
