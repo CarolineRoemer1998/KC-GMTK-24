@@ -40,7 +40,6 @@ func _ready():
 	camera = get_tree().get_first_node_in_group("Camera") 
 	energy_bar.hide()
 	shop_camera_activate()
-	print(timer)
 	if size == placer_size.small:
 		needed_empty_colliders = 1
 	if size == placer_size.medium:
@@ -76,11 +75,9 @@ func move_object_to_mouse(intersection_point):
 
 func _on_area_3d_area_entered(area):
 	active_colliders.append(area)
-	print(active_colliders.size())
 	
 func _on_field_detector_area_exited(area):
 	active_colliders.erase(area)
-	print(active_colliders.size())
 	
 func place_field():
 	if has_placed == false:
@@ -130,7 +127,6 @@ func calculate_middlepoint():
 		return midpoint
 		
 	if size == placer_size.medium:
-		print("size medium")
 		
 		for collider in active_colliders:
 			midpoint_x = midpoint_x + collider.global_position.x
@@ -140,7 +136,6 @@ func calculate_middlepoint():
 		return midpoint
 		
 	if size == placer_size.large:
-		print("size large")
 		for collider in active_colliders:
 			midpoint_x = midpoint_x + collider.global_position.x
 			midpoint_z =  midpoint_z + collider.global_position.z
@@ -156,7 +151,6 @@ func shop_camera_activate():
 	player.can_move = false
 
 func shop_camera_deactivate():
-	print("hello")
 	camera.toggle_camera_offset()
 	player.can_move = true
 	energy_bar.show()

@@ -32,7 +32,6 @@ func harvest():
 		var mesh = plant.growth_stages[plant.get_level()]
 		if field.has_harvestable_plant:
 			plant.reparent(bone_attachment)
-			#print(mesh.name, mesh. )
 			carrying_plant = plant
 			plant.position = plant.get_carrying_position()
 			plant.rotation_degrees = plant.get_carrying_rotation()

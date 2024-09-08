@@ -77,7 +77,6 @@ func gain_money(amount : int):
 func check_money(price: int):
 	if price <= current_money:
 		is_affordable = true
-		print("There you go!")
 	else:
 		is_affordable = false
 		print("Sorry, not enough Money!")

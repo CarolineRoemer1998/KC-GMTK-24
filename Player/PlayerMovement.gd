@@ -33,7 +33,6 @@ func _physics_process(delta: float) -> void:
 					SPEED = 4.0
 				Weight.heavy:
 					SPEED = 1.0
-					print(SPEED)
 		# Get the input direction and handle the movement/deceleration.
 		var input_dir := Input.get_vector("left", "right", "up", "down")
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

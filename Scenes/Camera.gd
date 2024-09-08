@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 func toggle_camera_offset():
 	if camera_offset == Vector3(0, 12, 14):
 		camera_offset = Vector3(0,0,0)
-		print(camera_offset)
 	else:
 		camera_offset = Vector3(0, 12, 14)
 		global_position = Vector3(0,10,6.5)

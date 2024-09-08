@@ -7,7 +7,6 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for child in get_children(true):
-		print(child.name)
 		if child.name == "EnergyBar":
 			for energy in child.get_children():
 				if energy is Sprite2D:

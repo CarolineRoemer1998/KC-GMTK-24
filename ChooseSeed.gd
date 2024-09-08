@@ -38,7 +38,6 @@ func _on_visibility_changed() -> void:
 		active_field = player.interaction.field
 	else:
 		active_field = null
-	print("Test:", active_field)
 
 func plant_seed(type : Plant.plant_type):
 	if !active_field.is_occupied:
