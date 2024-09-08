@@ -1,6 +1,8 @@
 [gd_scene load_steps=26 format=3 uid="uid://8bb3sh6ua0ar"]
 
+[ext_resource type="Script" path="res://Scenes/Environment.gd" id="1_hq1u7"]
 [ext_resource type="PackedScene" uid="uid://1sx1m2sw3kna" path="res://Player/player.tscn" id="2_mmp16"]
+[ext_resource type="Environment" uid="uid://cosu7581mxcwu" path="res://Colors/Daytimes/night.tres" id="2_o8uv1"]
 [ext_resource type="PackedScene" uid="uid://jhph2qilg4x3" path="res://Blender Objects/Vegetable/Environment/path.blend" id="2_ov0ka"]
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="3_eubuw"]
 [ext_resource type="Script" path="res://Fundamentals/GameHandler.gd" id="4_66nis"]
@@ -17,20 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://q8laufrl13tj" path="res://Objects/House.tscn" id="16_7m2m2"]
 [ext_resource type="PackedScene" uid="uid://byycvp7iexgtg" path="res://Blender Objects/Vegetable/Environment/sign_home.blend" id="16_c3ky1"]
 [ext_resource type="PackedScene" uid="uid://dqjh83kj57ram" path="res://Objects/Crop Area/FieldSmall.tscn" id="17_thh2a"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5o8pg"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_4yr7y"]
-sky_material = SubResource("ProceduralSkyMaterial_5o8pg")
-
-[sub_resource type="Environment" id="Environment_tyf3q"]
-background_mode = 2
-background_energy_multiplier = 0.8
-sky = SubResource("Sky_4yr7y")
-tonemap_mode = 2
-glow_enabled = true
+[ext_resource type="PackedScene" uid="uid://c06825t100eme" path="res://Objects/lantern.tscn" id="20_3fs0h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcwpw"]
 
@@ -48,15 +37,33 @@ size = Vector3(10, 20, 10)
 
 [node name="Farm" type="Node3D"]
 
-[node name="Sun" type="DirectionalLight3D" parent="." groups=["Sun"]]
-transform = Transform3D(0.743145, -0.430109, 0.512584, 0, 0.766044, 0.642788, -0.669131, -0.477684, 0.569282, 0, 0, 0)
-light_color = Color(1, 0.8, 0.7, 1)
-light_energy = 0.6
-shadow_enabled = true
-shadow_opacity = 0.6
+[node name="Environment" type="Node3D" parent="." groups=["Environment"]]
+script = ExtResource("1_hq1u7")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tyf3q")
+[node name="LightDay" type="DirectionalLight3D" parent="Environment" groups=["Sun"]]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 0, 0)
+visible = false
+light_color = Color(0.878431, 0.827451, 0.564706, 1)
+light_energy = 0.5
+shadow_enabled = true
+shadow_opacity = 0.35
+
+[node name="LightSunset" type="DirectionalLight3D" parent="Environment" groups=["Sun"]]
+transform = Transform3D(0.34202, 0.604023, -0.719846, 0, 0.766044, 0.642788, 0.939693, -0.219846, 0.262003, 0, 0, 0)
+visible = false
+light_color = Color(1, 0.698039, 0.498039, 1)
+light_energy = 0.5
+shadow_enabled = true
+shadow_opacity = 0.35
+
+[node name="LightNight" type="DirectionalLight3D" parent="Environment" groups=["Sun"]]
+transform = Transform3D(-4.37114e-08, -0.642788, 0.766044, 0, 0.766044, 0.642788, -1, 2.80971e-08, -3.34849e-08, 0, 0, 0)
+light_color = Color(0.643137, 0.709804, 1, 1)
+light_energy = 0.5
+shadow_opacity = 0.2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = ExtResource("2_o8uv1")
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -581,3 +588,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
 
 [node name="FieldSmall3" parent="." instance=ExtResource("17_thh2a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3)
+
+[node name="Lanterns" type="Node3D" parent="." groups=["Lanterns"]]
+
+[node name="Lantern" parent="Lanterns" instance=ExtResource("20_3fs0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4248, -9.53674e-07, -8.06187)
+
+[node name="Lantern2" parent="Lanterns" instance=ExtResource("20_3fs0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.42483, -9.53674e-07, -8.06187)
+
+[node name="Lantern3" parent="Lanterns" instance=ExtResource("20_3fs0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57517, -9.53674e-07, -8.06187)
+
+[editable path="Lanterns/Lantern"]

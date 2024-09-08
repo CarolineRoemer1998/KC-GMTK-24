@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://cklx1olv5pej0"]
+
+[ext_resource type="Texture2D" uid="uid://d0dbmeyttcj0g" path="res://Blender Objects/Textures/metal_01_2k/metal_01_color_2k.png" id="1_tah7o"]
+[ext_resource type="Texture2D" uid="uid://bs0k7685bhc36" path="res://Blender Objects/Textures/metal_01_2k/metal_01_ambient_occlusion_2k.png" id="2_slwi3"]
+[ext_resource type="Texture2D" uid="uid://10qho5rsrkj1" path="res://Blender Objects/Textures/metal_01_2k/metal_01_height_2k.png" id="3_avhfc"]
+[ext_resource type="Texture2D" uid="uid://m5da61i0856" path="res://Blender Objects/Textures/metal_01_2k/metal_01_metallic_2k.png" id="4_vjs1m"]
+[ext_resource type="Texture2D" uid="uid://cktff23divdr0" path="res://Blender Objects/Textures/metal_01_2k/metal_01_normal_gl_2k.png" id="5_goigk"]
+
+[resource]
+albedo_color = Color(0.627451, 0.627451, 0.627451, 1)
+albedo_texture = ExtResource("1_tah7o")
+metallic = 1.0
+metallic_texture = ExtResource("4_vjs1m")
+normal_enabled = true
+normal_texture = ExtResource("5_goigk")
+ao_enabled = true
+ao_texture = ExtResource("2_slwi3")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_avhfc")
